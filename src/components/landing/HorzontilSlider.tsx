@@ -4,94 +4,9 @@ import {ChevronLeft, ChevronRight, ArrowRight} from "lucide-react";
 import Image from "next/image";
 import HeaderText from "../ui/HeaderText";
 import BodyText from "../ui/BodyText";
-import {serviceHrefMap} from "@/lib/service-href-map";
+import {servicesArray} from "@/config/services";
 
-export const services = [
-    {
-        name: "Dental Implants",
-        img: "/images/services/implant/implants.webp",
-        slug: "dental-implants",
-        href: serviceHrefMap["dental-implants"],
-        description: "Dental implants are a permanent solution for missing teeth, offering natural-looking results and long-term stability.",
-    },
-    {
-        name: "Tooth Extractions",
-        img: "/images/services/tooth-extract/tooth-extract.webp",
-        slug: "extractions",
-        href: serviceHrefMap["tooth-extractions"],
-        description: "We perform gentle, precise tooth extractions when teeth are damaged, decayed, or causing crowding.",
-    },
-    {
-        name: "Wisdom Teeth",
-        img: "/images/services/wisdom/wisdom-tooth.webp",
-        slug: "wisdom-teeth-removal",
-        href: serviceHrefMap["wisdom-teeth-removal"],
-        description: "Wisdom tooth removal prevents crowding, pain, and infections by safely extracting third molars.",
-    },
-    {
-        name: "Anesthesia",
-        img: "/images/services/anesthesia/anesthesia.webp",
-        slug: "anesthesia",
-        href: serviceHrefMap["anesthesia"],
-        description: "We offer safe and effective anesthesia options to ensure a comfortable surgical experience with minimal discomfort or anxiety.",
-    },
-    {
-        name: "Bone Grafting",
-        img: "/images/services/bone-graft/bone-graft.webp",
-        slug: "bone-grafting",
-        href: serviceHrefMap["dental-bone-grafting"],
-        description: "Bone grafting restores bone structure in the jaw, often as preparation for dental implants or following trauma or disease.",
-    },
-    {
-        name: "Botox",
-        img: "/images/services/botox/botox.webp",
-        slug: "botox-and-filler",
-        href: serviceHrefMap["botox-and-filler"],
-        description: "Botox and dermal fillers help smooth fine lines, reduce wrinkles, and restore youthful volume to facial features.",
-    },
-    {
-        name: "Facial Trauma",
-        img: "/images/services/facial-trauma/facial-trauma.webp",
-        slug: "facial-trauma",
-        href: serviceHrefMap["facial-trauma"],
-        description: "We specialize in treating facial injuries, including fractures and lacerations, with precision and compassion.",
-    },
-    {
-        name: "Genioplasty / Chin Surgery",
-        img: "/images/services/genioplasty/genioplasty.webp",
-        slug: "genioplasty",
-        href: serviceHrefMap["genioplasty"],
-        description: "Genioplasty enhances the chin's shape and projection to create facial balance and improve appearance or function.",
-    },
-    {
-        name: "Oral Pathology",
-        img: "/images/services/oral-pathology/oral-pathology.webp",
-        slug: "oral-pathology",
-        href: serviceHrefMap["oral-pathology"],
-        description: "We diagnose and treat oral diseases and abnormalities, including cysts, tumors, and lesions of the mouth and jaw.",
-    },
-    {
-        name: "Orthognathic Surgery",
-        img: "/images/services/orthognathic/orthognathic.webp",
-        slug: "orthognathic-surgery",
-        href: serviceHrefMap["orthognathic-surgery"],
-        description: "Orthognathic (jaw) surgery corrects misaligned jaws to improve function, facial symmetry, and breathing.",
-    },
-    {
-        name: "Sleep Apnea",
-        img: "/images/services/sleep-apnea/sleep-apnea.webp",
-        slug: "sleep-apnea",
-        href: serviceHrefMap["sleep-apnea"],
-        description: "We offer surgical solutions for obstructive sleep apnea to improve airflow, reduce snoring, and enhance sleep quality.",
-    },
-    {
-        name: "TMJ",
-        img: "/images/services/tmj/tmj.webp",
-        slug: "tmj-disorder",
-        href: serviceHrefMap["tmj-disorder"],
-        description: "TMJ treatment relieves jaw pain, stiffness, and clicking caused by temporomandibular joint disorders.",
-    },
-];
+export const services = servicesArray;
 
 export default function HorizontalSlider() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -176,7 +91,7 @@ export default function HorizontalSlider() {
                 {services.map((item, idx) => (
                     <a
                         href={item.href}
-                        key={idx}
+                        key={idx + item.name}
                         className="group bg-white snap-center shrink-0 rounded-3xl shadow-lg transition-all duration-300 flex flex-col overflow-hidden border border-slate-100 hover:border-primary-teal hover:-translate-y-2 hover:scale-[1.02] md:shrink md:w-auto"
                         style={isMobile ? {
                             width: `${itemWidth}px`,
@@ -228,7 +143,7 @@ export default function HorizontalSlider() {
                 <div className="flex items-center justify-center gap-2 mt-6 md:hidden">
                     {services.map((_, idx) => (
                         <button
-                            key={idx}
+                            key={idx + _.href}
                             onClick={() => {
                                 if (containerRef.current) {
                                     const cardWidth = itemWidth + 24; // itemWidth + gap
@@ -238,11 +153,10 @@ export default function HorizontalSlider() {
                                     });
                                 }
                             }}
-                            className={`transition-all duration-300 rounded-full ${
-                                idx === activeIndex
-                                    ? 'w-8 h-2 bg-primary-teal'
-                                    : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-                            }`}
+                            className={`transition-all duration-300 rounded-full ${idx === activeIndex
+                                ? 'w-8 h-2 bg-primary-teal'
+                                : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                                }`}
                             aria-label={`Go to service ${idx + 1}`}
                         />
                     ))}

@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import BodyText from '../ui/BodyText';
 import Button from '../Button';
+import {Phone} from 'lucide-react';
+import {config} from '@/config';
 
 interface HeroSectionProps {
     imageUrl?: string;
@@ -27,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="text-center sm:w-2/4 mx-auto">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-header-text leading-tight">
                     <span className='font-serif'>The Facial Surgery Center</span>
-                    
+
                     <br />
                     <span className="font-light font-sans">Transform Your Confidence with a </span>
                     <span className="text-primaryYellow">{highlight}</span>
@@ -53,10 +55,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     <BodyText as='h1' variant='default' className="text-gray-600 max-w-md text-center md:text-left">
                         {subcopy}
                     </BodyText>
-                    <Button
-                        text={ctaLabel}
-                        href="/contact"
-                    />
+                    <div className="flex items-center gap-4">
+                        <Button
+                            text={ctaLabel}
+                            href="/contact"
+                        />
+                        {/* <a
+                            href={`tel:${config.officePhone}`}
+                            className="bg-primaryYellow hover:bg-yellow-500 rounded-full p-4 transition-all duration-300 hover:scale-105"
+                            aria-label={`Call ${config.officePhone}`}
+                        >
+                            <Phone className="w-6 h-6 text-white" />
+                        </a> */}
+                    </div>
                 </div>
             </div>
         </div>

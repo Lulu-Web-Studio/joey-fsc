@@ -11,13 +11,17 @@ const contactInfo = [
         icon: MapIcon,
         label: "Address",
         value: "115 Technology Dr B-101, Trumbull, CT 06611",
-        color: "text-primaryCyan"
+        color: "text-primaryCyan",
+        href: "https://maps.google.com/?q=115+Technology+Dr+B-101,+Trumbull,+CT+06611",
+        clickable: true
     },
     {
         icon: PhoneIcon,
         label: "Phone",
         value: config.officePhone,
-        color: "text-primaryOrange"
+        color: "text-primaryOrange",
+        href: `tel:${config.officePhone}`,
+        clickable: true
     },
     {
         icon: Clock2Icon,
@@ -29,7 +33,8 @@ const contactInfo = [
             <br />
             Saturday - Sunday: Closed
         </>,
-        color: "text-primaryPink"
+        color: "text-primaryPink",
+        clickable: false
     }
 ];
 
@@ -75,7 +80,16 @@ export default function ContactPage() {
                                         </dt>
                                         <dd>
                                             <div className="font-semibold text-gray-900">{item.label}</div>
-                                            <div className="text-gray-600">{item.value}</div>
+                                            {item.clickable ? (
+                                                <a
+                                                    href={item.href}
+                                                    className="text-gray-600 hover:text-primary-teal transition-colors duration-200 underline decoration-dotted underline-offset-4"
+                                                >
+                                                    {item.value}
+                                                </a>
+                                            ) : (
+                                                <div className="text-gray-600">{item.value}</div>
+                                            )}
                                         </dd>
                                     </div>
                                 ))}

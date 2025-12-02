@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import {services} from '../../../public/services';
 import Image from 'next/image';
 import BodyText from '../ui/BodyText';
+import { ServiceSlug } from '@/config/services';
 
 interface LearnMoreProps {
     service1Idx: number;
@@ -39,7 +40,7 @@ export default function LearnMore({
                 <div className='grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto'>
                     {indexes.map((serviceIdx, idx) => {
 
-                        const serviceKey = Object.keys(services)[serviceIdx];
+                        const serviceKey = Object.keys(services)[serviceIdx] as ServiceSlug;
                         const service = services[serviceKey];
 
                         return (

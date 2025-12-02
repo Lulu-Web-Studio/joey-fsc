@@ -14,6 +14,7 @@ import {FunctionComponent, useEffect, useState, useRef} from "react";
 import Button from "./Button";
 import {usePathname} from "next/navigation";
 import {config} from "@/config";
+import {SERVICES} from "@/config/services";
 
 interface MenuItem {
   name: string;
@@ -22,8 +23,13 @@ interface MenuItem {
   subItems?: {name: string; href: string}[];
 }
 
+// Auto-generate services submenu from config
+const servicesSubItems = Object.entries(SERVICES).map(([slug, data]) => ({
+  name: data.name,
+  href: `/service/${slug}`,
+}));
+
 const menuItems: MenuItem[] = [
-  {name: "Home", href: "/"},
   {
     name: "For Patients",
     href: "",
@@ -31,27 +37,14 @@ const menuItems: MenuItem[] = [
       {name: "What to Expect", href: "/for-patients/what-to-expect"},
       {name: "Pre Op", href: "/for-patients/pre-op"},
       {name: "Post Op", href: "/for-patients/post-op"},
-      // {name: "Referral Form", href: "/referral-form.pdf"},
     ],
   },
   {
     name: "Services",
     href: "/services",
-    subItems: [
-      {name: "Wisdom Teeth", href: "/service/wisdom-teeth-removal"},
-      {name: "Dental Implants", href: "/service/dental-implants"},
-      {name: "Orthognathic Surgery", href: "/service/orthognathic-surgery"},
-      {name: "Bone Grafting", href: "/service/dental-bone-grafting"},
-      {name: "Genioplasty", href: "/service/genioplasty"},
-      {name: "Tooth Extraction", href: "/service/tooth-extractions"},
-      {name: "TMJ Disorder", href: "/service/tmj-disorder"},
-      {name: "Facial Trauma", href: "/service/facial-trauma"},
-      {name: "Oral Pathology", href: "/service/oral-pathology"},
-      {name: "Anesthesia", href: "/service/anesthesia"},
-      {name: "Botox and Filler", href: "/service/botox-and-filler"},
-      {name: "Sleep Apnea", href: "/service/sleep-apnea"},
-    ],
+    subItems: servicesSubItems, // ✅ Auto-generated from SERVICES config
   },
+
   {
     name: "About",
     href: "/about",
@@ -61,7 +54,16 @@ const menuItems: MenuItem[] = [
       {name: "About FSC", href: "/about"},
     ],
   },
+  // {
+  //   name: "Learn",
+  //   href: "",
+  //   subItems: [
+  //     {name: "Articles", href: "/articles"},
+  //     {name: "FAQ", href: "/faq"},
+  //   ],
+  // },
   {name: "Contact", href: "/contact"},
+  {name: "Referral Form", href: "/referral-form.pdf"},
 ];
 
 export const Navigation: FunctionComponent = () => {
@@ -153,16 +155,18 @@ export const Navigation: FunctionComponent = () => {
 
             {item.subItems && (
               <div className={cn(
-                "absolute top-full left-0 mt-2 bg-white shadow-xl rounded-lg py-2 min-w-48 border border-gray-100",
+                "absolute top-full left-0 mt-2 bg-white shadow-xl rounded-lg py-3 px-2 border border-gray-100",
                 "transform transition-all duration-200 origin-top z-50",
+                // Two-column grid for services menu
+                item.name === "Services" ? "grid grid-cols-2 gap-1 min-w-[500px]" : "min-w-48",
                 openDesktopMenu === item.name
                   ? "opacity-100 scale-100 translate-y-0"
                   : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
               )}>
-                {item.subItems.map((subItem) => (
+                {item.subItems.map((subItem, idx) => (
                   <div
                     className="hover:bg-primary-teal m-1 rounded-md transition-colors duration-300 ease-in-out"
-                    key={subItem.href}
+                    key={idx}
                   >
                     <a
                       href={subItem.href}
@@ -212,8 +216,8 @@ export const Navigation: FunctionComponent = () => {
 
             <SheetDescription asChild>
               <nav className="space-y-2 text-black">
-                {menuItems.map((item) => (
-                  <div key={item.href}>
+                {menuItems.map((item, idx) => (
+                  <div key={idx}>
                     {item.subItems ? (
                       <>
                         <button
@@ -296,7 +300,7 @@ export const Navigation: FunctionComponent = () => {
                       href="tel:(203) 261-7800"
                       className="flex items-center space-x-3 py-2 px-4 rounded-lg hover:bg-white/10 transition-colors duration-200"
                     >
-                      <Phone className="text-primaryCyan"  size="18" />
+                      <Phone className="text-primaryCyan" size="18" />
                       <span>{config.officePhone}</span>
                     </a>
                     <a

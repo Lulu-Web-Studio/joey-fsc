@@ -1,5 +1,7 @@
+import {ServiceSlug} from '@/config/services';
+
 export const services: {
-    [key: string]: {
+    [key in ServiceSlug]: {
         serviceTitle: string;
         description: string;
         coverImg: string;
@@ -213,7 +215,50 @@ If you're searching for botox near me, our clinic offers expert care in a comfor
         seoTitle: "Sleep Apnea Surgery Trumbull CT | Airway Reconstruction",
         seoDescription: "Expert sleep apnea surgery in Trumbull, CT. Advanced surgical solutions to improve breathing and sleep quality."
 
-    }
+    },
+    "minimally-invasive-orthognathic-surgery": {
+        serviceTitle: "Minimally Invasive Orthognathic Surgery",
+        description:
+            "Minimally Invasive Orthognathic Surgery corrects jaw alignment using smaller incisions, modern 3D planning, and advanced techniques to reduce pain, swelling, and recovery time.",
+        coverImg: "/images/services/mi/mi.webp",
+        para1Title: "What Is Minimally Invasive Orthognathic Surgery?",
+        para1Text:
+            "Minimally Invasive (MI) Orthognathic Surgery is a modern approach to jaw correction that focuses on precision, smaller incisions, and reduced trauma to the surrounding tissues. Using advanced imaging and 3D virtual surgical planning, your surgeon can accurately reposition the jaws to improve your bite, facial balance, and airway while minimizing disruption to muscles and soft tissue. This technique is ideal for patients with bite problems, facial asymmetry, or functional issues such as difficulty chewing or speaking, who also want a faster and more comfortable recovery experience compared to traditional jaw surgery.",
+        para1Img: "/images/services/mi/consult-1.webp",
+        para2Title: "Benefits, Recovery, and Ideal Candidates",
+        para2Text:
+            "Patients often choose MI Orthognathic Surgery for its combination of predictable results and a smoother healing process. Smaller incisions and more targeted bone movements typically lead to less swelling, less post-operative discomfort, and a shorter time away from work or school. Many patients are able to transition to a soft diet and resume light daily activities sooner than with conventional approaches. Ideal candidates are healthy individuals with significant jaw or bite discrepancies who want to improve both function and facial aesthetics. During your consultation, we will review your goals, imaging, and medical history to determine if a minimally invasive technique is appropriate for your case.",
+        para2Img: "/images/services/mi/2.webp",
+        serviceTitle2: "Why Choose Minimally Invasive Jaw Surgery?",
+        ctaText:
+            "If you’ve been told you may need jaw surgery, schedule your Trumbull, CT consultation today to find out if Minimally Invasive Orthognathic Surgery is right for you.",
+        seoTitle:
+            "Minimally Invasive Jaw Surgery in Trumbull CT | Facial Surgery Center",
+        seoDescription:
+            "Correct jaw alignment with minimally invasive orthognathic surgery in Trumbull, CT. Smaller incisions, less discomfort, and faster recovery."
+    },
+    "teeth-in-a-day": {
+        serviceTitle: "Teeth in a Day (All-On-X) Implants",
+        description:
+            "Teeth in a Day (All-On-X) Implants replace an entire arch of missing or failing teeth with a fixed, natural-looking prosthesis secured to dental implants in a single visit.",
+        coverImg: "/images/services/all-in-x/all-in-x.webp",
+        para1Title: "What Are Teeth in a Day (All-On-X) Implants?",
+        para1Text:
+            "Teeth in a Day, often called All-On-X implants, is a full-arch restoration solution designed for patients with many missing, damaged, or failing teeth. Instead of replacing each tooth individually, a carefully planned number of implants—often four or more—are placed in strategic positions along the jaw. These implants support a custom full-arch bridge that is secured the same day, so you leave the office with a stable, functional, and natural-looking set of teeth. This approach offers greater stability than traditional dentures, helps preserve jawbone, and restores your ability to chew, speak, and smile with confidence.",
+        para1Img: "/images/services/all-in-x/1.webp",
+        para2Title: "Benefits, Candidacy, and What to Expect",
+        para2Text:
+            "All-On-X treatment is popular because it combines efficiency with long-term durability. Many patients appreciate that they can transition from painful or loose teeth to a fixed full-arch solution in just one day. The implants help support and maintain jawbone volume, reduce the need for repeated denture adjustments, and provide a bite that feels closer to natural teeth. Ideal candidates include patients with extensive decay, advanced gum disease, or ill-fitting dentures who are ready for a more secure, permanent option. During your evaluation, we will review your medical history, bone quality, and aesthetic goals, then create a personalized plan so you know exactly what to expect before, during, and after surgery.",
+        para2Img: "/images/services/all-in-x/2.webp",
+        serviceTitle2: "Why Choose Teeth in a Day (All-On-X)?",
+        ctaText:
+            "If you’re tired of struggling with failing teeth or unstable dentures, schedule your Trumbull, CT consultation today to see if Teeth in a Day (All-On-X) Implants are right for you.",
+        seoTitle:
+            "Teeth in a Day All-On-X Implants in Trumbull CT | Facial Surgery Center",
+        seoDescription:
+            "Restore your smile with Teeth in a Day (All-On-X) implants in Trumbull, CT. Secure, natural-looking full-arch replacement from experienced surgeons."
+    },
+
 
 };
 

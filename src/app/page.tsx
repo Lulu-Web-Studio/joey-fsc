@@ -8,53 +8,34 @@ import WhyUs from "@/components/landing/WhyUs";
 
 
 export const metadata = {
-  title:"Facial Surgery Center | Best Oral and Maxillofacial Surgeons",
+  title: "Facial Surgery Center | Best Oral and Maxillofacial Surgeons",
 
 };
 
 const Page = () => {
   return (
     <div className="min-h-screen">
-
       <div className="container">
         <Hero
           subcopy="Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been putting patients’ needs first, providing superior care in a safe and compassionate environment."
         />
       </div>
-
       <div >
         <WhyUs />
       </div>
-
-
-
-
       <div>
         <AreasOfFocus className="pt-16" />
       </div>
-
-      {/* <div className="py-24">
-        <Team />
-      </div> */}
-
       <div className="py-32 bg-bg2 flex flex-col items-center justify-center">
         <HorizontalSlider />
       </div>
-
-
       <div className="container pt-16">
         <Location />
       </div>
-
-
       <Testimonial />
-
       <div>
         <CTA />
       </div>
-
-
-
     </div>
   );
 };
