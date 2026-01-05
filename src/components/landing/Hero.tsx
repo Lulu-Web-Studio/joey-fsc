@@ -50,6 +50,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     />
                 </div>
 
+
                 {/* Copy + CTA */}
                 <div className="flex flex-col items-center md:items-start space-y-6 py-8">
                     <BodyText as='h1' variant='default' className="text-gray-600 max-w-md text-center md:text-left">
