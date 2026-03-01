@@ -1,6 +1,7 @@
 
 import {config} from "@/config"
 import Image from "next/image"
+import Link from "next/link"
 import {FunctionComponent} from "react"
 
 const navigation = {
@@ -148,11 +149,25 @@ export const Footer: FunctionComponent = () => {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
-
-          <p className="mt-8 text-sm/6 text-body-text md:order-1 md:mt-0">
+        <div className="mt-8 border-t border-gray-900/10 pt-8 flex flex-col sm:flex-row justify-between sm:items-center gap-6">
+          <p className="text-sm/6 text-body-text">
             &copy; {new Date().getFullYear()} The {config.name.name}, All rights reserved.
           </p>
+
+          <Link
+            target="_blank"
+            href="https://www.luluwebstudio.com"
+            className="self-start hover:opacity-80 transition-opacity"
+          >
+            <Image
+              src="/images/Lulu-web-studio-clear.png"
+              alt="Lulu Web Studio Logo"
+              width={75}
+              height={75}
+              quality={90}
+              className="invert"
+            />
+          </Link>
         </div>
       </div>
     </footer>
