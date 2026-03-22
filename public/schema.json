@@ -1,0 +1,210 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Facial Surgery Center",
+  "alternateName": "Facial Surgery Center - Oral and Maxillofacial Surgeons",
+  "description": "Serving Trumbull, Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral and maxillofacial care for patients.",
+  "url": "https://www.facialsurgeryct.com",
+  "telephone": "(203) 261-7800",
+  "medicalSpecialty": "https://schema.org/Dentistry",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "115 Technology Dr B-101",
+    "addressLocality": "Trumbull",
+    "addressRegion": "CT",
+    "postalCode": "06611",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "https://schema.org/Monday",
+        "https://schema.org/Tuesday",
+        "https://schema.org/Thursday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "https://schema.org/Wednesday",
+        "https://schema.org/Friday"
+      ],
+      "opens": "08:00",
+      "closes": "12:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": 4.7,
+    "reviewCount": 24
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Oral and Maxillofacial Surgery Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Tooth Removal and Surgical Extractions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Wisdom Teeth Removal",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Wisdom Teeth Removal",
+              "description": "Expert removal of impacted or problematic wisdom teeth to relieve pain, prevent crowding, and reduce the risk of infection."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Tooth Extractions",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Tooth Extractions",
+              "description": "Surgical and routine tooth extractions performed to relieve pain, remove damaged teeth, and protect long-term oral health."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Dental Implant and Bone Restoration Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Dental Bone Grafting",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Dental Bone Grafting",
+              "description": "Bone grafting procedures that rebuild jawbone volume and create a stable foundation for future implant placement."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Dental Implants",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Dental Implants",
+              "description": "Permanent replacement of missing teeth with implant-supported restorations designed for natural look, feel, and function."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Teeth in a Day (All-On-X) Implants",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Teeth in a Day (All-On-X) Implants",
+              "description": "Full-arch implant treatment that replaces an entire arch of missing or failing teeth with a fixed prosthesis in a single visit."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Jaw Surgery and Facial Balance Procedures",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Orthognathic Surgery",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Orthognathic Surgery",
+              "description": "Corrective jaw surgery to improve bite alignment, facial balance, chewing function, and airway support."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Minimally Invasive Orthognathic Surgery",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Minimally Invasive Orthognathic Surgery",
+              "description": "Advanced jaw correction using smaller incisions and modern 3D planning to reduce swelling, discomfort, and recovery time."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Genioplasty (Chin Surgery)",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Genioplasty",
+              "description": "Chin reshaping surgery that improves facial proportion, profile balance, and overall facial harmony."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Functional and Reconstructive Oral Surgery",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "TMJ Disorder Treatment",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "TMJ Disorder Treatment",
+              "description": "Diagnosis and treatment of temporomandibular joint disorders to relieve jaw pain, improve movement, and restore function."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Facial Trauma Reconstruction",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Facial Trauma Reconstruction",
+              "description": "Emergency and reconstructive facial surgery to repair fractures, soft tissue injuries, and restore facial appearance and function."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Oral Pathology Services",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Oral Pathology Services",
+              "description": "Evaluation, biopsy, diagnosis, and treatment planning for oral lesions, abnormal tissue, and other oral disease concerns."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Sleep Apnea Treatment",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Sleep Apnea Treatment",
+              "description": "Evaluation and surgical treatment options for obstructive sleep apnea to improve breathing, airway function, and sleep quality."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Sedation and Cosmetic Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Anesthesia Services",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Anesthesia Services",
+              "description": "Local anesthesia, IV sedation, and general anesthesia options designed to improve comfort and safety during oral surgery."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Botox and Dermal Fillers",
+            "itemOffered": {
+              "@type": "MedicalProcedure",
+              "name": "Botox and Dermal Fillers",
+              "description": "Non-surgical facial aesthetic treatments used to smooth wrinkles, restore volume, and enhance natural facial features."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "currenciesAccepted": "USD",
+  "foundingDate": "1993",
+  "slogan": "Superior oral maxillofacial care for over 30 years"
+}

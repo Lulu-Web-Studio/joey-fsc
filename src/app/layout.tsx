@@ -7,6 +7,7 @@ import "./globals.css";
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import Providers from "@/components/theme-provider";
+import {SchemaMarkup} from "@/components/SchemaMarkup";
 
 
 
@@ -70,96 +71,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="norton-safeweb-site-verification" content="H88Z4SQO0HAGQNPYD3N4B31617QGL4SK07IURF44WDBGYHLP1H1KX7XE3QS2T8-ANUJOLXCMPV2XN248POFXRQWCVHPE2UV8GX-BGISUOB2LWUPBE8JXOJCDHCYPELP2" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Dentist",
-              "name": "Facial Surgery Center",
-              "alternateName": "Facial Surgery Center - Oral and Maxillofacial Surgeons",
-              "description": "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral maxillofacial care for patients.",
-              "url": "https://www.facialsurgeryct.com",
-              "telephone": "(203) 261-7800",
-              "medicalSpecialty": [
-                "Oral and Maxillofacial Surgery",
-                "Oral Surgery",
-                "Facial Surgery",
-                "Dental Implants",
-                "Wisdom Teeth Removal"
-              ],
-              "priceRange": "$$",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "115 Technology Dr B-101",
-                "addressLocality": "Trumbull",
-                "addressRegion": "CT",
-                "postalCode": "06611",
-                "addressCountry": "US"
-              },
-              "openingHoursSpecification": [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Monday", "Tuesday", "Thursday"],
-                  "opens": "08:00",
-                  "closes": "17:00"
-                },
-                {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Wednesday", "Friday"],
-                  "opens": "08:00",
-                  "closes": "12:00"
-                }
-              ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "reviewCount": "24"
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Oral Surgery Services",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "MedicalProcedure",
-                      "name": "Dental Implants",
-                      "description": "Single tooth and full mouth dental implant procedures"
-                    }
-                  },
-                  {
-                    "@type": "Offer", 
-                    "itemOffered": {
-                      "@type": "MedicalProcedure",
-                      "name": "Wisdom Teeth Extraction",
-                      "description": "Safe removal of wisdom teeth with sedation options"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "MedicalProcedure", 
-                      "name": "Facial Trauma Surgery",
-                      "description": "Emergency and reconstructive facial surgery services"
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "MedicalProcedure",
-                      "name": "Corrective Jaw Surgery", 
-                      "description": "Orthognathic surgery for jaw alignment and function"
-                    }
-                  }
-                ]
-              },
-              "currenciesAccepted": "USD",
-              "foundingDate": "1993",
-              "slogan": "Superior oral maxillofacial care for over 30 years"
-            })
-          }}
-        />
+        <SchemaMarkup />
         <meta name="wot-verification" content="d8ec0942c528dedee856" />
       </head>
       <body
