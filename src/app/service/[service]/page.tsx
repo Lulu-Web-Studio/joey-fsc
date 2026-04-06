@@ -69,8 +69,10 @@ export default async function ServicePage({
         );
     }
 
-    const serviceList: Service[] = (allServices || [])
-        .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+    const serviceEntries = (allServices || []) as Array<Partial<Service> & {_id: string} | null | undefined>;
+
+    const serviceList: Service[] = serviceEntries
+        .filter((entry): entry is Partial<Service> & {_id: string} => Boolean(entry))
         .map((entry, index) => ({
             _id: entry._id,
             serviceTitle: entry.serviceTitle || 'Service',

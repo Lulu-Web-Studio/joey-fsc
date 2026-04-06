@@ -4,7 +4,7 @@ import {sanityFetch} from "@/sanity/lib/live";
 import {HOME_SETTINGS_QUERY, HOME_SEO_QUERY} from "@/sanity/queries/settings";
 import {ALL_SERVICES_QUERY} from "@/sanity/queries/services";
 import {FEATURED_TESTIMONIALS_QUERY} from "@/sanity/queries/testimonials";
-import type {HomeSettings, Service, Testimonial} from "@/types/sanity";
+import type {HomeSettings, Service, Testimonial, WhyUsPoint} from "@/types/sanity";
 
 // Disable static optimization for this page to always fetch fresh data
 export const dynamic = 'force-dynamic';
@@ -89,7 +89,7 @@ export default async function Page() {
     whyUs: {
       title: settingsData?.whyUs?.title || defaultHomeSettings.whyUs.title,
       description: settingsData?.whyUs?.description || defaultHomeSettings.whyUs.description,
-      points: (settingsData?.whyUs?.points || []).map((point, index) => ({
+      points: (settingsData?.whyUs?.points || []).map((point: Partial<WhyUsPoint>, index: number) => ({
         _key: `why-us-${index}`,
         title: point?.title || "",
         description: point?.description || "",
@@ -119,7 +119,7 @@ export default async function Page() {
     },
   };
 
-  const services: Service[] = (servicesData || []).map((service, index) => ({
+  const services: Service[] = (servicesData || []).map((service: Partial<Service> & {_id: string}, index: number) => ({
     _id: service._id,
     serviceTitle: service.serviceTitle || "Service",
     slug: service.slug || `service-${index}`,
@@ -128,7 +128,7 @@ export default async function Page() {
     order: service.order ?? index,
   }));
 
-  const testimonials: Testimonial[] = (testimonialsData || []).map((testimonial, index) => ({
+  const testimonials: Testimonial[] = (testimonialsData || []).map((testimonial: Partial<Testimonial> & {_id: string}, index: number) => ({
     _id: testimonial._id,
     name: testimonial.name || `Patient ${index + 1}`,
     quote: testimonial.quote || "",

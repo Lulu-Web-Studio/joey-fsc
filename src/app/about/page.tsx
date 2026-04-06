@@ -2,7 +2,7 @@ import AboutContent from "@/components/about/AboutContent";
 import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { ABOUT_SETTINGS_QUERY, ABOUT_SEO_QUERY, HOME_SETTINGS_QUERY } from "@/sanity/queries/settings";
-import type { AboutSettings, LocationSection } from "@/types/sanity";
+import type { AboutSettings, AboutValue, LocationSection } from "@/types/sanity";
 
 export const dynamic = 'force-dynamic';
 
@@ -88,7 +88,7 @@ export default async function Page() {
         values: {
             title: aboutSettings?.values?.title || defaultAboutSettings.values.title,
             intro: aboutSettings?.values?.intro || defaultAboutSettings.values.intro,
-            values: (aboutSettings?.values?.values || []).map((value, index) => ({
+            values: (aboutSettings?.values?.values || []).map((value: Partial<AboutValue>, index: number) => ({
                 _key: `value-${index}`,
                 title: value?.title || "",
                 description: value?.description || "",
