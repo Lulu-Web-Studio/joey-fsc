@@ -1,31 +1,119 @@
-import Content from '@/components/about/Content'
-import CTA from '@/components/CTA'
-import Location from '@/components/landing/Location'
-import BodyText from '@/components/ui/BodyText'
-import HeaderText from '@/components/ui/HeaderText'
-import React from 'react'
+import AboutContent from "@/components/about/AboutContent";
+import { Metadata } from "next";
+import { sanityFetch } from "@/sanity/lib/live";
+import { ABOUT_SETTINGS_QUERY, ABOUT_SEO_QUERY, HOME_SETTINGS_QUERY } from "@/sanity/queries/settings";
+import type { AboutSettings, LocationSection } from "@/types/sanity";
 
-export default function page() {
-  return (
-    <div className='mt-52'>
-      <div className='mx-auto  w-4/6  text-center space-y-8'>
-        <HeaderText className='text-header-text font-medium font-serif pb-6'>
-          About The Facial Surgery Center
-        </HeaderText>
-        <BodyText className='text-body-text'>
-          Welcome to The Facial Surgery Center, where we are dedicated to providing exceptional care and advanced surgical solutions for all your facial and oral health needs. Our team of experienced professionals is committed to ensuring your comfort and satisfaction throughout your treatment journey. With state-of-the-art facilities and a patient-centered approach, we strive to deliver the highest quality of care in a warm and welcoming environment.
-        </BodyText>
-      </div>
-      <div className='mt-20'>
-        {/* <OurValues /> */}
-        <Content/>
-      </div>
-      <div className="container">
-        <Location />
-      </div>
-      <div>
-        <CTA/>
-      </div>
-    </div>
-  )
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(): Promise<Metadata> {
+    const { data } = await sanityFetch({
+        query: ABOUT_SEO_QUERY,
+        stega: false,
+    });
+
+    return {
+        title: data?.seo?.title || "About Us | Facial Surgery Center",
+        description: data?.seo?.description || "Learn about The Facial Surgery Center's mission, values, and commitment to excellence in oral and maxillofacial surgery.",
+    };
+}
+
+const defaultAboutSettings: AboutSettings = {
+    seo: {
+        title: "About Us | Facial Surgery Center",
+        description:
+            "Learn about The Facial Surgery Center's mission, values, and commitment to excellence in oral and maxillofacial surgery.",
+    },
+    hero: {
+        title: "About The Facial Surgery Center",
+        subtitle:
+            "Dedicated to exceptional oral and maxillofacial care through expertise, compassion, and innovation.",
+    },
+    mission: {
+        title: "Our Mission",
+        description:
+            "We deliver high-quality surgical care with a focus on trust, comfort, and long-term outcomes.",
+    },
+    whatWeDo: {
+        title: "What We Do",
+        paragraph1: "",
+        paragraph2: "",
+    },
+    imageGallery: [],
+    values: {
+        title: "Our Values",
+        intro: "",
+        values: [],
+        closing: "",
+    },
+    innovation: {
+        title: "Innovation & Excellence",
+        paragraph1: "",
+        paragraph2: "",
+    },
+};
+
+const defaultLocationSettings: LocationSection = {
+    title: "Serving Connecticut",
+    description: "Conveniently located in Trumbull, Connecticut.",
+    image: {
+        staticPath: "/images/connecticut2.png",
+    },
+};
+
+export default async function Page() {
+    const { data: aboutSettings } = await sanityFetch({ query: ABOUT_SETTINGS_QUERY });
+    const { data: homeSettings } = await sanityFetch({ query: HOME_SETTINGS_QUERY });
+
+    const settings: AboutSettings = {
+        seo: {
+            title: aboutSettings?.seo?.title || defaultAboutSettings.seo.title,
+            description: aboutSettings?.seo?.description || defaultAboutSettings.seo.description,
+        },
+        hero: {
+            title: aboutSettings?.hero?.title || defaultAboutSettings.hero.title,
+            subtitle: aboutSettings?.hero?.subtitle || defaultAboutSettings.hero.subtitle,
+        },
+        mission: {
+            title: aboutSettings?.mission?.title || defaultAboutSettings.mission.title,
+            description:
+                aboutSettings?.mission?.description || defaultAboutSettings.mission.description,
+        },
+        whatWeDo: {
+            title: aboutSettings?.whatWeDo?.title || defaultAboutSettings.whatWeDo.title,
+            paragraph1: aboutSettings?.whatWeDo?.paragraph1 || defaultAboutSettings.whatWeDo.paragraph1,
+            paragraph2: aboutSettings?.whatWeDo?.paragraph2 || defaultAboutSettings.whatWeDo.paragraph2,
+        },
+        imageGallery: (aboutSettings?.imageGallery || []).filter(Boolean),
+        values: {
+            title: aboutSettings?.values?.title || defaultAboutSettings.values.title,
+            intro: aboutSettings?.values?.intro || defaultAboutSettings.values.intro,
+            values: (aboutSettings?.values?.values || []).map((value, index) => ({
+                _key: `value-${index}`,
+                title: value?.title || "",
+                description: value?.description || "",
+            })),
+            closing: aboutSettings?.values?.closing || defaultAboutSettings.values.closing,
+        },
+        innovation: {
+            title: aboutSettings?.innovation?.title || defaultAboutSettings.innovation.title,
+            paragraph1:
+                aboutSettings?.innovation?.paragraph1 || defaultAboutSettings.innovation.paragraph1,
+            paragraph2:
+                aboutSettings?.innovation?.paragraph2 || defaultAboutSettings.innovation.paragraph2,
+        },
+    };
+
+    const locationSettings: LocationSection = {
+        title: homeSettings?.location?.title || defaultLocationSettings.title,
+        description: homeSettings?.location?.description || defaultLocationSettings.description,
+        image: homeSettings?.location?.image || defaultLocationSettings.image,
+    };
+
+    return (
+        <AboutContent
+            settings={settings}
+            locationSettings={locationSettings}
+        />
+    );
 }

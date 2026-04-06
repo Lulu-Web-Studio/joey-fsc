@@ -2,24 +2,25 @@ import Image from 'next/image';
 import React from 'react';
 import BodyText from '../ui/BodyText';
 import Button from '../Button';
-import {Phone} from 'lucide-react';
-import {config} from '@/config';
 
 interface HeroSectionProps {
-    imageUrl?: string;
+    imageUrl: string;
     imageAlt?: string;
-    headline?: string;
-    highlight?: string;
-    subcopy?: string;
-    ctaLabel?: string;
+    headline: string;
+    highlight: string;
+    subcopy: string;
+    ctaLabel: string;
+    ctaLink: string;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
-    imageUrl = '/images/smiling-woman.png',
+    imageUrl,
     imageAlt = 'Smiling person',
-    highlight = 'New',
-    subcopy = 'Serving Central Texas for over 50 years, we put patients’ needs first, providing superior care in a safe and compassionate environment.',
-    ctaLabel = 'Schedule an Appointment',
+    headline,
+    highlight,
+    subcopy,
+    ctaLabel,
+    ctaLink,
 }) => (
     <section className="pt-52 h-fit">
         {/* Decorative circle behind image */}
@@ -31,7 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     <span className='font-serif'>The Facial Surgery Center</span>
 
                     <br />
-                    <span className="font-light font-sans">Transform Your Confidence with a </span>
+                    <span className="font-light font-sans">{headline} </span>
                     <span className="text-primaryYellow">{highlight}</span>
                     <span className="font-light"> Smile</span>
                 </h2>
@@ -59,7 +60,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     <div className="flex items-center gap-4">
                         <Button
                             text={ctaLabel}
-                            href="/contact"
+                            href={ctaLink}
                         />
                         {/* <a
                             href={`tel:${config.officePhone}`}

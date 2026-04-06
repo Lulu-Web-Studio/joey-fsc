@@ -1,7 +1,15 @@
 import HeaderText from "../ui/HeaderText"
+import BodyText from "../ui/BodyText"
 import Script from "next/script"
+import type { Testimonial as TestimonialType } from "@/types/sanity"
 
-export default function Testimonial() {
+interface TestimonialProps {
+    title: string;
+    description: string;
+    testimonials: TestimonialType[];
+}
+
+export default function Testimonial({ title, description, testimonials }: TestimonialProps) {
     return (
         <div className="relative isolate bg-bg2 pt-24 pb-32 sm:pt-32">
             <div
@@ -31,8 +39,13 @@ export default function Testimonial() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center mb-16">
                     <HeaderText className="mt-2 font-medium text-balance text-header-text font-serif">
-                        What our clients say
+                        {title}
                     </HeaderText>
+                    {description && (
+                        <BodyText className="mt-4 text-body-text">
+                            {description}
+                        </BodyText>
+                    )}
                 </div>
 
                 {/* Featurable Widget */}

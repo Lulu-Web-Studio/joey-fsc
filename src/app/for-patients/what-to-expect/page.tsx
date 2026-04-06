@@ -1,12 +1,29 @@
-import CTA from '@/components/CTA'
-import AppointmentSteps from '@/components/for-patients/Steps'
-import React from 'react'
+import WhatToExpectContent from '@/components/for-patients/WhatToExpectContent'
+import { Metadata } from 'next'
+import { sanityFetch } from '@/sanity/lib/live'
+import {
+  WHAT_TO_EXPECT_QUERY,
+  WHAT_TO_EXPECT_SEO_QUERY,
+} from '@/sanity/queries/settings'
 
-export default function page() {
-  return (
-    <div>
-        <AppointmentSteps />
-        <CTA/>
-    </div>
-  )
+export const dynamic = 'force-dynamic'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await sanityFetch({
+    query: WHAT_TO_EXPECT_SEO_QUERY,
+    stega: false,
+  })
+
+  return {
+    title: data?.seo?.title || 'What To Expect | Facial Surgery Center',
+    description:
+      data?.seo?.description ||
+      "Learn what to expect during your visit with The Facial Surgery Center, from consultation through treatment planning.",
+  }
+}
+
+export default async function Page() {
+  const { data } = await sanityFetch({ query: WHAT_TO_EXPECT_QUERY })
+
+  return <WhatToExpectContent settings={data} />
 }

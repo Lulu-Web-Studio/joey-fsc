@@ -1,10 +1,25 @@
 import React from "react";
 import Image from "next/image";
-
 import HeaderText from "@/components/ui/HeaderText";
 import BodyText from "@/components/ui/BodyText";
+import type {
+    AboutMissionSection,
+    AboutWhatWeDoSection,
+    AboutValuesSection,
+    AboutInnovationSection,
+    HybridImage
+} from "@/types/sanity";
+import { getImageUrl } from "@/sanity/lib/image";
 
-export default function Content() {
+interface ContentProps {
+    mission: AboutMissionSection;
+    whatWeDo: AboutWhatWeDoSection;
+    imageGallery: HybridImage[];
+    values: AboutValuesSection;
+    innovation: AboutInnovationSection;
+}
+
+export default function Content({ mission, whatWeDo, imageGallery, values, innovation }: ContentProps) {
     return (
         <div className="overflow-hidden pt-16 sm:pt-24">
             <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -15,16 +30,11 @@ export default function Content() {
                     as="h2"
                     className="my-4 font-medium font-serif tracking-tight text-header-text"
                 >
-                    On a mission
+                    {mission.title}
                 </HeaderText>
 
                 <BodyText className="mt-6 text-xl/8 text-body-text">
-                    At The Facial Surgery Center we believe every person deserves to look
-                    and feel their best. Our mission is to enhance well-being and
-                    confidence through tailored surgical plans, cutting-edge technology,
-                    and genuine compassion. From first consultation to final follow-up,
-                    our board-certified team is dedicated to safe, transparent, patient-
-                    first care.
+                    {mission.description}
                 </BodyText>
 
                 {/* ---------- What We Do & Image Gallery ---------- */}
@@ -36,23 +46,15 @@ export default function Content() {
                             variant="small"
                             className="font-medium font-serif tracking-tight text-header-text"
                         >
-                            What we do
+                            {whatWeDo.title}
                         </HeaderText>
 
                         <BodyText className="mt-6 text-base/7 text-body-text">
-                            Our surgeons blend artistry with science to restore both form and
-                            function. Procedures range from complex orthognathic surgery and
-                            trauma reconstruction to minimally invasive cosmetic treatments
-                            such as Botox® and dermal fillers. Every plan is built on 3-D
-                            imaging, virtual surgical simulation, and evidence-based
-                            protocols—delivering predictable, life-changing results.
+                            {whatWeDo.paragraph1}
                         </BodyText>
 
                         <BodyText className="mt-8 text-base/7 text-body-text">
-                            Continuous education keeps us at the forefront of innovation. We
-                            actively publish, teach, and adopt proven advances so our
-                            patients benefit from shorter recovery times and superior
-                            outcomes.
+                            {whatWeDo.paragraph2}
                         </BodyText>
                     </div>
 
@@ -62,7 +64,7 @@ export default function Content() {
 
                             <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10">
                                 <Image
-                                    src="/images/about/grid/consult.webp"
+                                    src={getImageUrl(imageGallery[0], "/images/about/grid/consult.webp")}
                                     alt="Surgeon consulting with a patient"
                                     width={560}
                                     height={560}
@@ -73,7 +75,7 @@ export default function Content() {
 
                             <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
                                 <Image
-                                    src="/images/about/grid/suite.webp"
+                                    src={getImageUrl(imageGallery[1], "/images/about/grid/suite.webp")}
                                     alt="State-of-the-art operating suite"
                                     width={560}
                                     height={560}
@@ -83,7 +85,7 @@ export default function Content() {
 
                             <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10">
                                 <Image
-                                    src="/images/about/grid/team.webp"
+                                    src={getImageUrl(imageGallery[2], "/images/about/grid/team.webp")}
                                     alt="Multidisciplinary surgical team"
                                     width={560}
                                     height={560}
@@ -93,7 +95,7 @@ export default function Content() {
 
                             <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
                                 <Image
-                                    src="/images/about/grid/3d.webp"
+                                    src={getImageUrl(imageGallery[3], "/images/about/grid/3d.webp")}
                                     alt="3-D imaging technology in use"
                                     width={560}
                                     height={560}
@@ -110,31 +112,24 @@ export default function Content() {
                             variant="small"
                             className="font-medium font-serif tracking-tight text-header-text"
                         >
-                            Our values
+                            {values.title}
                         </HeaderText>
 
                         <BodyText className="mt-6">
-                            We live three core principles:
+                            {values.intro}
                         </BodyText>
 
                         <ul className="mt-4 list-disc space-y-1 pl-6 text-base/7 text-body-text">
-                            <li>
-                                <strong className="text-header-text">Integrity&nbsp;—&nbsp;</strong>
-                                Honest recommendations and transparent pricing.
-                            </li>
-                            <li>
-                                <strong className="text-header-text">Excellence&nbsp;—&nbsp;</strong>
-                                Board-certified expertise and meticulous technique.
-                            </li>
-                            <li>
-                                <strong className="text-header-text">Respect&nbsp;—&nbsp;</strong>
-                                Cultural sensitivity and compassionate, patient-centered care.
-                            </li>
+                            {values.values.map((value) => (
+                                <li key={value._key || value.title}>
+                                    <strong className="text-header-text">{value.title}&nbsp;—&nbsp;</strong>
+                                    {value.description}
+                                </li>
+                            ))}
                         </ul>
 
                         <BodyText className="mt-8 text-base/7 text-body-text">
-                            These values guide every decision, from clinical protocols to
-                            community outreach.
+                            {values.closing}
                         </BodyText>
                     </div>
                 </section>
@@ -146,27 +141,17 @@ export default function Content() {
                         variant="small"
                         className="font-medium font-serif tracking-tight text-header-text"
                     >
-                        Innovation &amp; excellence
+                        {innovation.title}
                     </HeaderText>
 
                     <BodyText className="mt-6 text-base/7 text-body-text">
-                        Technology transforms possibilities. Our practice features
-                        in-office CBCT scanning, digital impressions, and custom
-                        3-D-printed guides that improve accuracy and shorten chair-time.
-                        We collaborate with restorative dentists and medical specialists
-                        to ensure seamless, holistic care.
+                        {innovation.paragraph1}
                     </BodyText>
 
                     <BodyText className="mt-8 text-base/7 text-body-text">
-                        Above all, we measure success by our patients’ stories—renewed
-                        confidence, restored function, and a better quality of life.
+                        {innovation.paragraph2}
                     </BodyText>
                 </div>
-
-                {/* ---------- Optional CTA ---------- */}
-                {/* <div className="mt-16 text-center">
-          <Button text="Meet our surgeons" href="/team" />
-        </div> */}
 
             </div>
         </div>

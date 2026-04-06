@@ -1,14 +1,12 @@
 "use client";
 
 import {ThemeProvider, ThemeProviderProps} from "next-themes";
-import {useState, useEffect} from "react";
+import {useSyncExternalStore} from "react";
+
+const subscribe = () => () => {};
 
 export default function Providers({children, ...props}: ThemeProviderProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
 
   if (!mounted) {
     return <>{children}</>; // Render children without ThemeProvider during SSR

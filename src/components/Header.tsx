@@ -23,6 +23,11 @@ interface MenuItem {
   subItems?: {name: string; href: string}[];
 }
 
+interface SiteContactInfo {
+  phone?: string | null;
+  email?: string | null;
+}
+
 // Auto-generate services submenu from config
 const servicesSubItems = Object.entries(SERVICES).map(([slug, data]) => ({
   name: data.name,
@@ -66,12 +71,16 @@ const menuItems: MenuItem[] = [
   {name: "Referral Form", href: "/referral-form.pdf"},
 ];
 
-export const Navigation: FunctionComponent = () => {
+export const Navigation: FunctionComponent<{siteContact?: SiteContactInfo | null}> = ({
+  siteContact,
+}) => {
   const pathname = usePathname();
   const [openDesktopMenu, setOpenDesktopMenu] = useState<string | null>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const dropdownRefs = useRef<{[key: string]: HTMLDivElement | null}>({});
+  const phone = siteContact?.phone || config.officePhone;
+  const email = siteContact?.email || config.officeEmail;
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -99,12 +108,12 @@ export const Navigation: FunctionComponent = () => {
     setOpenMobileMenu(openMobileMenu === name ? null : name);
   };
 
-  // Reset mobile menu state when sheet closes
-  useEffect(() => {
-    if (!isSheetOpen) {
+  const handleSheetOpenChange = (open: boolean) => {
+    setIsSheetOpen(open);
+    if (!open) {
       setOpenMobileMenu(null);
     }
-  }, [isSheetOpen]);
+  };
 
   return (
     <nav className="z-50">
@@ -188,7 +197,7 @@ export const Navigation: FunctionComponent = () => {
 
       {/* Mobile Navigation */}
       <div className="md:hidden">
-        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+        <Sheet open={isSheetOpen} onOpenChange={handleSheetOpenChange}>
           <SheetTrigger asChild>
             <button
               className="p-2 hover:bg-gray-100 rounded-md transition-colors duration-200"
@@ -297,18 +306,18 @@ export const Navigation: FunctionComponent = () => {
                   <h3 className="text-lg font-semibold mb-4">Get In Touch</h3>
                   <div className="space-y-3">
                     <a
-                      href="tel:(203) 261-7800"
+                      href={`tel:${phone}`}
                       className="flex items-center space-x-3 py-2 px-4 rounded-lg hover:bg-white/10 transition-colors duration-200"
                     >
                       <Phone className="text-primaryCyan" size="18" />
-                      <span>{config.officePhone}</span>
+                      <span>{phone}</span>
                     </a>
                     <a
-                      href={`mailto:${config.officeEmail}`}
+                      href={`mailto:${email}`}
                       className="flex items-center space-x-3 py-2 px-4 rounded-lg hover:bg-white/10 transition-colors duration-200"
                     >
                       <Mail className="text-primaryOrange" size="18" />
-                      <span>{config.officeEmail}</span>
+                      <span>{email}</span>
                     </a>
                     <div className="flex items-center space-x-3 py-2 px-4">
                       <MapPin className="text-red-700" size="18" />
@@ -326,7 +335,9 @@ export const Navigation: FunctionComponent = () => {
   );
 };
 
-export const Header: FunctionComponent = () => {
+export const Header: FunctionComponent<{siteContact?: SiteContactInfo | null}> = ({
+  siteContact,
+}) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -357,7 +368,7 @@ export const Header: FunctionComponent = () => {
           priority
         />
       </Link>
-      <Navigation />
+      <Navigation siteContact={siteContact} />
       <div className="hidden md:flex items-center">
         <Button text={"Schedule Today"} href="/contact" />
       </div>
