@@ -6,7 +6,7 @@ import {
   WHAT_TO_EXPECT_SEO_QUERY,
 } from '@/sanity/queries/settings'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 3600
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data } = await sanityFetch({

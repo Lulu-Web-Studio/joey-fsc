@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { TEAM_PAGE_QUERY } from "@/sanity/queries/settings";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const { data } = await sanityFetch({

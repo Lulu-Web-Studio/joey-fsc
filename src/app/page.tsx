@@ -6,8 +6,7 @@ import {ALL_SERVICES_QUERY} from "@/sanity/queries/services";
 import {FEATURED_TESTIMONIALS_QUERY} from "@/sanity/queries/testimonials";
 import type {HomeSettings, Service, Testimonial, WhyUsPoint} from "@/types/sanity";
 
-// Disable static optimization for this page to always fetch fresh data
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const {data} = await sanityFetch({

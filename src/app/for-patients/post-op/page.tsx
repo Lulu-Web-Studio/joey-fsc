@@ -4,7 +4,7 @@ import InstructionPageContent from "@/components/for-patients/InstructionPageCon
 import {sanityFetch} from "@/sanity/lib/live"
 import {POST_OP_QUERY, POST_OP_SEO_QUERY} from "@/sanity/queries/settings"
 
-export const dynamic = "force-dynamic"
+export const revalidate = 3600
 
 export async function generateMetadata(): Promise<Metadata> {
   const {data} = await sanityFetch({

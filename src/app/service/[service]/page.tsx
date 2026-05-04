@@ -11,7 +11,7 @@ import { SERVICE_QUERY, SERVICE_SEO_QUERY, ALL_SERVICE_SLUGS_QUERY, ALL_SERVICES
 import type { Service } from '@/types/sanity';
 import { getImageUrl } from '@/sanity/lib/image';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
     const services = await client.fetch<{ slug: string }[]>(ALL_SERVICE_SLUGS_QUERY);

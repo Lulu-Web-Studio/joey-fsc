@@ -5,7 +5,7 @@ import { DOCTORS_PAGE_QUERY } from "@/sanity/queries/settings"
 import { ALL_DOCTORS_QUERY } from "@/sanity/queries/team"
 import type { Doctor, DoctorsPageSettings } from '@/types/sanity'
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const { data } = await sanityFetch({

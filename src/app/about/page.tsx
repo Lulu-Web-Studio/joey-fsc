@@ -4,7 +4,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { ABOUT_SETTINGS_QUERY, ABOUT_SEO_QUERY, HOME_SETTINGS_QUERY } from "@/sanity/queries/settings";
 import type { AboutSettings, AboutValue, LocationSection } from "@/types/sanity";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const { data } = await sanityFetch({
