@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: data?.seo?.title || "Post-Operative Instructions | Facial Surgery Center",
     description:
       data?.seo?.description ||
-      "Post-operative surgical instructions from The Facial Surgery Center.",
+      "Post-op care instructions from Facial Surgery Center, Trumbull, CT. Follow these guidelines after oral surgery to promote healing and avoid complications.",
   }
 }
 

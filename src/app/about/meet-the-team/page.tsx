@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 
     return {
-        title: data?.seo?.title || "Meet Our Team | Facial Surgery Center",
+        title: data?.seo?.title || "Our Office Team | Facial Surgery Center | Trumbull",
         description: data?.seo?.description || "Meet our dedicated office staff at The Facial Surgery Center.",
     };
 }

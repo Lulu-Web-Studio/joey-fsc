@@ -40,7 +40,7 @@ export default function InstructionPageContent({
   return (
     <div className="mx-auto max-w-5xl space-y-16 px-6 py-16 pt-40">
       <section className="space-y-4 py-20 text-center">
-        <HeaderText className="pb-6 font-serif font-medium text-header-text">
+        <HeaderText as="h1" className="pb-6 font-serif font-medium text-header-text">
           <RoughNotation
             type="underline"
             show={true}

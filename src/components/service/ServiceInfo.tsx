@@ -55,7 +55,7 @@ export default function ServiceInfo({
                     />
                     <Image
                         src={imageSrc1}
-                        alt="Wisdom Teeth"
+                        alt={title1}
                         width={500}
                         height={500}
                         className="object-cover relative z-10 rounded-xl"
@@ -86,7 +86,7 @@ export default function ServiceInfo({
                     />
                     <Image
                         src={imageSrc2}
-                        alt="Wisdom Teeth"
+                        alt={title2}
                         width={500}
                         height={500}
                         className="object-cover z-10 rounded-xl"

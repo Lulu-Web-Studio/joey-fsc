@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: config.name.metadata.title,
+    description: config.name.metadata.description,
+  },
 };
 
 export default async function RootLayout({

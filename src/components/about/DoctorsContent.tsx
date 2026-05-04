@@ -79,7 +79,7 @@ export default function DoctorsContent({ settings, doctors }: DoctorsContentProp
     return (
         <div className="min-h-screen pt-40 sm:pt-52 sm:w-5/6 mx-auto">
             <div className="flex flex-col items-center justify-center gap-4 mb-20 px-8 text-center">
-                <HeaderText className="text-header-text font-serif font-medium">
+                <HeaderText as="h1" className="text-header-text font-serif font-medium">
                     {titlePrefix}{titlePrefix ? ' ' : ''}
                     <RoughNotation
                         multiline

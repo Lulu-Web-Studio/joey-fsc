@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   })
 
   return {
-    title: data?.seo?.title || 'What To Expect | Facial Surgery Center',
+    title: data?.seo?.title || 'What to Expect | Facial Surgery Center Trumbull CT',
     description:
       data?.seo?.description ||
       "Learn what to expect during your visit with The Facial Surgery Center, from consultation through treatment planning.",

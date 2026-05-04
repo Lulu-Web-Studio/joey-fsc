@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: data?.seo?.title || "Pre-Operative Instructions | Facial Surgery Center",
     description:
       data?.seo?.description ||
-      "Pre-operative surgical instructions from The Facial Surgery Center.",
+      "Pre-operative instructions from Facial Surgery Center, Trumbull CT. Know what to eat, avoid, and arrange before your oral surgery for a smooth recovery.",
   }
 }
 

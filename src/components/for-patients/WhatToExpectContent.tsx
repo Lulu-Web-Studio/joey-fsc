@@ -29,7 +29,7 @@ export default function WhatToExpectContent({
     <section className="px-6 py-16 pt-44 sm:pt-52">
       <div className="mx-auto max-w-5xl">
         <div className="mb-16 text-center">
-          <HeaderText className="mb-6 font-serif font-medium text-header-text">
+          <HeaderText as="h1" className="mb-6 font-serif font-medium text-header-text">
             <RoughNotation
               multiline
               type="underline"

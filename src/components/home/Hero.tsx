@@ -15,7 +15,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({
     imageUrl,
-    imageAlt = 'Smiling person',
+    imageAlt = 'Patient smiling at Facial Surgery Center in Trumbull CT',
     headline,
     highlight,
     subcopy,

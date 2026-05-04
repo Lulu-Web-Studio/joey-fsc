@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 
     return {
-        title: data?.seo?.title || "About Us | Facial Surgery Center",
+        title: data?.seo?.title || "About Facial Surgery Center | Oral Surgeons Trumbull",
         description: data?.seo?.description || "Learn about The Facial Surgery Center's mission, values, and commitment to excellence in oral and maxillofacial surgery.",
     };
 }

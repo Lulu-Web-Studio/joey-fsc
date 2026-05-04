@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 
     return {
-        title: data?.seo?.title || "Meet Our Doctors | Facial Surgery Center",
+        title: data?.seo?.title || "Our Oral Surgeons | Facial Surgery Center Trumbull",
         description: data?.seo?.description || "Meet our experienced oral and maxillofacial surgeons dedicated to providing exceptional patient care.",
     };
 }

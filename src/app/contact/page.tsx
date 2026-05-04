@@ -17,8 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 
     return {
-        title: data?.seo?.title || 'Contact Us | Facial Surgery Center',
-        description: data?.seo?.description || 'Contact The Facial Surgery Center in Trumbull, CT.',
+        title: data?.seo?.title || 'Contact Facial Surgery Center | Trumbull, CT 06611',
+        description: data?.seo?.description || 'Contact our oral surgery office in Trumbull, CT to book a consultation. Call (203) 261-7800 or send us a message and our team will get back to you shortly.',
     };
 }
 
@@ -97,7 +97,7 @@ export default async function ContactPage() {
                     {/* Left side content */}
                     <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-20">
                         <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-                            <HeaderText className="text-header-text mb-6 font-medium font-serif">
+                            <HeaderText as="h1" className="text-header-text mb-6 font-medium font-serif">
                                 {settings?.hero?.title || "Contact Us"}
                             </HeaderText>
 
