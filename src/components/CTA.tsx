@@ -3,8 +3,8 @@ import React from "react"
 import HeaderText from "./ui/HeaderText"
 import BodyText from "./ui/BodyText"
 import Button from "./Button"
-import {RoughNotation} from "react-rough-notation"
-import {isMobile} from "react-device-detect"
+import Underline from "./ui/Underline"
+import { FadeIn } from "./ui/FadeIn"
 
 type CTAProps = {
   ctaText?: string
@@ -13,8 +13,6 @@ type CTAProps = {
 }
 
 export default function CTA({ctaText, serviceTitle, buttonHref = "/contact"}: CTAProps) {
-  const strokeWidth = isMobile ? 4 : 8
-
   // Fallback city
   const city = "Trumbull, CT"
 
@@ -28,27 +26,19 @@ export default function CTA({ctaText, serviceTitle, buttonHref = "/contact"}: CT
       className="flex flex-col items-center justify-center py-32"
       aria-labelledby="cta-heading"
     >
-      <div className="flex flex-col items-center justify-center w-10/12 sm:w-3/5 mx-auto text-center space-y-8">
+      <FadeIn className="flex flex-col items-center justify-center w-10/12 sm:w-3/5 mx-auto text-center space-y-8">
         <HeaderText className="text-header-text font-serif font-medium">
           <span>Schedule Your </span>
-          <RoughNotation
-            type="underline"
-            show={true}
-            color="#69d9e3"
-            animationDuration={1000}
-            iterations={1}
-            padding={2}
-            strokeWidth={strokeWidth}
-          >
+          <Underline color="#69d9e3">
             {serviceTitle ? `${serviceTitle} ` : "Consultation "}
-          </RoughNotation>
+          </Underline>
           Appointment Today
         </HeaderText>
 
         <BodyText className="text-body-text">
           {ctaText || "Get personalized care and experience why The Facial Surgery Center is the best oral and maxillofacial surgical center in Trumbull, CT. We are here to help with all your oral and facial needs."}
         </BodyText>
-      </div>
+      </FadeIn>
 
       <Button
         text={buttonText}

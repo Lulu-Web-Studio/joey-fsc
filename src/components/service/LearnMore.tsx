@@ -1,8 +1,8 @@
-import React from 'react'
 import HeaderText from '../ui/HeaderText'
 import clsx from 'clsx'
 import Image from 'next/image';
 import BodyText from '../ui/BodyText';
+import { FadeIn, FadeInStagger, FadeInItem } from '../ui/FadeIn';
 import type { Service } from '@/types/sanity';
 import { getImageUrl } from '@/sanity/lib/image';
 
@@ -27,19 +27,19 @@ export default function LearnMore({
         )}>
             <div className='container mx-auto px-4'>
                 {/* Header */}
-                <div className='text-center mb-16'>
+                <FadeIn className='text-center mb-16'>
                     <HeaderText className='font-serif font-medium text-header-text mb-4'>
                         Explore More Services
                     </HeaderText>
                     <BodyText className='text-xl text-gray-600 max-w-2xl mx-auto'>
                         Discover other specialized treatments we offer to meet your oral health needs
                     </BodyText>
-                </div>
+                </FadeIn>
 
                 {/* Services Grid */}
-                <div className='grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto'>
+                <FadeInStagger className='grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto'>
                     {services.map((service, idx) => (
-                        <div
+                        <FadeInItem
                             key={service._id || idx}
                             className='group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2'
                         >
@@ -89,9 +89,9 @@ export default function LearnMore({
                                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 7h8m0 0v8m0-8l-8 8-4-4-6 6' />
                                 </svg>
                             </div>
-                        </div>
+                        </FadeInItem>
                     ))}
-                </div>
+                </FadeInStagger>
             </div>
         </section>
     )

@@ -1,7 +1,8 @@
-import React from 'react'
+"use client"
 import Image from 'next/image'
 import HeaderText from '../ui/HeaderText'
 import BodyText from '../ui/BodyText'
+import { FadeIn } from '../ui/FadeIn'
 import type { HybridImage } from '@/types/sanity'
 import { getImageUrl } from '@/sanity/lib/image'
 
@@ -17,15 +18,15 @@ export default function Location({ title, description, image }: LocationProps) {
     return (
         <div className="h-svh">
             <div className='flex flex-col sm:flex-row flex-1 items-center justify-center py-24 h-full'>
-                <div className='flex flex-[0.45] w-full h-full flex-col justify-center items-center gap-10'>
+                <FadeIn className='flex flex-[0.45] w-full h-full flex-col justify-center items-center gap-10'>
                     <HeaderText variant="default" className="text-header-text font-serif font-medium">
                         {title}
                     </HeaderText>
                     <BodyText className='text-body-text'>
                         {description}
                     </BodyText>
-                </div>
-                <div className='flex flex-[0.55] items-center justify-end h-full w-full'>
+                </FadeIn>
+                <FadeIn delay={0.15} className='flex flex-[0.55] items-center justify-end h-full w-full'>
                     <Image
                         width={700}
                         height={700}
@@ -33,7 +34,7 @@ export default function Location({ title, description, image }: LocationProps) {
                         className='object-cover w-full h-full'
                         src={imageSrc}
                     />
-                </div>
+                </FadeIn>
             </div>
         </div>
     )

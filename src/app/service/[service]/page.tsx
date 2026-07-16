@@ -10,6 +10,7 @@ import { client } from '@/sanity/lib/client';
 import { SERVICE_QUERY, SERVICE_SEO_QUERY, ALL_SERVICE_SLUGS_QUERY, ALL_SERVICES_QUERY } from '@/sanity/queries/services';
 import type { Service } from '@/types/sanity';
 import { getImageUrl } from '@/sanity/lib/image';
+import { pageMetadata } from '@/lib/metadata';
 
 export const revalidate = 3600;
 
@@ -34,10 +35,11 @@ export async function generateMetadata({
     });
 
     if (serviceData) {
-        return {
-            title: serviceData.seo?.title || `${serviceData.serviceTitle} | Facial Surgery Center`,
-            description: serviceData.seo?.description || serviceData.description,
-        };
+        return pageMetadata(
+            serviceData.seo?.title || `${serviceData.serviceTitle} | Facial Surgery Center`,
+            serviceData.seo?.description || serviceData.description,
+            `/service/${service}`,
+        );
     }
 
     return {

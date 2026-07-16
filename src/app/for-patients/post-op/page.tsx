@@ -3,6 +3,7 @@ import {Metadata} from "next"
 import InstructionPageContent from "@/components/for-patients/InstructionPageContent"
 import {sanityFetch} from "@/sanity/lib/live"
 import {POST_OP_QUERY, POST_OP_SEO_QUERY} from "@/sanity/queries/settings"
+import {pageMetadata} from "@/lib/metadata"
 
 export const revalidate = 3600
 
@@ -12,12 +13,12 @@ export async function generateMetadata(): Promise<Metadata> {
     stega: false,
   })
 
-  return {
-    title: data?.seo?.title || "Post-Operative Instructions | Facial Surgery Center",
-    description:
-      data?.seo?.description ||
+  return pageMetadata(
+    data?.seo?.title || "Post-Operative Instructions | Facial Surgery Center",
+    data?.seo?.description ||
       "Post-op care instructions from Facial Surgery Center, Trumbull, CT. Follow these guidelines after oral surgery to promote healing and avoid complications.",
-  }
+    "/for-patients/post-op",
+  )
 }
 
 export default async function PostOpPage() {

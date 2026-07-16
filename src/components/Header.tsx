@@ -136,7 +136,7 @@ export const Navigation: FunctionComponent<{siteContact?: SiteContactInfo | null
               <button
                 onClick={() => toggleDesktopMenu(item.name)}
                 className={cn(
-                  "hover:text-primary text-bold-22 font-semibold flex items-center transition-colors duration-200",
+                  "text-header-text hover:text-primary text-bold-22 font-semibold flex items-center transition-colors duration-200",
                   pathname === item.href && "font-semibold",
                   "focus:outline-none focus:text-primary"
                 )}
@@ -154,7 +154,7 @@ export const Navigation: FunctionComponent<{siteContact?: SiteContactInfo | null
                 href={item.href}
                 target={item.openInNewTab ? "_blank" : "_self"}
                 className={cn(
-                  "hover:text-primary text-bold-22 font-semibold transition-colors duration-200",
+                  "text-header-text hover:text-primary text-bold-22 font-semibold transition-colors duration-200",
                   pathname === item.href && "font-semibold"
                 )}
               >

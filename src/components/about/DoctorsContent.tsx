@@ -4,7 +4,8 @@ import CTA from '@/components/CTA'
 import BodyText from '@/components/ui/BodyText'
 import HeaderText from '@/components/ui/HeaderText'
 import Image from 'next/image'
-import { RoughNotation } from 'react-rough-notation'
+import Underline from '@/components/ui/Underline'
+import { FadeIn, FadeInStagger, FadeInItem } from '@/components/ui/FadeIn'
 import { PortableText } from '@portabletext/react'
 import type { DoctorsPageSettings, Doctor } from '@/types/sanity'
 import { urlFor } from '@/sanity/lib/image'
@@ -78,35 +79,26 @@ export default function DoctorsContent({ settings, doctors }: DoctorsContentProp
 
     return (
         <div className="min-h-screen pt-40 sm:pt-52 sm:w-5/6 mx-auto">
-            <div className="flex flex-col items-center justify-center gap-4 mb-20 px-8 text-center">
+            <FadeIn className="flex flex-col items-center justify-center gap-4 mb-20 px-8 text-center">
                 <HeaderText as="h1" className="text-header-text font-serif font-medium">
                     {titlePrefix}{titlePrefix ? ' ' : ''}
-                    <RoughNotation
-                        multiline
-                        type="underline"
-                        show={true}
-                        color="#FEB7B1"
-                        animationDuration={1000}
-                        iterations={1}
-                        padding={1}
-                        strokeWidth={8}
-                    >
+                    <Underline color="#FEB7B1">
                         <span>{titleHighlight}</span>
-                    </RoughNotation>
+                    </Underline>
                 </HeaderText>
                 <BodyText className="text-center text-body-text max-w-3xl">
                     {settings.description}
                 </BodyText>
-            </div>
+            </FadeIn>
 
-            <ul role="list" className="flex flex-col sm:flex-row mx-auto sm:mt-20 lg:gap-8">
+            <FadeInStagger as="ul" role="list" className="flex flex-col sm:flex-row mx-auto sm:mt-20 lg:gap-8">
                 {doctors.map((doctor) => {
                     const imageSrc = doctor.photo?.sanityImage?.asset
                         ? urlFor(doctor.photo.sanityImage).width(288).height(288).url()
                         : doctor.photo?.staticPath || '/images/profiles/placeholder.webp'
 
                     return (
-                        <li key={doctor._id} className="rounded-2xl px-8 py-10">
+                        <FadeInItem as="li" key={doctor._id} className="rounded-2xl px-8 py-10">
                             <div className="w-40 h-40 md:w-72 md:h-72 mx-auto rounded-full overflow-hidden ring-4 ring-white shadow-lg">
                                 <Image
                                     alt={doctor.name}
@@ -140,10 +132,10 @@ export default function DoctorsContent({ settings, doctors }: DoctorsContentProp
                                     />
                                 </div>
                             </div>
-                        </li>
+                        </FadeInItem>
                     );
                 })}
-            </ul>
+            </FadeInStagger>
 
             <div className="flex flex-col items-center justify-center mt-20">
                 <CTA />

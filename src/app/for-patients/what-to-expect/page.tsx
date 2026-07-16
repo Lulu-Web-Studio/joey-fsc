@@ -5,6 +5,7 @@ import {
   WHAT_TO_EXPECT_QUERY,
   WHAT_TO_EXPECT_SEO_QUERY,
 } from '@/sanity/queries/settings'
+import { pageMetadata } from '@/lib/metadata'
 
 export const revalidate = 3600
 
@@ -14,12 +15,12 @@ export async function generateMetadata(): Promise<Metadata> {
     stega: false,
   })
 
-  return {
-    title: data?.seo?.title || 'What to Expect | Facial Surgery Center Trumbull CT',
-    description:
-      data?.seo?.description ||
+  return pageMetadata(
+    data?.seo?.title || 'What to Expect | Facial Surgery Center Trumbull CT',
+    data?.seo?.description ||
       "Learn what to expect during your visit with The Facial Surgery Center, from consultation through treatment planning.",
-  }
+    '/for-patients/what-to-expect',
+  )
 }
 
 export default async function Page() {

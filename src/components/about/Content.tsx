@@ -1,7 +1,9 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import HeaderText from "@/components/ui/HeaderText";
 import BodyText from "@/components/ui/BodyText";
+import { FadeIn } from "@/components/ui/FadeIn";
 import type {
     AboutMissionSection,
     AboutWhatWeDoSection,
@@ -26,19 +28,21 @@ export default function Content({ mission, whatWeDo, imageGallery, values, innov
 
                 {/* ---------- Page Title & Intro ---------- */}
                 <h1 className="sr-only">About The Facial Surgery Center</h1>
-                <HeaderText
-                    as="h2"
-                    className="my-4 font-medium font-serif tracking-tight text-header-text"
-                >
-                    {mission.title}
-                </HeaderText>
+                <FadeIn>
+                    <HeaderText
+                        as="h2"
+                        className="my-4 font-medium font-serif tracking-tight text-header-text"
+                    >
+                        {mission.title}
+                    </HeaderText>
 
-                <BodyText className="mt-6 text-xl/8 text-body-text">
-                    {mission.description}
-                </BodyText>
+                    <BodyText className="mt-6 text-xl/8 text-body-text">
+                        {mission.description}
+                    </BodyText>
+                </FadeIn>
 
                 {/* ---------- What We Do & Image Gallery ---------- */}
-                <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+                <FadeIn as="section" className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
                     {/* --- Text Column --- */}
                     <div className="lg:pr-8">
                         <HeaderText
@@ -132,10 +136,10 @@ export default function Content({ mission, whatWeDo, imageGallery, values, innov
                             {values.closing}
                         </BodyText>
                     </div>
-                </section>
+                </FadeIn>
 
                 {/* ---------- Innovation & Excellence ---------- */}
-                <div className="lg:pr-8 py-12">
+                <FadeIn className="lg:pr-8 py-12">
                     <HeaderText
                         as="h3"
                         variant="small"
@@ -151,7 +155,7 @@ export default function Content({ mission, whatWeDo, imageGallery, values, innov
                     <BodyText className="mt-8 text-base/7 text-body-text">
                         {innovation.paragraph2}
                     </BodyText>
-                </div>
+                </FadeIn>
 
             </div>
         </div>

@@ -1,7 +1,18 @@
+"use client"
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
 import BodyText from '../ui/BodyText';
 import Button from '../Button';
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (delay: number = 0) => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" as const, delay },
+    }),
+};
 
 interface HeroSectionProps {
     imageUrl: string;
@@ -27,20 +38,32 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
         <div className="">
             {/* Headline */}
-            <div className="text-center sm:w-2/4 mx-auto">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-header-text leading-tight">
+            <motion.div
+                className="text-center sm:w-2/4 mx-auto"
+                initial="hidden"
+                animate="visible"
+                custom={0}
+                variants={fadeUp}
+            >
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-header-text leading-tight">
                     <span className='font-serif'>The Facial Surgery Center</span>
 
                     <br />
                     <span className="font-light font-sans">{headline} </span>
                     <span className="text-primaryYellow">{highlight}</span>
                     <span className="font-light"> Smile</span>
-                </h2>
-            </div>
+                </h1>
+            </motion.div>
 
             <div className="flex flex-col sm:flex-row items-center px-12 justify-between h-full ">
 
-                <div className='flex-[0.6]'>
+                <motion.div
+                    className='flex-[0.6]'
+                    initial="hidden"
+                    animate="visible"
+                    custom={0.15}
+                    variants={fadeUp}
+                >
 
                     <Image
                         src={imageUrl}
@@ -49,12 +72,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         height={500}
                         className="object-contain w-full h-full"
                     />
-                </div>
+                </motion.div>
 
 
                 {/* Copy + CTA */}
-                <div className="flex flex-col items-center md:items-start space-y-6 py-8">
-                    <BodyText as='h1' variant='default' className="text-gray-600 max-w-md text-center md:text-left">
+                <motion.div
+                    className="flex flex-col items-center md:items-start space-y-6 py-8"
+                    initial="hidden"
+                    animate="visible"
+                    custom={0.3}
+                    variants={fadeUp}
+                >
+                    <BodyText as='p' variant='default' className="text-gray-600 max-w-md text-center md:text-left">
                         {subcopy}
                     </BodyText>
                     <div className="flex items-center gap-4">
@@ -70,7 +99,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             <Phone className="w-6 h-6 text-white" />
                         </a> */}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     </section>

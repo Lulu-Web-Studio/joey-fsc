@@ -2,6 +2,7 @@ import TeamContent from "@/components/about/TeamContent";
 import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { TEAM_PAGE_QUERY } from "@/sanity/queries/settings";
+import { pageMetadata } from "@/lib/metadata";
 
 export const revalidate = 3600;
 
@@ -11,10 +12,11 @@ export async function generateMetadata(): Promise<Metadata> {
         stega: false,
     });
 
-    return {
-        title: data?.seo?.title || "Our Office Team | Facial Surgery Center | Trumbull",
-        description: data?.seo?.description || "Meet our dedicated office staff at The Facial Surgery Center.",
-    };
+    return pageMetadata(
+        data?.seo?.title || "Our Office Team | Facial Surgery Center | Trumbull",
+        data?.seo?.description || "Meet the dedicated office staff at The Facial Surgery Center in Trumbull, CT who make every patient visit seamless.",
+        "/about/meet-the-team",
+    );
 }
 
 export default async function Page() {
@@ -26,7 +28,7 @@ export default async function Page() {
         teamImage: { staticPath: "/images/about/office.webp" },
         seo: {
             title: "Meet Our Team | Facial Surgery Center",
-            description: "Meet our dedicated office staff at The Facial Surgery Center."
+            description: "Meet the dedicated office staff at The Facial Surgery Center in Trumbull, CT who make every patient visit seamless."
         }
     };
 

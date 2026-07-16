@@ -41,6 +41,7 @@ export default function LayoutWrapper({
         <Providers
             attribute="class"
             defaultTheme="light"
+            forcedTheme="light"
             disableTransitionOnChange
         >
             <main>

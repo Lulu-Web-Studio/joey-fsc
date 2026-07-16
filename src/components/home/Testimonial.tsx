@@ -1,6 +1,8 @@
+"use client"
 import HeaderText from "../ui/HeaderText"
 import BodyText from "../ui/BodyText"
 import Script from "next/script"
+import { FadeIn } from "../ui/FadeIn"
 import type { Testimonial as TestimonialType } from "@/types/sanity"
 
 interface TestimonialProps {
@@ -37,7 +39,7 @@ export default function Testimonial({ title, description, testimonials }: Testim
                 />
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center mb-16">
+                <FadeIn className="mx-auto max-w-2xl text-center mb-16">
                     <HeaderText className="mt-2 font-medium text-balance text-header-text font-serif">
                         {title}
                     </HeaderText>
@@ -46,7 +48,7 @@ export default function Testimonial({ title, description, testimonials }: Testim
                             {description}
                         </BodyText>
                     )}
-                </div>
+                </FadeIn>
 
                 {/* Featurable Widget */}
                 <div id="featurable-68a80b58-c501-4312-b207-6cd1d59b9a46" data-featurable-async></div>

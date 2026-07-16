@@ -3,7 +3,8 @@
 import CTA from "@/components/CTA"
 import BodyText from "@/components/ui/BodyText"
 import HeaderText from "@/components/ui/HeaderText"
-import {RoughNotation} from "react-rough-notation"
+import Underline from "@/components/ui/Underline"
+import { FadeIn } from "@/components/ui/FadeIn"
 
 interface InstructionItem {
   title: string | null
@@ -39,27 +40,20 @@ export default function InstructionPageContent({
 }: InstructionPageContentProps) {
   return (
     <div className="mx-auto max-w-5xl space-y-16 px-6 py-16 pt-40">
-      <section className="space-y-4 py-20 text-center">
+      <FadeIn as="section" className="space-y-4 py-20 text-center">
         <HeaderText as="h1" className="pb-6 font-serif font-medium text-header-text">
-          <RoughNotation
-            type="underline"
-            show={true}
-            color={highlightColor}
-            animationDuration={1000}
-            iterations={1}
-            padding={2}
-            strokeWidth={8}
-          >
+          <Underline color={highlightColor}>
             {settings?.title || defaultTitle}
-          </RoughNotation>
+          </Underline>
         </HeaderText>
         <BodyText className="mx-auto max-w-3xl text-body-text">
           {settings?.introduction || defaultIntroduction}
         </BodyText>
-      </section>
+      </FadeIn>
 
       {settings?.sections?.map((section, sectionIndex) => (
-        <section
+        <FadeIn
+          as="section"
           key={`${section.sectionTitle || "section"}-${sectionIndex}`}
           className="space-y-6"
         >
@@ -78,7 +72,7 @@ export default function InstructionPageContent({
               {item.content}
             </BodyText>
           ))}
-        </section>
+        </FadeIn>
       ))}
 
       <CTA />

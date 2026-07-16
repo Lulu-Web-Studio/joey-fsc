@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { sanityFetch } from "@/sanity/lib/live";
 import { ABOUT_SETTINGS_QUERY, ABOUT_SEO_QUERY, HOME_SETTINGS_QUERY } from "@/sanity/queries/settings";
 import type { AboutSettings, AboutValue, LocationSection } from "@/types/sanity";
+import { pageMetadata } from "@/lib/metadata";
 
 export const revalidate = 3600;
 
@@ -12,10 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
         stega: false,
     });
 
-    return {
-        title: data?.seo?.title || "About Facial Surgery Center | Oral Surgeons Trumbull",
-        description: data?.seo?.description || "Learn about The Facial Surgery Center's mission, values, and commitment to excellence in oral and maxillofacial surgery.",
-    };
+    return pageMetadata(
+        data?.seo?.title || "About Facial Surgery Center | Oral Surgeons Trumbull",
+        data?.seo?.description || "Learn about The Facial Surgery Center's mission, values, and commitment to excellence in oral and maxillofacial surgery.",
+        "/about",
+    );
 }
 
 const defaultAboutSettings: AboutSettings = {

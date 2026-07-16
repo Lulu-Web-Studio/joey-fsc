@@ -5,6 +5,7 @@ import CTA from "@/components/CTA";
 import Location from "@/components/home/Location";
 import BodyText from "@/components/ui/BodyText";
 import HeaderText from "@/components/ui/HeaderText";
+import { FadeIn } from "@/components/ui/FadeIn";
 import type { AboutSettings, LocationSection } from "@/types/sanity";
 
 interface AboutContentProps {
@@ -15,14 +16,14 @@ interface AboutContentProps {
 export default function AboutContent({ settings, locationSettings }: AboutContentProps) {
     return (
         <div className="mt-52">
-            <div className="mx-auto w-4/6 text-center space-y-8">
+            <FadeIn className="mx-auto w-4/6 text-center space-y-8">
                 <HeaderText className="text-header-text font-medium font-serif pb-6">
                     {settings.hero.title}
                 </HeaderText>
                 <BodyText className="text-body-text">
                     {settings.hero.subtitle}
                 </BodyText>
-            </div>
+            </FadeIn>
             <div className="mt-20">
                 <Content
                     mission={settings.mission}

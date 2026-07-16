@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import HeaderText from "../ui/HeaderText";
 import BodyText from "../ui/BodyText";
+import { FadeIn, FadeInStagger, FadeInItem } from "../ui/FadeIn";
 import type { Service } from "@/types/sanity";
 
 interface HorizontalSliderProps {
@@ -59,7 +60,7 @@ export default function HorizontalSlider({ title, description, services }: Horiz
 
     return (
         <div className="flex flex-col items-center w-full px-4 py-12 bg-bg2">
-            <div className="flex flex-row items-center justify-between w-full max-w-7xl mb-8">
+            <FadeIn className="flex flex-row items-center justify-between w-full max-w-7xl mb-8">
                 <div className="pb-4 sm:pb-12">
                     <HeaderText className="text-header-text mb-2 font-serif font-medium">
                         {title}
@@ -82,9 +83,9 @@ export default function HorizontalSlider({ title, description, services }: Horiz
                         <ChevronRight className="w-6 h-6 text-white" />
                     </button>
                 </div>
-            </div>
+            </FadeIn>
 
-            <div
+            <FadeInStagger
                 ref={containerRef}
                 className="w-full overflow-x-auto scroll-smooth snap-x snap-mandatory flex gap-6 py-6 scrollbar-hide md:overflow-visible md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:max-w-7xl"
                 style={{
@@ -96,7 +97,8 @@ export default function HorizontalSlider({ title, description, services }: Horiz
                     const imageSrc = service.coverImage?.staticPath || '/images/placeholder.jpg';
 
                     return (
-                        <a
+                        <FadeInItem
+                            as="a"
                             href={`/service/${service.slug}`}
                             key={service._id || idx}
                             className="group bg-white snap-center shrink-0 rounded-3xl shadow-lg transition-all duration-300 flex flex-col overflow-hidden border border-slate-100 hover:border-primary-teal hover:-translate-y-2 hover:scale-[1.02] md:shrink md:w-auto"
@@ -141,10 +143,10 @@ export default function HorizontalSlider({ title, description, services }: Horiz
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </FadeInItem>
                     );
                 })}
-            </div>
+            </FadeInStagger>
 
             {/* Scroll Indicator Dots - Mobile Only */}
             {isMobile && (

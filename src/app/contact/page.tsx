@@ -7,6 +7,8 @@ import React from 'react';
 import { Metadata } from 'next';
 import { sanityFetch } from '@/sanity/lib/live';
 import { CONTACT_SETTINGS_QUERY, CONTACT_SEO_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/queries/settings';
+import { pageMetadata } from '@/lib/metadata';
+import { FadeIn } from '@/components/ui/FadeIn';
 
 export const revalidate = 3600;
 
@@ -16,10 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
         stega: false,
     });
 
-    return {
-        title: data?.seo?.title || 'Contact Facial Surgery Center | Trumbull, CT 06611',
-        description: data?.seo?.description || 'Contact our oral surgery office in Trumbull, CT to book a consultation. Call (203) 261-7800 or send us a message and our team will get back to you shortly.',
-    };
+    return pageMetadata(
+        data?.seo?.title || 'Contact Facial Surgery Center | Trumbull, CT 06611',
+        data?.seo?.description || 'Contact our oral surgery office in Trumbull, CT to book a consultation. Call (203) 261-7800 or send us a message and our team will get back to you shortly.',
+        '/contact',
+    );
 }
 
 export default async function ContactPage() {
@@ -95,7 +98,7 @@ export default async function ContactPage() {
             <div className="mx-auto max-w-7xl pt-16 sm:pt-32">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Left side content */}
-                    <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-20">
+                    <FadeIn className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-20">
                         <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                             <HeaderText as="h1" className="text-header-text mb-6 font-medium font-serif">
                                 {settings?.hero?.title || "Contact Us"}
@@ -136,10 +139,10 @@ export default async function ContactPage() {
                                 ))}
                             </dl>
                         </div>
-                    </div>
+                    </FadeIn>
 
                     {/* Right side map */}
-                    <div className="relative px-6 pb-20 sm:pt-32 lg:px-8 lg:py-20">
+                    <FadeIn delay={0.15} className="relative px-6 pb-20 sm:pt-32 lg:px-8 lg:py-20">
                         <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                             <div className="w-full h-0 pb-[75%] relative rounded-lg overflow-hidden">
                                 <iframe
@@ -151,13 +154,13 @@ export default async function ContactPage() {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </FadeIn>
                 </div>
 
                 {/* Full width form section */}
-                <div className="w-full px-8 sm:px-0 mb-20 py-12">
+                <FadeIn className="w-full px-8 sm:px-0 mb-20 py-12">
                     <Form />
-                </div>
+                </FadeIn>
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import {HOME_SETTINGS_QUERY, HOME_SEO_QUERY} from "@/sanity/queries/settings";
 import {ALL_SERVICES_QUERY} from "@/sanity/queries/services";
 import {FEATURED_TESTIMONIALS_QUERY} from "@/sanity/queries/testimonials";
 import type {HomeSettings, Service, Testimonial, WhyUsPoint} from "@/types/sanity";
+import {pageMetadata} from "@/lib/metadata";
 
 export const revalidate = 3600;
 
@@ -14,10 +15,11 @@ export async function generateMetadata(): Promise<Metadata> {
     stega: false, // Critical for SEO
   });
 
-  return {
-    title: data?.seo?.title || "Facial Surgery Center | Best Oral and Maxillofacial Surgeons",
-    description: data?.seo?.description || "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral maxillofacial care for patients.",
-  };
+  return pageMetadata(
+    data?.seo?.title || "Facial Surgery Center | Oral & Maxillofacial Surgeons",
+    data?.seo?.description || "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral maxillofacial care for patients.",
+    "",
+  );
 }
 
 const defaultHomeSettings: HomeSettings = {

@@ -4,6 +4,7 @@ import { sanityFetch } from "@/sanity/lib/live"
 import { DOCTORS_PAGE_QUERY } from "@/sanity/queries/settings"
 import { ALL_DOCTORS_QUERY } from "@/sanity/queries/team"
 import type { Doctor, DoctorsPageSettings } from '@/types/sanity'
+import { pageMetadata } from "@/lib/metadata"
 
 export const revalidate = 3600;
 
@@ -13,10 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
         stega: false,
     });
 
-    return {
-        title: data?.seo?.title || "Our Oral Surgeons | Facial Surgery Center Trumbull",
-        description: data?.seo?.description || "Meet our experienced oral and maxillofacial surgeons dedicated to providing exceptional patient care.",
-    };
+    return pageMetadata(
+        data?.seo?.title || "Our Oral Surgeons | Facial Surgery Center Trumbull",
+        data?.seo?.description || "Meet our experienced oral and maxillofacial surgeons dedicated to providing exceptional patient care.",
+        "/about/meet-the-doctors",
+    );
 }
 
 export default async function DoctorsPage() {

@@ -19,9 +19,10 @@ const fontSerif = Literata({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(config.baseUrl),
   title: {
     absolute: "Facial Surgery Center",
-    default: "Facial Surgery Center | Best Oral and Maxillofacial Surgeons",
+    default: "Facial Surgery Center | Oral & Maxillofacial Surgeons",
   },
   description: "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral maxillofacial care for patients.",
   openGraph: {

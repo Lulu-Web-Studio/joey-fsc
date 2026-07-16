@@ -1,8 +1,10 @@
+"use client"
 import clsx from 'clsx'
 import React from 'react'
 import HeaderText from '../ui/HeaderText'
 import BodyText from '../ui/BodyText';
 import Image from 'next/image';
+import { FadeIn } from '../ui/FadeIn';
 
 interface ServiceHeroProps {
     title: string;
@@ -19,7 +21,7 @@ export default function ServiceHero({
 
 }: ServiceHeroProps) {
     return (
-        <div className={clsx(
+        <FadeIn as="div" className={clsx(
             'bg-primaryCyan/20 w-full h-full rounded-[48px] flex flex-col items-center justify-center',
             "sm:flex-row sm:justify-between sm:items-center",
             "p-10 sm:px-20",
@@ -44,6 +46,6 @@ export default function ServiceHero({
                     className='w-full h-full object-contain sm:w-[500px] sm:h-[500px]'
                 />
             </div>
-        </div>
+        </FadeIn>
     )
 }
