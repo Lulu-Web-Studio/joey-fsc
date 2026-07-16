@@ -1,7 +1,9 @@
 'use client';
 
 import {useState, ChangeEvent, FormEvent} from 'react';
+import {Mail, MessageSquare, Phone, Send, User} from 'lucide-react';
 import HeaderText from '../ui/HeaderText';
+import BodyText from '../ui/BodyText';
 
 export interface ContactFormData {
     name: string;
@@ -92,22 +94,32 @@ export default function Form() {
         }
     };
 
+    const inputClassName = "mt-2 block w-full rounded-xl border border-gray-200 bg-misty-blue/40 pl-11 pr-4 py-3 text-lg text-header-text placeholder:text-gray-400 transition-colors focus:border-primary-teal focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-teal/20";
+    const iconClassName = "pointer-events-none absolute left-4 top-[2.6rem] h-5 w-5 text-gray-400";
+
     return (
-        <form onSubmit={handleSubmit} className="px-6 py-20 bg-primary-teal rounded-2xl">
+        <form onSubmit={handleSubmit} className="rounded-3xl border border-slate-100 bg-white px-6 py-16 shadow-xl sm:px-12 sm:py-16">
             <div className="mx-auto max-w-4xl">
                 {/* Form Header */}
                 <div className="mb-12 text-center">
-                    <HeaderText className=" text-white font-medium font-serif">
+                    <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary-teal/10">
+                        <MessageSquare className="size-6 text-primary-teal" />
+                    </div>
+                    <HeaderText className="text-header-text font-medium font-serif">
                         Send us a Message
                     </HeaderText>
+                    <BodyText className="mt-3 text-body-text">
+                        Fill out the form below and our team will get back to you shortly.
+                    </BodyText>
                 </div>
 
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     {/* Full Name */}
-                    <div>
-                        <label htmlFor="name" className="block text-lg font-semibold text-white">
+                    <div className="relative">
+                        <label htmlFor="name" className="block text-lg font-semibold text-header-text">
                             Full Name
                         </label>
+                        <User className={iconClassName} />
                         <input
                             id="name"
                             name="name"
@@ -116,16 +128,17 @@ export default function Form() {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="John Doe"
-                            className="mt-2 block w-full rounded-md bg-white px-4 py-3 text-lg text-header-text outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primaryCyan"
+                            className={inputClassName}
                             required
                         />
                     </div>
 
                     {/* Email */}
-                    <div>
-                        <label htmlFor="email" className="block text-lg font-semibold text-white">
+                    <div className="relative">
+                        <label htmlFor="email" className="block text-lg font-semibold text-header-text">
                             Email Address
                         </label>
+                        <Mail className={iconClassName} />
                         <input
                             id="email"
                             name="email"
@@ -134,16 +147,17 @@ export default function Form() {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="john@example.com"
-                            className="mt-2 block w-full rounded-md bg-white px-4 py-3 text-lg text-header-text outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primaryCyan"
+                            className={inputClassName}
                             required
                         />
                     </div>
 
                     {/* Phone Number */}
-                    <div className="sm:col-span-2">
-                        <label htmlFor="number" className="block text-lg font-semibold text-white">
+                    <div className="relative sm:col-span-2">
+                        <label htmlFor="number" className="block text-lg font-semibold text-header-text">
                             Phone Number
                         </label>
+                        <Phone className={iconClassName} />
                         <input
                             id="number"
                             name="number"
@@ -152,13 +166,13 @@ export default function Form() {
                             value={formData.number}
                             onChange={handleChange}
                             placeholder="(123) 456-7890"
-                            className="mt-2 block w-full rounded-md bg-white px-4 py-3 text-lg text-header-text outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primaryCyan"
+                            className={inputClassName}
                         />
                     </div>
 
                     {/* Message */}
                     <div className="sm:col-span-2">
-                        <label htmlFor="message" className="block text-lg font-semibold text-white">
+                        <label htmlFor="message" className="block text-lg font-semibold text-header-text">
                             Message
                         </label>
                         <div className="mt-2">
@@ -169,7 +183,7 @@ export default function Form() {
                                 value={formData.message}
                                 onChange={handleChange}
                                 placeholder="Enter your message..."
-                                className="block w-full text-header-text rounded-md bg-white px-4 py-3 text-lg outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-primaryCyan"
+                                className="block w-full rounded-xl border border-gray-200 bg-misty-blue/40 px-4 py-3 text-lg text-header-text placeholder:text-gray-400 transition-colors focus:border-primary-teal focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-teal/20"
                                 required
                             />
                         </div>
@@ -177,8 +191,8 @@ export default function Form() {
                 </div>
 
                 {/* HIPAA Disclaimer */}
-                <div className="mt-8 p-4 bg-white/10 border border-white/20 rounded-md">
-                    <p className="text-white text-sm">
+                <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4">
+                    <p className="text-sm text-amber-900">
                         <strong>Please be advised:</strong> This contact form is not HIPAA compliant. Please be cautious about including any protected health information (PHI) or sensitive medical details in your message.
                     </p>
                 </div>
@@ -188,9 +202,14 @@ export default function Form() {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="rounded-md bg-white px-8 py-4 text-primary-teal text-lg font-semibold shadow-sm hover:bg-primaryCyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-teal disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center gap-2 rounded-full bg-primary-teal px-10 py-4 text-lg font-semibold text-white shadow-lg transition-colors hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-teal disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                        {isLoading ? "Sending..." : "Send Message"}
+                        {isLoading ? "Sending..." : (
+                            <>
+                                Send Message
+                                <Send className="size-4" />
+                            </>
+                        )}
                     </button>
                 </div>
             </div>
