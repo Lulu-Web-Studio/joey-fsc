@@ -94,8 +94,8 @@ export default function Form() {
         }
     };
 
-    const inputClassName = "mt-2 block w-full rounded-xl border border-gray-200 bg-misty-blue/40 pl-11 pr-4 py-3 text-lg text-header-text placeholder:text-gray-400 transition-colors focus:border-primary-teal focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-teal/20";
-    const iconClassName = "pointer-events-none absolute left-4 top-[2.6rem] h-5 w-5 text-gray-400";
+    const inputClassName = "block w-full rounded-xl border border-gray-200 bg-misty-blue/40 pl-11 pr-4 py-3 text-lg text-header-text placeholder:text-gray-400 transition-colors focus:border-primary-teal focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-teal/20";
+    const iconClassName = "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400";
 
     return (
         <form onSubmit={handleSubmit} className="rounded-3xl border border-slate-100 bg-white px-6 py-16 shadow-xl sm:px-12 sm:py-16">
@@ -115,59 +115,65 @@ export default function Form() {
 
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     {/* Full Name */}
-                    <div className="relative">
+                    <div>
                         <label htmlFor="name" className="block text-lg font-semibold text-header-text">
                             Full Name
                         </label>
-                        <User className={iconClassName} />
-                        <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            autoComplete="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="John Doe"
-                            className={inputClassName}
-                            required
-                        />
+                        <div className="relative mt-2">
+                            <User className={iconClassName} />
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                autoComplete="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder="John Doe"
+                                className={inputClassName}
+                                required
+                            />
+                        </div>
                     </div>
 
                     {/* Email */}
-                    <div className="relative">
+                    <div>
                         <label htmlFor="email" className="block text-lg font-semibold text-header-text">
                             Email Address
                         </label>
-                        <Mail className={iconClassName} />
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            autoComplete="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="john@example.com"
-                            className={inputClassName}
-                            required
-                        />
+                        <div className="relative mt-2">
+                            <Mail className={iconClassName} />
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                autoComplete="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder="john@example.com"
+                                className={inputClassName}
+                                required
+                            />
+                        </div>
                     </div>
 
                     {/* Phone Number */}
-                    <div className="relative sm:col-span-2">
+                    <div className="sm:col-span-2">
                         <label htmlFor="number" className="block text-lg font-semibold text-header-text">
                             Phone Number
                         </label>
-                        <Phone className={iconClassName} />
-                        <input
-                            id="number"
-                            name="number"
-                            type="tel"
-                            autoComplete="tel"
-                            value={formData.number}
-                            onChange={handleChange}
-                            placeholder="(123) 456-7890"
-                            className={inputClassName}
-                        />
+                        <div className="relative mt-2">
+                            <Phone className={iconClassName} />
+                            <input
+                                id="number"
+                                name="number"
+                                type="tel"
+                                autoComplete="tel"
+                                value={formData.number}
+                                onChange={handleChange}
+                                placeholder="(123) 456-7890"
+                                className={inputClassName}
+                            />
+                        </div>
                     </div>
 
                     {/* Message */}
