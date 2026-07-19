@@ -91,7 +91,12 @@ export default function DoctorsContent({ settings, doctors }: DoctorsContentProp
                 </BodyText>
             </FadeIn>
 
-            <FadeInStagger as="ul" role="list" className="flex flex-col sm:flex-row mx-auto sm:mt-20 lg:gap-8">
+            <FadeInStagger
+                as="ul"
+                role="list"
+                amount={0.01}
+                className="flex flex-col sm:flex-row mx-auto sm:mt-20 lg:gap-8"
+            >
                 {doctors.map((doctor) => {
                     const imageSrc = doctor.photo?.sanityImage?.asset
                         ? urlFor(doctor.photo.sanityImage).width(288).height(288).url()
