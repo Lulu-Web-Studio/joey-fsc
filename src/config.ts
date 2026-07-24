@@ -1,7 +1,7 @@
 const buildConfig = () => {
 
   const officePhone = "(203) 261-7800"
-  const officeEmail = "info@facialsurgeryct.com"
+  const officeEmail = "office@facialsurgeryct.com"
 
   const name = process.env.NEXT_PUBLIC_DISPLAY_NAME || "Display Name.";
   const copyright = process.env.NEXT_PUBLIC_COPYRIGHT || "Copyright";
