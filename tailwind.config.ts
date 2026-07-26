@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import {SITE_COLORS} from "./src/config/colors";
 
 const config = {
   darkMode: ["class"],
@@ -34,51 +35,28 @@ const config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
 
-        // background: "#fffbeb",
-        background:"#fff9f4",
-        bg2:"#fbe8d9",
-        bg3:"#fbe8d8",
+        background: SITE_COLORS.background,
+        bg2: SITE_COLORS.backgroundAlt,
+        bg3: SITE_COLORS.backgroundWarm,
 
         foreground: "hsl(var(--foreground))",
-        // primaryBlue: '#0087FF',
-        primaryYellow: '#FFBA01',
-        primaryOrange: '#ff8e1d',
-
-        primaryPink:'#FEB7B1',
-        // \primaryGreen: '#00CE00',
-
-        primaryCyan: '#69d1e3',
-        "primary-teal": "#005D64",
-
-
-        // "header-text": '#183c3c',
-        "header-text": '#2c3639',
-
-        whitesmoke: '#f5f5f5',
-        "body-text":'#33312E',
-        "body-text-light": '#4A4745',
-
-        "misty-blue": "#F2F3F1",
-        
-
-        // Secondary Blues
-        // mediumBlue: '#42A7FF',
-        // lightBlue: '#88D9FF',
-        // lightestBlue: '#c8ecfc',
-
-        // // Secondary Yellows
-        // mediumYellow: '#FFE142',
-        // lightYellow: '#FFEC89',
-        // lighterYellow: '#FFFFC7A',
-
-        // // Secondary Greens
-        // mediumGreen: '#7AD926',
-        // lightGreen: '#9FEB54',
-        // lighterGreen: '#DBFFB5',
-
-
-        // lightPurple: "#d9c2ff",
-
+        primaryYellow: SITE_COLORS.primaryYellow,
+        primaryOrange: SITE_COLORS.primaryOrange,
+        primaryPeach: SITE_COLORS.primaryPeach,
+        primaryPink: SITE_COLORS.primaryPink,
+        primaryCyan: SITE_COLORS.primaryCyan,
+        "primary-teal": SITE_COLORS.primaryTeal,
+        accentRose: SITE_COLORS.accentRose,
+        accentMagenta: SITE_COLORS.accentMagenta,
+        accentLavender: SITE_COLORS.accentLavender,
+        markerPink: SITE_COLORS.markerPink,
+        blobMint: SITE_COLORS.blobMint,
+        blobBlue: SITE_COLORS.blobBlue,
+        "header-text": SITE_COLORS.headerText,
+        whitesmoke: SITE_COLORS.whitesmoke,
+        "body-text": SITE_COLORS.bodyText,
+        "body-text-light": SITE_COLORS.bodyTextLight,
+        "misty-blue": SITE_COLORS.mistyBlue,
       },
       borderRadius: {
         lg: "var(--radius)",

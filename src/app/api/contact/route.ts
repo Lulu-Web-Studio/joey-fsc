@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     const siteContact = siteSettings?.contact;
     const officePhone = siteContact?.phone || config.officePhone;
     const officeEmail = siteContact?.email || config.officeEmail;
-    const officeAddress = siteContact?.address || "115 Technology Dr b101, Trumbull, CT 06611";
+    const officeAddress = config.officeAddress;
 
     // Basic validation (all fields required)
     if (!name || !email || !message || !number) {

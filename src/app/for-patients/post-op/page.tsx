@@ -4,6 +4,7 @@ import InstructionPageContent from "@/components/for-patients/InstructionPageCon
 import {sanityFetch} from "@/sanity/lib/live"
 import {POST_OP_QUERY, POST_OP_SEO_QUERY} from "@/sanity/queries/settings"
 import {pageMetadata} from "@/lib/metadata"
+import {SITE_COLORS} from "@/config/colors"
 
 export const revalidate = 3600
 
@@ -31,7 +32,7 @@ export default async function PostOpPage() {
       settings={data || null}
       defaultTitle="Post-Op Surgical Instructions"
       defaultIntroduction="At The Facial Surgery Center, your comfort and recovery are our top priorities. Please follow these guidelines carefully to promote healing and avoid complications."
-      highlightColor="#005D64"
+      highlightColor={SITE_COLORS.primaryTeal}
       itemAccentClassName="text-primary-teal"
     />
   )

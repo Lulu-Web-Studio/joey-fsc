@@ -71,16 +71,14 @@ const menuItems: MenuItem[] = [
   {name: "Referral Form", href: "/referral-form.pdf"},
 ];
 
-export const Navigation: FunctionComponent<{siteContact?: SiteContactInfo | null}> = ({
-  siteContact,
-}) => {
+export const Navigation: FunctionComponent<{siteContact?: SiteContactInfo | null}> = () => {
   const pathname = usePathname();
   const [openDesktopMenu, setOpenDesktopMenu] = useState<string | null>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const dropdownRefs = useRef<{[key: string]: HTMLDivElement | null}>({});
-  const phone = siteContact?.phone || config.officePhone;
-  const email = siteContact?.email || config.officeEmail;
+  const phone = config.officePhone;
+  const email = config.officeEmail;
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -292,7 +290,7 @@ export const Navigation: FunctionComponent<{siteContact?: SiteContactInfo | null
                 <div className="pt-6 mt-6 border-t border-white/20">
                   <Link
                     href="/contact"
-                    className="block py-4 px-6 bg-primary-teal rounded-lg text-lg font-semibold transition-all duration-200 text-white text-center hover:bg-gray-100 hover:scale-105 shadow-lg"
+                    className="block rounded-lg bg-primary-teal px-6 py-4 text-center text-lg font-semibold text-white shadow-lg transition-colors active:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     onClick={() => setIsSheetOpen(false)}
                   >
                     Schedule Today
@@ -321,7 +319,7 @@ export const Navigation: FunctionComponent<{siteContact?: SiteContactInfo | null
                     </a>
                     <div className="flex items-center space-x-3 py-2 px-4">
                       <MapPin className="text-red-700" size="18" />
-                      <span>Trumbull, CT</span>
+                      <span>{config.officeAddress}</span>
                     </div>
                   </div>
                 </div>

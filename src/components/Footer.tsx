@@ -1,4 +1,5 @@
 import {config} from "@/config"
+import {AREAS_BASE_PATH} from "@/config/areas"
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -17,6 +18,7 @@ const navigation = {
   ],
   company: [
     {name: "Contact", href: "/contact"},
+    {name: "Areas We Serve", href: AREAS_BASE_PATH},
     {name: "Referral Form", href: "/referral-form.pdf"},
   ],
 }
@@ -55,13 +57,19 @@ export const Footer: FunctionComponent<{
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-14 sm:pt-20 lg:px-8 lg:pt-24">
         <div className="gap-16 xl:grid xl:grid-cols-[minmax(0,1.05fr)_minmax(0,1.95fr)] xl:gap-20">
           <div className="max-w-md space-y-6">
-            <Image
-              width={150}
-              height={50}
-              alt="Facial Surgery Center Logo"
-              src="/images/logo.svg"
-              className="h-20 w-auto sm:h-24"
-            />
+            <Link
+              href="/"
+              aria-label="Facial Surgery Center home"
+              className="inline-block transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-teal focus-visible:ring-offset-4"
+            >
+              <Image
+                width={150}
+                height={50}
+                alt="Facial Surgery Center Logo"
+                src="/images/logo.svg"
+                className="h-20 w-auto sm:h-24"
+              />
+            </Link>
 
             <p className="max-w-sm text-pretty text-base/8 text-body-text-light">
               {footerDescription}

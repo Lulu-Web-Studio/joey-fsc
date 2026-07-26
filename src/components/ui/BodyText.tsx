@@ -14,7 +14,9 @@ export default function BodyText({
     children,
     className = "",
     variant = 'default',
-    as: Tag = 'h2' // default to <h2>
+    // Body copy is not a heading — rendering paragraphs as <h2> dilutes the
+    // heading outline on every page. Callers pass `as` to override.
+    as: Tag = 'p'
 }: BodyTextProps) {
     const variants = {
         small: "text-sm sm:text-base",

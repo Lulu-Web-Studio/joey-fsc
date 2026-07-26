@@ -34,15 +34,11 @@ export const contactSettingsType = defineType({
     }),
     defineField({
       name: 'address',
-      title: 'Address',
+      title: 'Map',
       type: 'object',
       group: 'content',
+      description: 'The office address is managed in the site config.',
       fields: [
-        { name: 'street', type: 'string', title: 'Street Address' },
-        { name: 'city', type: 'string', title: 'City' },
-        { name: 'state', type: 'string', title: 'State' },
-        { name: 'zip', type: 'string', title: 'ZIP Code' },
-        { name: 'googleMapsUrl', type: 'url', title: 'Google Maps Link' },
         { name: 'googleMapsEmbed', type: 'url', title: 'Google Maps Embed URL' },
       ],
     }),

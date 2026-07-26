@@ -4,6 +4,7 @@ import InstructionPageContent from "@/components/for-patients/InstructionPageCon
 import {sanityFetch} from "@/sanity/lib/live"
 import {PRE_OP_QUERY, PRE_OP_SEO_QUERY} from "@/sanity/queries/settings"
 import {pageMetadata} from "@/lib/metadata"
+import {SITE_COLORS} from "@/config/colors"
 
 export const revalidate = 3600
 
@@ -31,7 +32,7 @@ export default async function PreOpPage() {
       settings={data || null}
       defaultTitle="Pre-Op Surgical Instructions"
       defaultIntroduction='At The Facial Surgery Center, we take a "no-surprises" approach to your care. Before you begin treatment, you will receive a written, itemized statement of fees for the treatments the doctor recommends.'
-      highlightColor="#F4A261"
+      highlightColor={SITE_COLORS.primaryPeach}
       itemAccentClassName="text-primary-teal"
     />
   )

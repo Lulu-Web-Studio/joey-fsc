@@ -9,7 +9,10 @@ export const SITE_SETTINGS_QUERY = defineQuery(/* groq */ `
   ) {
     siteName,
     siteDescription,
-    contact,
+    contact {
+      phone,
+      email
+    },
     businessHours,
     socialLinks
   }
@@ -209,11 +212,6 @@ export const CONTACT_SETTINGS_QUERY = defineQuery(/* groq */ `
       intro2
     },
     address {
-      street,
-      city,
-      state,
-      zip,
-      googleMapsUrl,
       googleMapsEmbed
     },
     businessHours[] {

@@ -58,7 +58,7 @@ export default function WhyUs({ title, description, points }: WhyUsProps) {
                                         <BodyText as="h3" variant="default" className="font-serif text-gray-900">
                                             {point.title}
                                         </BodyText>
-                                        <BodyText as="h4" variant="small" className="mt-2 text-body-text">
+                                        <BodyText as="p" variant="small" className="mt-2 text-body-text">
                                             {point.description}
                                         </BodyText>
                                     </div>

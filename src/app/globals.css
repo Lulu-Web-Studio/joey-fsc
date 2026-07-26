@@ -78,3 +78,33 @@
       @apply w-full;
     }
   }
+
+/* Marquee — copied from sonino-painting (Icons.tsx pattern), where it is
+   verified working. Track holds two copies of the list; sliding half its
+   width loops seamlessly. */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.pause-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Flex-only addition: lets the column shrink below the w-max track's width
+   so the map is not pushed off-screen (sonino uses a grid layout and does
+   not need this). */
+.marquee-col { min-width: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+}
+
+::selection {
+  background-color: #005D64;
+  color: #fff;
+}

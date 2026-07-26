@@ -16,6 +16,44 @@
     "postalCode": "06611",
     "addressCountry": "US"
   },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Trumbull, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Fairfield, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Shelton, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Bridgeport, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Stratford, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Monroe, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Easton, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Newtown, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Milford, CT"
+    }
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",

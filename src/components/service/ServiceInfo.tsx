@@ -6,6 +6,7 @@ import BodyText from '../ui/BodyText'
 import Highlight from '../ui/Highlight'
 import { FadeIn } from '../ui/FadeIn'
 import {SvgBlob} from 'react-svg-blob'
+import {SITE_COLORS} from '@/config/colors'
 
 
 interface ServiceInfoProps {
@@ -33,7 +34,7 @@ export default function ServiceInfo({
         <div className='flex flex-col items-center justify-center container space-y-12 p-4 py-12'>
             <FadeIn>
                 <HeaderText as='h2' variant='large' className='text-header-text font-serif font-medium text-center'>
-                    <Highlight color="#FBBFCA">{infoHeader}</Highlight>
+                    <Highlight color={SITE_COLORS.markerPink}>{infoHeader}</Highlight>
                 </HeaderText>
             </FadeIn>
             {/* First Row */}
@@ -52,7 +53,7 @@ export default function ServiceInfo({
 
                     <SvgBlob
                         className="hidden sm:block absolute -top-40 -right-30 -z-10 overflow-hidden"
-                        color="#C8E7DB"
+                        color={SITE_COLORS.blobMint}
                         variant="solid"
                     />
                     <Image
@@ -83,7 +84,7 @@ export default function ServiceInfo({
                 <div className='relative'>
                     <SvgBlob
                         className="hidden sm:block absolute -top-28 -left-40 -z-10 overflow-hidden"
-                        color="lightblue"
+                        color={SITE_COLORS.blobBlue}
                         variant="solid"
                     />
                     <Image

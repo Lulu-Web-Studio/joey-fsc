@@ -32,7 +32,7 @@ export default function ServiceHero({
                 <HeaderText as='h1' variant='large' className='text-header-text font-serif font-medium'>
                     {title}
                 </HeaderText>
-                <BodyText as="h2" className='text-body-text-light'>
+                <BodyText as="p" className='text-body-text-light'>
                     {description}
                 </BodyText>
             </div>

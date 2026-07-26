@@ -9,6 +9,7 @@ import { FadeIn, FadeInStagger, FadeInItem } from '@/components/ui/FadeIn'
 import { PortableText } from '@portabletext/react'
 import type { DoctorsPageSettings, Doctor } from '@/types/sanity'
 import { urlFor } from '@/sanity/lib/image'
+import { SITE_COLORS } from '@/config/colors'
 
 interface DoctorsContentProps {
     settings: DoctorsPageSettings;
@@ -82,7 +83,7 @@ export default function DoctorsContent({ settings, doctors }: DoctorsContentProp
             <FadeIn className="flex flex-col items-center justify-center gap-4 mb-20 px-8 text-center">
                 <HeaderText as="h1" className="text-header-text font-serif font-medium">
                     {titlePrefix}{titlePrefix ? ' ' : ''}
-                    <Underline color="#FEB7B1">
+                    <Underline color={SITE_COLORS.primaryPink}>
                         <span>{titleHighlight}</span>
                     </Underline>
                 </HeaderText>

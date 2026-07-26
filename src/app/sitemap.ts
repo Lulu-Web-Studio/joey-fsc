@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { createClient } from 'next-sanity'
 import { apiVersion, dataset, projectId } from '@/sanity/env'
+import { AREAS, AREAS_BASE_PATH, areaHref, areaServicePages } from '@/config/areas'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.facialsurgeryct.com'
 
@@ -16,6 +17,7 @@ const staticRoutes: { path: string; priority: number }[] = [
     { path: '/for-patients/what-to-expect',  priority: 0.6 },
     { path: '/for-patients/pre-op',          priority: 0.6 },
     { path: '/for-patients/post-op',         priority: 0.6 },
+    { path: AREAS_BASE_PATH,                 priority: 0.8 },
 ]
 
 // Paths that should never appear in the sitemap
@@ -46,5 +48,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
         }))
 
-    return [...staticEntries, ...serviceEntries]
+    const areaEntries: MetadataRoute.Sitemap = AREAS.map((area) => ({
+        url: `${BASE_URL}${areaHref(area)}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+    }))
+
+    // Empty until a service-area combo declares a `page` in the areas config
+    const areaServiceEntries: MetadataRoute.Sitemap = areaServicePages().map(
+        ({ area, service }) => ({
+            url: `${BASE_URL}${areaHref(area)}/${service.slug}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        }),
+    )
+
+    return [...staticEntries, ...serviceEntries, ...areaEntries, ...areaServiceEntries]
 }

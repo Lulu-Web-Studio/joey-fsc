@@ -27,7 +27,6 @@ export const siteSettingsType = defineType({
       fields: [
         { name: 'phone', type: 'string', title: 'Phone Number' },
         { name: 'email', type: 'string', title: 'Email Address' },
-        { name: 'address', type: 'text', title: 'Physical Address' },
       ],
     }),
     defineField({

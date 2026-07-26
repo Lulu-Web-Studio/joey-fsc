@@ -8,6 +8,7 @@ import Underline from '../ui/Underline'
 import { FadeIn } from '../ui/FadeIn'
 import type { HybridImage } from '@/types/sanity'
 import { getImageUrl } from '@/sanity/lib/image'
+import { SITE_COLORS } from '@/config/colors'
 
 interface AreasOfFocusProps {
     className?: string;
@@ -23,7 +24,7 @@ export default function AreasOfFocus({ className, title, subtitle, image }: Area
         <div className={clsx(className, 'px-10 sm:px-0 sm:w-full')}>
             <FadeIn className='mx-auto max-w-3xl'>
                 <HeaderText as='h2' variant="default" className="text-header-text mb-12 text-center font-serif font-medium">
-                    <Underline color='#CE8490'>
+                    <Underline color={SITE_COLORS.accentRose}>
                         {title}
                     </Underline>
                 </HeaderText>

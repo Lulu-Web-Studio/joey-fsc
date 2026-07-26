@@ -1,6 +1,21 @@
 "use client"
 import { motion, type Variants } from "framer-motion"
-import type { CSSProperties, ElementType, ReactNode, Ref } from "react"
+import type { CSSProperties, ReactNode, Ref } from "react"
+
+// Resolved once at module scope. Calling motion(as) during render mints a new
+// component type each time, which remounts the subtree — and replays the
+// entrance animation — on every parent re-render.
+const MOTION_TAGS = {
+  a: motion.a,
+  div: motion.div,
+  li: motion.li,
+  p: motion.p,
+  section: motion.section,
+  span: motion.span,
+  ul: motion.ul,
+} as const
+
+type MotionTagName = keyof typeof MOTION_TAGS
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -26,12 +41,12 @@ interface FadeInProps {
   className?: string
   delay?: number
   amount?: number
-  as?: ElementType
+  as?: MotionTagName
 }
 
 /** Fades + slides an element up once it scrolls into view. */
 export function FadeIn({ children, className, delay = 0, amount = 0.3, as = "div" }: FadeInProps) {
-  const MotionTag = motion(as) as typeof motion.div
+  const MotionTag = MOTION_TAGS[as]
 
   return (
     <MotionTag
@@ -52,14 +67,16 @@ interface FadeInStaggerProps {
   className?: string
   amount?: number
   style?: CSSProperties
-  as?: ElementType
+  as?: MotionTagName
   ref?: Ref<HTMLDivElement>
   [key: string]: unknown
 }
 
 /** Wraps a group of FadeInItem children and reveals them staggered once in view. */
 export function FadeInStagger({ children, className, amount = 0.2, style, as = "div", ref, ...rest }: FadeInStaggerProps) {
-  const MotionTag = motion(as) as typeof motion.div
+  // Cast collapses the union's intersected ref type; `ref` is only ever a div
+  // (the horizontal slider's scroll container).
+  const MotionTag = MOTION_TAGS[as] as typeof motion.div
 
   return (
     <MotionTag
@@ -80,12 +97,12 @@ export function FadeInStagger({ children, className, amount = 0.2, style, as = "
 interface FadeInItemProps {
   children: ReactNode
   className?: string
-  as?: ElementType
+  as?: MotionTagName
   [key: string]: unknown
 }
 
 export function FadeInItem({ children, className, as = "div", ...rest }: FadeInItemProps) {
-  const MotionTag = motion(as) as typeof motion.div
+  const MotionTag = MOTION_TAGS[as]
 
   return (
     <MotionTag className={className} variants={fadeUpItem} {...rest}>

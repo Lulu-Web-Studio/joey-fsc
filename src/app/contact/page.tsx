@@ -2,18 +2,19 @@ import Form from '@/components/contact/Form';
 import BodyText from '@/components/ui/BodyText';
 import HeaderText from '@/components/ui/HeaderText';
 import clsx from 'clsx';
-import { Clock2Icon, MailIcon, MapIcon, PhoneIcon } from 'lucide-react';
+import {Clock2Icon, MailIcon, MapIcon, PhoneIcon} from 'lucide-react';
 import React from 'react';
-import { Metadata } from 'next';
-import { sanityFetch } from '@/sanity/lib/live';
-import { CONTACT_SETTINGS_QUERY, CONTACT_SEO_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/queries/settings';
-import { pageMetadata } from '@/lib/metadata';
-import { FadeIn } from '@/components/ui/FadeIn';
+import {Metadata} from 'next';
+import {sanityFetch} from '@/sanity/lib/live';
+import {CONTACT_SETTINGS_QUERY, CONTACT_SEO_QUERY, SITE_SETTINGS_QUERY} from '@/sanity/queries/settings';
+import {pageMetadata} from '@/lib/metadata';
+import {FadeIn} from '@/components/ui/FadeIn';
+import {config} from "@/config";
 
 export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
-    const { data } = await sanityFetch({
+    const {data} = await sanityFetch({
         query: CONTACT_SEO_QUERY,
         stega: false,
     });
@@ -26,29 +27,25 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ContactPage() {
-    const { data: settings } = await sanityFetch({ query: CONTACT_SETTINGS_QUERY });
-    const { data: siteSettings } = await sanityFetch({ query: SITE_SETTINGS_QUERY, stega: false });
+    const {data: settings} = await sanityFetch({query: CONTACT_SETTINGS_QUERY});
+    const {data: siteSettings} = await sanityFetch({query: SITE_SETTINGS_QUERY, stega: false});
     const businessHours = (settings?.businessHours || []).filter(
         (
             hour: NonNullable<NonNullable<typeof settings>["businessHours"]>[number]
-        ): hour is { days: string | null; hours: string | null } => Boolean(hour)
+        ): hour is {days: string | null; hours: string | null} => Boolean(hour)
     );
-    const phone = siteSettings?.contact?.phone || "(203) 374-8277";
-    const email = siteSettings?.contact?.email || "info@facialsurgeryct.com";
-
-    // Format full address
-    const fullAddress = settings?.address
-        ? `${settings.address.street}, ${settings.address.city}, ${settings.address.state} ${settings.address.zip}`
-        : "115 Technology Dr B-101, Trumbull, CT 06611";
+    const phone = siteSettings?.contact?.phone || config.officePhone;
+    const email = siteSettings?.contact?.email || config.officeEmail;
+    const mapUrl = `https://maps.google.com/?q=${encodeURIComponent(config.officeAddress)}`;
 
     // Build contact info array
     const contactInfo = [
         {
             icon: MapIcon,
             label: "Address",
-            value: fullAddress,
+            value: config.officeAddress,
             color: "text-primaryCyan",
-            href: settings?.address?.googleMapsUrl || "https://maps.google.com/?q=115+Technology+Dr+B-101,+Trumbull,+CT+06611",
+            href: mapUrl,
             clickable: true
         },
         {
@@ -70,7 +67,7 @@ export default async function ContactPage() {
         {
             icon: Clock2Icon,
             label: "Hours",
-            value: businessHours.length > 0 ? businessHours.map((h: { days: string | null; hours: string | null }, idx: number) => (
+            value: businessHours.length > 0 ? businessHours.map((h: {days: string | null; hours: string | null}, idx: number) => (
                 <React.Fragment key={idx}>
                     {h.days || "Hours"}: {h.hours || "Call for availability"}
                     {idx < businessHours.length - 1 && <br />}

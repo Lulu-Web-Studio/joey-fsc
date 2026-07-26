@@ -7,6 +7,7 @@ import HeaderText from "@/components/ui/HeaderText"
 import Underline from "@/components/ui/Underline"
 import { FadeIn, FadeInStagger, FadeInItem } from "@/components/ui/FadeIn"
 import { PortableText } from "@portabletext/react"
+import {SITE_COLORS} from "@/config/colors"
 
 interface WhatToExpectStep {
   title: string | null
@@ -31,7 +32,7 @@ export default function WhatToExpectContent({
       <div className="mx-auto max-w-5xl">
         <FadeIn className="mb-16 text-center">
           <HeaderText as="h1" className="mb-6 font-serif font-medium text-header-text">
-            <Underline color="#FFBA01">
+            <Underline color={SITE_COLORS.primaryYellow}>
               {settings?.title || "What to Expect During Your Visit"}
             </Underline>
           </HeaderText>

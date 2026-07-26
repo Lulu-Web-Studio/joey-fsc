@@ -8,6 +8,7 @@ import Underline from '@/components/ui/Underline'
 import { FadeIn } from '@/components/ui/FadeIn'
 import type { TeamPageSettings } from '@/types/sanity'
 import { getImageUrl } from '@/sanity/lib/image'
+import { SITE_COLORS } from '@/config/colors'
 
 interface TeamContentProps {
     settings: TeamPageSettings;
@@ -21,7 +22,7 @@ export default function TeamContent({ settings }: TeamContentProps) {
             <div className="mx-auto max-w-4xl px-6 lg:px-8">
                 <FadeIn className="mx-auto max-w-2xl sm:text-center sm:mt-10">
                     <HeaderText as="h1" className="text-header-text font-serif font-medium text-center">
-                        <Underline color='#FFBA01'>
+                        <Underline color={SITE_COLORS.primaryYellow}>
                             {settings.title}
                         </Underline>
                     </HeaderText>
