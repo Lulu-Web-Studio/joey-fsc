@@ -558,6 +558,67 @@ export const AREAS: Area[] = [
         "Oral and maxillofacial surgeons 22 minutes from Newtown, CT, a straight run south. Wisdom teeth, dental implants and corrective jaw surgery for all ages.",
     },
   },
+  {
+    slug: "westport",
+    town: "Westport",
+    county: "Fairfield County",
+    primaryKeyword: "oral surgeon Westport CT",
+    tagline: "20 minutes on the Merritt Parkway",
+    summary:
+      "A straightforward run up the Merritt Parkway from the shoreline. Westport patients most often reach us on a referral from their dentist or orthodontist for implant, wisdom teeth, or full-arch care.",
+    driveTime: "about 20 minutes",
+    neighborhoods: [
+      "Downtown Westport",
+      "Saugatuck",
+      "Compo Beach",
+      "Greens Farms",
+      "Coleytown",
+      "Old Hill",
+    ],
+    localContext: [
+      "Westport sits at the edge of the area we serve regularly, about 20 minutes north on the Merritt Parkway rather than along I-95. It is a parkway drive without highway merges, which patients tend to find less stressful before a surgical appointment than the shoreline route through Norwalk.",
+      "Westport already has established dental and oral surgery options closer to the coast, so patients who make the trip to us usually have a specific reason: a referring dentist they already trust, a second opinion on a complex implant or full-arch case, or in-house IV sedation for a procedure their local office refers out. We work directly from the imaging and records your dentist already has rather than starting over.",
+      "Staples High School is the town's only public high school, and we see the same clustering of wisdom teeth evaluations around junior and senior year that we see in other towns with a single large high school. We coordinate timing with your family's orthodontist when braces or aligners are part of the picture, and we are glad to work from a referral your dentist sends ahead of the visit.",
+    ],
+    referralNote:
+      "We accept referrals from general dentists and orthodontists in Westport and work from your dentist's existing records and imaging where possible to keep the visit to a single trip.",
+    services: [
+      {slug: "dental-implants"},
+      {slug: "teeth-in-a-day"},
+      {slug: "wisdom-teeth-removal"},
+      {slug: "tooth-extractions"},
+      {slug: "dental-bone-grafting"},
+      {slug: "anesthesia"},
+    ],
+    faqs: [
+      {
+        question: "How long is the drive from Westport?",
+        answer:
+          "About 20 minutes on the Merritt Parkway, with no highway merges. It is a similar drive whether you are coming from downtown, Saugatuck, or Greens Farms.",
+      },
+      {
+        question: "Do I need a referral from my Westport dentist?",
+        answer:
+          "Not necessarily — you can request a consultation directly. That said, many Westport patients do arrive with a referral, and if you have one we will request your dentist's records and imaging so the visit does not start from scratch.",
+      },
+      {
+        question: "Can you offer a second opinion on a treatment plan?",
+        answer:
+          "Yes. Bring any existing imaging or notes from your dentist and the surgeon can review the plan, discuss alternatives, and explain the reasoning before anything is scheduled.",
+      },
+      {
+        question: "Is IV sedation available for Westport patients?",
+        answer:
+          "Yes, IV sedation is offered in-house for appropriate patients and procedures. A responsible adult is required to drive you home and stay with you afterward.",
+      },
+      ...COMMON_LOCATION_FAQS,
+    ],
+    seo: {
+      title: "Oral Surgeon in Westport, CT | Facial Surgery Center",
+      description:
+        "Oral and maxillofacial surgeons about 20 minutes from Westport, CT via the Merritt Parkway. Dental implants, wisdom teeth removal and in-house IV sedation.",
+    },
+  },
 ];
 
 export const AREAS_BASE_PATH = "/areas-we-serve";
