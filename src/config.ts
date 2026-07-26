@@ -3,6 +3,7 @@ const buildConfig = () => {
   const officePhone = "(203) 261-7800"
   const officeEmail = "office@facialsurgeryct.com"
   const officeAddress = "115 Technology Dr B-101, Trumbull, CT 06611"
+  const googleReviewUrl = "https://g.page/r/CbgIr5TAtokHEAE/review"
 
   const name = process.env.NEXT_PUBLIC_DISPLAY_NAME || "Display Name.";
   const copyright = process.env.NEXT_PUBLIC_COPYRIGHT || "Copyright";
@@ -14,6 +15,7 @@ const buildConfig = () => {
     officePhone,
     officeEmail,
     officeAddress,
+    googleReviewUrl,
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
     name: {
       name,

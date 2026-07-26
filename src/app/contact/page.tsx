@@ -2,7 +2,7 @@ import Form from '@/components/contact/Form';
 import BodyText from '@/components/ui/BodyText';
 import HeaderText from '@/components/ui/HeaderText';
 import clsx from 'clsx';
-import {Clock2Icon, MailIcon, MapIcon, PhoneIcon} from 'lucide-react';
+import {Clock2Icon, MailIcon, MapIcon, PhoneIcon, StarIcon} from 'lucide-react';
 import React from 'react';
 import {Metadata} from 'next';
 import {sanityFetch} from '@/sanity/lib/live';
@@ -135,6 +135,25 @@ export default async function ContactPage() {
                                     </div>
                                 ))}
                             </dl>
+
+                            {/* Google review CTA */}
+                            <div className="mt-10 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 p-6 shadow-sm">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <StarIcon aria-hidden="true" className="h-6 w-6 text-amber-400 fill-amber-400" />
+                                    <span className="font-semibold text-gray-900">Enjoyed your visit?</span>
+                                </div>
+                                <BodyText className="text-gray-600 mb-4">
+                                    We&apos;d love to hear about your experience. Leave us a review on Google!
+                                </BodyText>
+                                <a
+                                    href={config.googleReviewUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-6 py-3 bg-primary-teal text-white font-semibold rounded-xl hover:bg-primaryCyan transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                                >
+                                    Leave a Google Review
+                                </a>
+                            </div>
                         </div>
                     </FadeIn>
 
