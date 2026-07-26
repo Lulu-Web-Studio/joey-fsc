@@ -54,6 +54,7 @@ export default async function RootLayout({
       <head>
         <meta name="norton-safeweb-site-verification" content="H88Z4SQO0HAGQNPYD3N4B31617QGL4SK07IURF44WDBGYHLP1H1KX7XE3QS2T8-ANUJOLXCMPV2XN248POFXRQWCVHPE2UV8GX-BGISUOB2LWUPBE8JXOJCDHCYPELP2" />
         <meta name="wot-verification" content="d8ec0942c528dedee856" />
+        <meta name="tp-claim" content="82df465bfeebed" />
       </head>
       <body
         className={cn(
