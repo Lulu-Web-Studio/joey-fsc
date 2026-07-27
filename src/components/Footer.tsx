@@ -50,7 +50,7 @@ export const Footer: FunctionComponent<{
   const socialLinks = socialLinkConfig.filter(({key}) => Boolean(siteSocialLinks?.[key]));
   const footerDescription =
     siteDescription ||
-    "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral and maxillofacial care for patients.";
+    "Providing oral and maxillofacial care from our Trumbull office to patients throughout Fairfield County, Connecticut.";
 
   return (
     <footer className="bg-white">

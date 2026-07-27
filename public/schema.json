@@ -3,7 +3,7 @@
   "@type": "Dentist",
   "name": "Facial Surgery Center",
   "alternateName": "Facial Surgery Center - Oral and Maxillofacial Surgeons",
-  "description": "Serving Trumbull, Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral and maxillofacial care for patients.",
+  "description": "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, Connecticut.",
   "url": "https://www.facialsurgeryct.com",
   "telephone": "(203) 261-7800",
   "medicalSpecialty": "https://schema.org/Dentistry",
@@ -17,6 +17,10 @@
     "addressCountry": "US"
   },
   "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Fairfield County, CT"
+    },
     {
       "@type": "City",
       "name": "Trumbull, CT"
@@ -52,6 +56,30 @@
     {
       "@type": "City",
       "name": "Milford, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Westport, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Derby, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Norwalk, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Stamford, CT"
+    },
+    {
+      "@type": "City",
+      "name": "New Haven, CT"
+    },
+    {
+      "@type": "City",
+      "name": "Orange, CT"
     }
   ],
   "openingHoursSpecification": [
@@ -75,11 +103,6 @@
       "closes": "12:00"
     }
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": 4.7,
-    "reviewCount": 24
-  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Oral and Maxillofacial Surgery Services",

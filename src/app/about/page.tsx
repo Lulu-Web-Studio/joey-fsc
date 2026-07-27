@@ -56,8 +56,9 @@ const defaultAboutSettings: AboutSettings = {
 };
 
 const defaultLocationSettings: LocationSection = {
-    title: "Serving Connecticut",
-    description: "Conveniently located in Trumbull, Connecticut.",
+    title: "Serving Trumbull and Fairfield County",
+    description:
+        "Our Trumbull office welcomes patients from across Fairfield County for personalized oral and maxillofacial surgery.",
     image: {
         staticPath: "/images/connecticut2.png",
     },

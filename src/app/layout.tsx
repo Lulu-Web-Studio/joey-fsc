@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     absolute: "Facial Surgery Center",
     default: "Facial Surgery Center | Oral & Maxillofacial Surgeons",
   },
-  description: "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral maxillofacial care for patients.",
+  description:
+    "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, CT.",
   openGraph: {
     title: config.name.metadata.title,
     description: config.name.metadata.description,

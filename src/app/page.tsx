@@ -16,23 +16,24 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 
   return pageMetadata(
-    data?.seo?.title || "Facial Surgery Center | Oral & Maxillofacial Surgeons",
-    data?.seo?.description || "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral maxillofacial care for patients.",
+    data?.seo?.title || "Oral & Maxillofacial Surgeon Serving Trumbull & Fairfield County, CT",
+    data?.seo?.description ||
+      "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, CT.",
     "",
   );
 }
 
 const defaultHomeSettings: HomeSettings = {
   seo: {
-    title: "Facial Surgery Center | Best Oral and Maxillofacial Surgeons",
+    title: "Oral & Maxillofacial Surgeon Serving Trumbull & Fairfield County, CT",
     description:
-      "Serving Trumbull Connecticut for over 30 years, The Facial Surgery Center has been providing superior oral maxillofacial care for patients.",
+      "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, CT.",
   },
   hero: {
     headline: "Love Your",
     highlight: "Healthy",
     subtitle:
-      "Expert oral and maxillofacial care from a team focused on comfort, safety, and long-term results.",
+      "Expert oral and maxillofacial care at our Trumbull office for patients throughout Fairfield County.",
     heroImage: {
       staticPath: "/images/smiling-woman.png",
     },
@@ -57,8 +58,9 @@ const defaultHomeSettings: HomeSettings = {
     description: "Comprehensive oral and maxillofacial surgery services.",
   },
   location: {
-    title: "Serving Connecticut",
-    description: "Conveniently located in Trumbull, Connecticut.",
+    title: "Serving Trumbull and Fairfield County",
+    description:
+      "Our Trumbull office welcomes patients from across Fairfield County for personalized oral and maxillofacial surgery.",
     image: {
       staticPath: "/images/connecticut2.png",
     },

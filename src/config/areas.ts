@@ -619,6 +619,306 @@ export const AREAS: Area[] = [
         "Oral and maxillofacial surgeons about 20 minutes from Westport, CT via the Merritt Parkway. Dental implants, wisdom teeth removal and in-house IV sedation.",
     },
   },
+  {
+    slug: "derby",
+    town: "Derby",
+    county: "New Haven County",
+    primaryKeyword: "oral surgeon Derby CT",
+    tagline: "18 minutes up Route 8",
+    summary:
+      "Connecticut's smallest city, just past Shelton on Route 8. Derby sends us a steady mix of emergency referrals from Griffin Hospital and routine restorative cases.",
+    driveTime: "about 18 minutes",
+    neighborhoods: [
+      "Downtown Derby",
+      "Derby Greenway",
+      "Hilltop",
+      "the Housatonic riverfront",
+      "the Shelton border",
+    ],
+    localContext: [
+      "Derby is the smallest city in Connecticut, and the drive from our office is a straight shot up Route 8 through Shelton — a couple of minutes longer than our Shelton patients, on the same road. Downtown Derby and the Greenway sit right along the Housatonic and Naugatuck rivers, and the Hilltop section above it is a short climb from there.",
+      "Griffin Hospital, on Division Street, is the city's hospital, and we coordinate with its emergency department on facial injuries and dental trauma that need surgical follow-up after a patient has been stabilized. If you were seen at Griffin and referred out for an extraction, biopsy, or fracture repair, our team can request the imaging and notes directly so you are not repeating the workup.",
+      "Derby High School on Chatfield Street is the city's only public high school, and we see the usual clustering of wisdom teeth evaluations among juniors and seniors. Most adult patients from Derby arrive through a general dentist in the Lower Naugatuck Valley rather than searching cold, and we work from whatever records that office has already gathered.",
+    ],
+    referralNote:
+      "We accept referrals from Griffin Hospital's emergency department and from general dentists throughout the Lower Naugatuck Valley, and we request existing imaging and records so the first visit does not start from scratch.",
+    services: [
+      {slug: "facial-trauma"},
+      {slug: "tooth-extractions"},
+      {slug: "wisdom-teeth-removal"},
+      {slug: "dental-implants"},
+      {slug: "oral-pathology"},
+      {slug: "anesthesia"},
+    ],
+    faqs: [
+      {
+        question: "How long is the drive from Derby?",
+        answer:
+          "About 18 minutes, straight up Route 8 through Shelton. It is the same road our Shelton patients use, just a few minutes further.",
+      },
+      {
+        question: "Do you coordinate with Griffin Hospital?",
+        answer:
+          "Yes. If you were seen in Griffin Hospital's emergency department and referred for oral or facial surgery follow-up, we can request your imaging and notes directly so the visit builds on what was already done rather than repeating it.",
+      },
+      {
+        question: "Can I be seen for a dental emergency without a referral?",
+        answer:
+          "Yes, you can request a consultation directly. Call the office and describe your symptoms so the team can advise on urgency and the earliest appropriate appointment.",
+      },
+      {
+        question: "Is this closer than driving to New Haven?",
+        answer:
+          "For most Derby addresses, yes — Trumbull is a more direct trip up Route 8 than crossing over to New Haven, especially outside of rush hour.",
+      },
+      ...COMMON_LOCATION_FAQS,
+    ],
+    seo: {
+      title: "Oral Surgeon in Derby, CT | Facial Surgery Center",
+      description:
+        "Oral and maxillofacial surgeons about 18 minutes from Derby, CT via Route 8. Facial trauma, wisdom teeth removal, dental implants and emergency extractions.",
+    },
+  },
+  {
+    slug: "norwalk",
+    town: "Norwalk",
+    county: "Fairfield County",
+    primaryKeyword: "oral surgeon Norwalk CT",
+    tagline: "26 minutes via the Merritt Parkway",
+    summary:
+      "A larger coastal city past Westport on the Merritt Parkway. Norwalk patients most often reach us through a referring dentist for implant, wisdom teeth, or full-arch care.",
+    driveTime: "about 26 minutes",
+    neighborhoods: [
+      "East Norwalk",
+      "South Norwalk (SoNo)",
+      "Cranbury",
+      "Rowayton",
+      "Silvermine",
+    ],
+    localContext: [
+      "Norwalk is about 26 minutes from our office, a few minutes past Westport on the same Merritt Parkway route, which most patients find easier than fighting I-95 traffic along the shoreline. Cranbury, in the city's northeast corner, is often the fastest of Norwalk's neighborhoods to reach; South Norwalk and East Norwalk add a bit more time.",
+      "Norwalk already has its own dental and oral surgery practices, including options near Norwalk Hospital, so patients who make the trip to us usually have a specific reason: a referring dentist they already trust, a second opinion on a complex case, or in-house IV sedation for a procedure their local office refers out. We work from the imaging and records your dentist already has rather than starting over.",
+      "Norwalk High School and Brien McMahon High School are the city's two public high schools, and we see the same pattern of wisdom teeth evaluations clustering around junior and senior year that we see elsewhere. We coordinate timing with your family's orthodontist when braces or aligners are part of the picture.",
+    ],
+    referralNote:
+      "We accept referrals from general dentists and orthodontists in Norwalk and work from your dentist's existing records and imaging where possible to keep the visit to a single trip.",
+    services: [
+      {slug: "wisdom-teeth-removal"},
+      {slug: "dental-implants"},
+      {slug: "teeth-in-a-day"},
+      {slug: "tooth-extractions"},
+      {slug: "facial-trauma"},
+      {slug: "anesthesia"},
+    ],
+    faqs: [
+      {
+        question: "How long is the drive from Norwalk?",
+        answer:
+          "About 26 minutes via the Merritt Parkway, roughly the same route as our Westport patients with a few extra minutes depending on which part of Norwalk you're coming from.",
+      },
+      {
+        question: "Why drive to Trumbull when Norwalk has its own oral surgeons?",
+        answer:
+          "Most Norwalk patients we see have a specific reason — a referring dentist they already work with, a second opinion on a complex implant or full-arch case, or in-house IV sedation their local office doesn't offer.",
+      },
+      {
+        question: "Do I need a referral from my Norwalk dentist?",
+        answer:
+          "Not necessarily — you can request a consultation directly. If you have a referring dentist, we will request their records and imaging so the visit does not start from scratch.",
+      },
+      {
+        question: "Is IV sedation available for Norwalk patients?",
+        answer:
+          "Yes, IV sedation is offered in-house for appropriate patients and procedures. A responsible adult is required to drive you home and stay with you afterward.",
+      },
+      ...COMMON_LOCATION_FAQS,
+    ],
+    seo: {
+      title: "Oral Surgeon in Norwalk, CT | Facial Surgery Center",
+      description:
+        "Oral and maxillofacial surgeons about 26 minutes from Norwalk, CT via the Merritt Parkway. Dental implants, wisdom teeth removal and in-house IV sedation.",
+    },
+  },
+  {
+    slug: "stamford",
+    town: "Stamford",
+    county: "Fairfield County",
+    primaryKeyword: "oral surgeon Stamford CT",
+    tagline: "34 minutes via I-95",
+    summary:
+      "The farthest town we serve regularly, about 34 minutes down I-95. Stamford patients usually come to us for a second opinion or a complex case their local office refers out.",
+    driveTime: "about 34 minutes",
+    neighborhoods: [
+      "Downtown Stamford",
+      "Springdale",
+      "Glenbrook",
+      "the Cove",
+      "Shippan",
+    ],
+    localContext: [
+      "Stamford is the farthest town we serve on a regular basis, about 34 minutes south on I-95. Because it's a longer trip, we try to be efficient with it: consultation, imaging review, and treatment planning happen in a single visit wherever possible, and we schedule surgical and follow-up appointments to minimize the number of separate drives.",
+      "Stamford is Fairfield County's largest city and already has established oral surgery practices of its own, so patients who travel to Trumbull usually have a specific reason — a referring dentist they already trust, a second opinion on a complex implant or full-arch case, or in-house IV sedation for a procedure their local office refers out. Between Westhill, Stamford High, and AITE, the city has three large public high schools, and we see the same wisdom teeth evaluation pattern among juniors and seniors that we see in other towns.",
+      "I-95 traffic is the main variable for Stamford patients — build in a buffer, especially for morning appointments. A sedation appointment that starts significantly late usually has to be rescheduled rather than simply running behind.",
+    ],
+    referralNote:
+      "We accept referrals from general dentists and prosthodontists in Stamford, and we consolidate visits where possible to reduce the number of trips a longer drive requires.",
+    services: [
+      {slug: "dental-implants"},
+      {slug: "teeth-in-a-day"},
+      {slug: "tooth-extractions"},
+      {slug: "dental-bone-grafting"},
+      {slug: "wisdom-teeth-removal"},
+      {slug: "anesthesia"},
+    ],
+    faqs: [
+      {
+        question: "How long is the drive from Stamford?",
+        answer:
+          "About 34 minutes via I-95 in normal traffic. Build in extra time for the trip — I-95 is the main variable, and a late arrival can affect sedation appointments in particular.",
+      },
+      {
+        question: "Can visits be combined to reduce trips from Stamford?",
+        answer:
+          "Sometimes. Whether a consultation, scan, and treatment planning can be combined depends on the records available and the complexity of the case. Ask when you schedule and we will do what we can to minimize separate trips.",
+      },
+      {
+        question: "Why travel to Trumbull when Stamford has its own oral surgeons?",
+        answer:
+          "Most Stamford patients we see have a specific reason to make the trip — a trusted referring dentist, a second opinion on a complex case, or in-house IV sedation their local office doesn't offer.",
+      },
+      {
+        question: "Do I need a referral to be seen?",
+        answer:
+          "No, you can request a consultation directly. If you do have a referring dentist, we will request their records and imaging ahead of the visit.",
+      },
+      ...COMMON_LOCATION_FAQS,
+    ],
+    seo: {
+      title: "Oral Surgeon in Stamford, CT | Facial Surgery Center",
+      description:
+        "Oral and maxillofacial surgeons about 34 minutes from Stamford, CT via I-95. Dental implants, full-arch restoration and in-house IV sedation for complex cases.",
+    },
+  },
+  {
+    slug: "new-haven",
+    town: "New Haven",
+    county: "New Haven County",
+    primaryKeyword: "oral surgeon New Haven CT",
+    tagline: "26 minutes via Route 15",
+    summary:
+      "A short trip east on Route 15. New Haven patients often come to us for a second opinion or in-house IV sedation outside of a teaching-hospital setting.",
+    driveTime: "about 26 minutes",
+    neighborhoods: [
+      "Westville",
+      "East Rock",
+      "Fair Haven",
+      "Wooster Square",
+      "Downtown / Ninth Square",
+    ],
+    localContext: [
+      "New Haven is about 26 minutes from our office via Route 15, a similar distance to our Milford patients but reached from the opposite direction. East Rock and Westville tend to be a few minutes quicker to reach than Fair Haven or downtown, depending on traffic.",
+      "New Haven has its own academic dental and oral surgery resources through Yale, so patients who travel to Trumbull are usually looking for something specific — a second opinion on a treatment plan, a referring dentist they already trust, or a private-office visit with in-house IV sedation rather than a teaching-hospital setting. We work from whatever imaging and records you already have rather than repeating the workup.",
+      "Route 15 and I-95 traffic through the New Haven corridor can be unpredictable, so we generally recommend morning appointments when the schedule allows it, particularly for procedures involving sedation.",
+    ],
+    referralNote:
+      "We accept referrals from general dentists and specialists in New Haven and coordinate directly with your dentist's office on records, imaging, and post-operative care.",
+    services: [
+      {slug: "oral-pathology"},
+      {slug: "facial-trauma"},
+      {slug: "dental-implants"},
+      {slug: "wisdom-teeth-removal"},
+      {slug: "tooth-extractions"},
+      {slug: "anesthesia"},
+    ],
+    faqs: [
+      {
+        question: "How long is the drive from New Haven?",
+        answer:
+          "About 26 minutes via Route 15, similar to the distance from Milford but reached from the opposite direction. Morning appointments tend to avoid the worst of the corridor traffic.",
+      },
+      {
+        question: "Why come to Trumbull when New Haven has Yale's dental programs?",
+        answer:
+          "Patients who make the trip usually want something specific — a second opinion, a referring dentist they already work with, or a private-office visit with in-house IV sedation rather than a teaching-hospital setting.",
+      },
+      {
+        question: "Can you evaluate and biopsy an oral lesion?",
+        answer:
+          "Yes. Oral pathology is a core part of our practice. Appointment timing depends on clinical urgency, so ask your dentist or physician to send referral details when you contact the office.",
+      },
+      {
+        question: "Do I need a referral from my New Haven dentist?",
+        answer:
+          "Not necessarily — you can request a consultation directly. If you have a referring dentist, we will request their records and imaging so the visit does not start from scratch.",
+      },
+      ...COMMON_LOCATION_FAQS,
+    ],
+    seo: {
+      title: "Oral Surgeon in New Haven, CT | Facial Surgery Center",
+      description:
+        "Oral and maxillofacial surgeons about 26 minutes from New Haven, CT via Route 15. Second opinions, oral pathology, dental implants and facial trauma care.",
+    },
+  },
+  {
+    slug: "orange",
+    town: "Orange",
+    county: "New Haven County",
+    primaryKeyword: "oral surgeon Orange CT",
+    tagline: "15 minutes via Route 15",
+    summary:
+      "A short run via Route 15, closer than our Milford patients. Orange families often arrive on a referral tied to the Amity Regional school calendar.",
+    driveTime: "about 15 minutes",
+    neighborhoods: [
+      "Orange Center",
+      "Grassy Hill",
+      "Racebrook",
+      "the Boston Post Road corridor",
+      "the Milford border",
+    ],
+    localContext: [
+      "Orange sits just next to Milford along Route 15, and at about 15 minutes it is actually one of the shorter drives in our wider service area — closer than several towns we've served for years. Orange Center, the town's historic green, and the Grassy Hill and Racebrook sections are all a straightforward run down Route 15 or the Boston Post Road.",
+      "Amity Regional High School serves Orange along with Woodbridge and Bethany, so scheduling for teenagers often has to work around a shared regional calendar rather than a single town's schedule. We see the usual clustering of wisdom teeth evaluations around junior and senior year and coordinate timing with your family's orthodontist when braces or aligners are part of the picture.",
+      "Most adult patients from Orange arrive through a referral from their general dentist along the Boston Post Road corridor, and we work from the records and imaging that office already has rather than starting over.",
+    ],
+    referralNote:
+      "We accept referrals from general dentists and orthodontists in Orange and the Amity Regional school district area, and we coordinate directly with your dentist's office on treatment planning and imaging.",
+    services: [
+      {slug: "wisdom-teeth-removal"},
+      {slug: "dental-implants"},
+      {slug: "tooth-extractions"},
+      {slug: "dental-bone-grafting"},
+      {slug: "orthognathic-surgery"},
+      {slug: "anesthesia"},
+    ],
+    faqs: [
+      {
+        question: "How long is the drive from Orange?",
+        answer:
+          "About 15 minutes via Route 15 — one of the shorter drives in our wider service area, comparable to some of the towns closer to Trumbull.",
+      },
+      {
+        question: "Do you coordinate with Amity Regional's school calendar?",
+        answer:
+          "Yes. Amity Regional High School serves Orange, Woodbridge, and Bethany on a shared calendar, and we coordinate wisdom teeth and orthodontic-adjacent timing with that in mind.",
+      },
+      {
+        question: "Is this closer than driving to Milford providers?",
+        answer:
+          "For most Orange addresses, yes — Orange sits just off our Milford route, and the drive to Trumbull is comparable or shorter for many neighborhoods.",
+      },
+      {
+        question: "Do I need a referral from my Orange dentist?",
+        answer:
+          "Not necessarily — you can request a consultation directly. If you have a referring dentist, we will request their records and imaging so the visit does not start from scratch.",
+      },
+      ...COMMON_LOCATION_FAQS,
+    ],
+    seo: {
+      title: "Oral Surgeon in Orange, CT | Facial Surgery Center",
+      description:
+        "Oral and maxillofacial surgeons about 15 minutes from Orange, CT via Route 15. Wisdom teeth removal, dental implants and orthodontist-coordinated care.",
+    },
+  },
 ];
 
 export const AREAS_BASE_PATH = "/areas-we-serve";
