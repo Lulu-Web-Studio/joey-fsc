@@ -57,6 +57,10 @@ export const SERVICE_QUERY = defineQuery(/* groq */ `
     seo {
       title,
       description
+    },
+    faqs[] {
+      question,
+      answer
     }
   }
 `)

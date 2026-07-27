@@ -3,19 +3,25 @@ import ServiceHero from '@/components/service/ServiceHero';
 import ServiceInfo from '@/components/service/ServiceInfo';
 import LearnMore from '@/components/service/LearnMore';
 import CTA from '@/components/CTA';
-import { Metadata } from 'next';
+import {Metadata} from 'next';
 import HeaderText from '@/components/ui/HeaderText';
-import { sanityFetch } from '@/sanity/lib/live';
-import { client } from '@/sanity/lib/client';
-import { SERVICE_QUERY, SERVICE_SEO_QUERY, ALL_SERVICE_SLUGS_QUERY, ALL_SERVICES_QUERY } from '@/sanity/queries/services';
-import type { Service } from '@/types/sanity';
-import { getImageUrl } from '@/sanity/lib/image';
-import { pageMetadata } from '@/lib/metadata';
+import {sanityFetch} from '@/sanity/lib/live';
+import {client} from '@/sanity/lib/client';
+import {SERVICE_QUERY, SERVICE_SEO_QUERY, ALL_SERVICE_SLUGS_QUERY, ALL_SERVICES_QUERY} from '@/sanity/queries/services';
+import type {Service} from '@/types/sanity';
+import {getImageUrl} from '@/sanity/lib/image';
+import {pageMetadata} from '@/lib/metadata';
+import FaqList from '@/components/areas/FaqList';
+import ServiceAreasList from '@/components/service/ServiceAreasList';
+import {SchemaMarkup} from '@/components/SchemaMarkup';
+import {faqSchema} from '@/lib/schema';
+import {areasForService, type Faq} from '@/config/areas';
+import type {ServiceSlug} from '@/config/services';
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-    const services = await client.fetch<{ slug: string }[]>(ALL_SERVICE_SLUGS_QUERY);
+    const services = await client.fetch<{slug: string}[]>(ALL_SERVICE_SLUGS_QUERY);
 
     return services.filter((service) => Boolean(service.slug)).map((service) => ({
         service: service.slug,
@@ -25,12 +31,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({
     params,
 }: {
-    params: Promise<{ service: string }>
+    params: Promise<{service: string}>
 }): Promise<Metadata> {
-    const { service } = await params;
-    const { data: serviceData } = await sanityFetch({
+    const {service} = await params;
+    const {data: serviceData} = await sanityFetch({
         query: SERVICE_SEO_QUERY,
-        params: { slug: service },
+        params: {slug: service},
         stega: false,
     });
 
@@ -50,16 +56,16 @@ export async function generateMetadata({
 export default async function ServicePage({
     params,
 }: {
-    params: Promise<{ service: string }>
+    params: Promise<{service: string}>
 }) {
-    const { service } = await params;
+    const {service} = await params;
 
-    const { data: serviceData } = await sanityFetch({
+    const {data: serviceData} = await sanityFetch({
         query: SERVICE_QUERY,
-        params: { slug: service },
+        params: {slug: service},
     });
 
-    const { data: allServices } = await sanityFetch({
+    const {data: allServices} = await sanityFetch({
         query: ALL_SERVICES_QUERY,
     });
 
@@ -102,6 +108,7 @@ export default async function ServicePage({
             image: serviceData.paragraph2?.image || null,
         },
         ctaText: serviceData.ctaText || undefined,
+        faqs: (serviceData.faqs || []) as Faq[],
     };
 
     const currentServiceCard: Service = {
@@ -121,6 +128,8 @@ export default async function ServicePage({
 
     const prevService = serviceList[prevIndex] || serviceList[0] || currentServiceCard;
     const nextService = serviceList[nextIndex] || serviceList[0] || currentServiceCard;
+
+    const servingAreas = areasForService(service as ServiceSlug);
 
     return (
         <div className='min-h-screen'>
@@ -147,6 +156,17 @@ export default async function ServicePage({
                 <LearnMore
                     prevService={prevService}
                     nextService={nextService}
+                />
+            </div>
+            <SchemaMarkup data={faqSchema(currentService.faqs)} />
+            <FaqList
+                title={`${currentService.serviceTitle} questions`}
+                faqs={currentService.faqs}
+            />
+            <div className='pt-10'>
+                <ServiceAreasList
+                    serviceTitle={currentService.serviceTitle}
+                    areas={servingAreas}
                 />
             </div>
             <div>

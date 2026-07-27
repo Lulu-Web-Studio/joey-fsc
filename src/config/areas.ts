@@ -952,6 +952,11 @@ export function getArea(slug: string): Area | undefined {
   return AREAS.find((area) => area.slug === slug);
 }
 
+/** Reverse lookup off the same area->services data — no separate content to maintain. */
+export function areasForService(slug: ServiceSlug): Area[] {
+  return AREAS.filter((area) => area.services.some((s) => s.slug === slug));
+}
+
 export function areaHref(area: Area): string {
   return `${AREAS_BASE_PATH}/${area.slug}`;
 }

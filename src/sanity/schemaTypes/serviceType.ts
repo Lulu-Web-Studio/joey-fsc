@@ -147,6 +147,20 @@ export const serviceType = defineType({
       description: 'Order in which services appear (lower numbers first)',
       initialValue: 0,
     }),
+    defineField({
+      name: 'faqs',
+      title: 'FAQs',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'question', type: 'string', title: 'Question' },
+            { name: 'answer', type: 'text', title: 'Answer' },
+          ],
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
