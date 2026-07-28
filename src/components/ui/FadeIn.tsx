@@ -65,15 +65,23 @@ export function FadeIn({ children, className, delay = 0, amount = 0.3, as = "div
 interface FadeInStaggerProps {
   children: ReactNode
   className?: string
-  amount?: number
+  amount?: number | "some" | "all"
   style?: CSSProperties
   as?: MotionTagName
   ref?: Ref<HTMLDivElement>
   [key: string]: unknown
 }
 
-/** Wraps a group of FadeInItem children and reveals them staggered once in view. */
-export function FadeInStagger({ children, className, amount = 0.2, style, as = "div", ref, ...rest }: FadeInStaggerProps) {
+/**
+ * Wraps a group of FadeInItem children and reveals them staggered once in view.
+ * Defaults to "some" (any pixel intersecting) rather than a fraction of the
+ * whole container — a stagger container can hold an arbitrary, growing number
+ * of children (e.g. town cards), and a fixed fraction like 0.2 stops being
+ * reachable once the stacked-on-mobile container gets tall enough that no
+ * single scroll position shows 20% of it, silently keeping the section at
+ * opacity 0 forever.
+ */
+export function FadeInStagger({ children, className, amount = "some", style, as = "div", ref, ...rest }: FadeInStaggerProps) {
   // Cast collapses the union's intersected ref type; `ref` is only ever a div
   // (the horizontal slider's scroll container).
   const MotionTag = MOTION_TAGS[as] as typeof motion.div
