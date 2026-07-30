@@ -56,6 +56,10 @@ export default async function RootLayout({
         <meta name="norton-safeweb-site-verification" content="H88Z4SQO0HAGQNPYD3N4B31617QGL4SK07IURF44WDBGYHLP1H1KX7XE3QS2T8-ANUJOLXCMPV2XN248POFXRQWCVHPE2UV8GX-BGISUOB2LWUPBE8JXOJCDHCYPELP2" />
         <meta name="wot-verification" content="d8ec0942c528dedee856" />
         <meta name="tp-claim" content="82df465bfeebed" />
+        <meta
+          name="trustpilot-one-time-domain-verification-id"
+          content="021519f9-4c37-4977-8e99-15e6314f01b6"
+        />
       </head>
       <body
         className={cn(

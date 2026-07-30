@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { createClient } from 'next-sanity'
 import { apiVersion, dataset, projectId } from '@/sanity/env'
 import { AREAS, AREAS_BASE_PATH, areaHref, areaServicePages } from '@/config/areas'
+import { BLOG_BASE_PATH, getAllPosts, postHref } from '@/lib/blog'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.facialsurgeryct.com'
 
@@ -18,6 +19,7 @@ const staticRoutes: { path: string; priority: number }[] = [
     { path: '/for-patients/pre-op',          priority: 0.6 },
     { path: '/for-patients/post-op',         priority: 0.6 },
     { path: AREAS_BASE_PATH,                 priority: 0.8 },
+    { path: BLOG_BASE_PATH,                  priority: 0.7 },
 ]
 
 // Paths that should never appear in the sitemap
@@ -29,6 +31,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const services = await sitemapClient
         .fetch<{ slug: string }[]>(`*[_type == "service"]{ "slug": slug.current }`)
         .catch(() => [])
+
+    // Blog posts are local markdown files, not Sanity documents
+    const posts = getAllPosts()
 
     const staticEntries: MetadataRoute.Sitemap = staticRoutes
         .filter(({ path }) => !excludedPrefixes.some((p) => path.startsWith(p)))
@@ -65,5 +70,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }),
     )
 
-    return [...staticEntries, ...serviceEntries, ...areaEntries, ...areaServiceEntries]
+    const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
+        url: `${BASE_URL}${postHref(post.slug)}`,
+        lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.6,
+    }))
+
+    return [
+        ...staticEntries,
+        ...serviceEntries,
+        ...areaEntries,
+        ...areaServiceEntries,
+        ...postEntries,
+    ]
 }

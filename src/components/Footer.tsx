@@ -10,6 +10,7 @@ const navigation = {
     {name: 'What to Expect', href: '/for-patients/what-to-expect'},
     {name: 'Pre Op', href: '/for-patients/pre-op'},
     {name: "Post Op", href: "/for-patients/post-op"},
+    {name: "Blog", href: "/blog"},
   ],
   about: [
     {name: "Meet the Doctors", href: "/about/meet-the-doctors"},

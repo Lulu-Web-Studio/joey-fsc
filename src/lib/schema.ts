@@ -23,6 +23,42 @@ export function breadcrumbSchema(crumbs: Crumb[]) {
   };
 }
 
+type BlogPostingInput = {
+  title: string;
+  description?: string | null;
+  path: string;
+  publishedAt?: string | null;
+  imageUrl?: string | null;
+};
+
+/**
+ * Article-level schema. Deliberately does not redeclare the practice as a
+ * medical business — `publisher` names the organisation only, so the sitewide
+ * entity in schema.json stays the single source of truth for the address.
+ */
+export function blogPostingSchema({
+  title,
+  description,
+  path,
+  publishedAt,
+  imageUrl,
+}: BlogPostingInput) {
+  const url = `${config.baseUrl}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    ...(description ? {description} : {}),
+    ...(publishedAt ? {datePublished: publishedAt, dateModified: publishedAt} : {}),
+    ...(imageUrl ? {image: imageUrl} : {}),
+    mainEntityOfPage: {"@type": "WebPage", "@id": url},
+    url,
+    author: {"@type": "Organization", name: "Facial Surgery Center"},
+    publisher: {"@type": "Organization", name: "Facial Surgery Center"},
+  };
+}
+
 export function faqSchema(faqs: Faq[]) {
   return {
     "@context": "https://schema.org",

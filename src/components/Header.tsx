@@ -15,6 +15,7 @@ import Button from "./Button";
 import {usePathname} from "next/navigation";
 import {config} from "@/config";
 import {SERVICES} from "@/config/services";
+import {AREAS_BASE_PATH} from "@/config/areas";
 
 interface MenuItem {
   name: string;
@@ -42,6 +43,8 @@ const menuItems: MenuItem[] = [
       {name: "What to Expect", href: "/for-patients/what-to-expect"},
       {name: "Pre Op", href: "/for-patients/pre-op"},
       {name: "Post Op", href: "/for-patients/post-op"},
+      {name: "Areas We Serve", href: AREAS_BASE_PATH},
+      {name: "Blog", href: "/blog"},
     ],
   },
   {
