@@ -42,3 +42,5 @@ schema.json
 
 # internal notes
 /docs
+/claude.md
+/agent.md

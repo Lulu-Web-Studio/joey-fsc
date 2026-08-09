@@ -47,7 +47,7 @@ export default function AreasWeServePage() {
             Our office sits on Technology Drive in Trumbull, within a short
             drive of most of lower Fairfield County. Patients come to us from
             the surrounding towns for wisdom teeth removal, dental implants,
-            corrective jaw surgery, and same-day treatment after facial trauma.
+            corrective jaw surgery, and evaluation after facial trauma.
           </BodyText>
 
           <BodyText as="p" className="mt-6 text-body-text">
@@ -55,8 +55,8 @@ export default function AreasWeServePage() {
             most people arrive here on their general dentist&apos;s
             recommendation rather than by shopping around. We work from the
             records your dentist already has wherever possible, and send our
-            operative notes back promptly so the restorative side of your
-            treatment is never left waiting on us.
+            operative notes back promptly to help keep the restorative side of
+            treatment coordinated.
           </BodyText>
 
           <BodyText as="p" className="mt-6 text-body-text">

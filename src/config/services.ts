@@ -2,7 +2,7 @@ export const SERVICES = {
   'dental-implants': {
     name: 'Dental Implants',
     img: '/images/services/implant/implants.webp',
-    description: 'Dental implants are a permanent solution for missing teeth, offering natural-looking results and long-term stability.',
+    description: 'Dental implants are a long-term option for replacing missing teeth, with treatment planned for natural-looking function and stability.',
   },
   'tooth-extractions': {
     name: 'Tooth Extractions',

@@ -60,7 +60,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
     }))
 
-    // Empty until a service-area combo declares a `page` in the areas config
+    // Only complete town-service pages declared in the areas config
     const areaServiceEntries: MetadataRoute.Sitemap = areaServicePages().map(
         ({ area, service }) => ({
             url: `${BASE_URL}${areaHref(area)}/${service.slug}`,

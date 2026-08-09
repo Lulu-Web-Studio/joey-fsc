@@ -14,9 +14,23 @@ type ServiceSlug = keyof typeof SERVICES;
 export type AreaService = {
   slug: ServiceSlug;
   page?: {
+    heading: string;
     primaryKeyword: string;
     /** Why this service, in this town. Must not be reusable elsewhere. */
     localAngle: string;
+    clinicalIntro: {
+      title: string;
+      paragraphs: string[];
+    };
+    evaluationReasons: string[];
+    visitSteps: {
+      title: string;
+      description: string;
+    }[];
+    localLogistics: {
+      title: string;
+      description: string;
+    };
     faqs: Faq[];
     seo: Seo;
   };
@@ -112,7 +126,78 @@ export const AREAS: Area[] = [
     referralNote:
       "We accept referrals from general dentists and orthodontists throughout Fairfield and coordinate directly with your dentist's office on treatment planning, imaging, and post-operative restoration.",
     services: [
-      {slug: "wisdom-teeth-removal"},
+      {
+        slug: "wisdom-teeth-removal",
+        page: {
+          heading: "Wisdom Teeth Removal",
+          primaryKeyword: "wisdom teeth removal Fairfield CT",
+          localAngle:
+            "Fairfield patients often begin with a referral from their dentist or orthodontist. Our Trumbull office is about 15 minutes from Fairfield center, and we can review available imaging, coordinate treatment timing, and explain whether removal or continued monitoring makes sense for your wisdom teeth.",
+          clinicalIntro: {
+            title: "When wisdom teeth should be evaluated",
+            paragraphs: [
+              "Wisdom teeth may be monitored when they have fully erupted, remain healthy and functional, and can be cleaned effectively. An evaluation becomes more important when a tooth is impacted, painful, swollen, difficult to clean, affected by decay or gum disease, or positioned where it may damage a neighboring tooth.",
+              "An examination and current imaging help distinguish a wisdom tooth that can be watched from one that may be better removed. When surgery is recommended, the plan covers which teeth need treatment, the expected complexity, anesthesia choices, and the recovery instructions that apply to your case.",
+            ],
+          },
+          evaluationReasons: [
+            "Pain, swelling, or repeated tenderness behind the last molar",
+            "A partially erupted or impacted tooth that is difficult to clean",
+            "Decay, gum disease, infection, or damage near another tooth",
+            "A dentist or orthodontist recommends imaging before treatment",
+          ],
+          visitSteps: [
+            {
+              title: "Review records and X-rays",
+              description:
+                "We examine the wisdom teeth and review available imaging from your Fairfield dentist or orthodontist. Additional imaging is recommended only when it is needed to plan safely.",
+            },
+            {
+              title: "Build the treatment plan",
+              description:
+                "The surgeon explains whether monitoring or removal is appropriate, which teeth are involved, and what anesthesia options fit the procedure and your health history.",
+            },
+            {
+              title: "Recover with clear instructions",
+              description:
+                "You receive written guidance for rest, swelling, diet, oral hygiene, medications, and when to call. Follow-up is arranged when the surgeon wants to check healing.",
+            },
+          ],
+          localLogistics: {
+            title: "Plan around school, work, and the ride home",
+            description:
+              "The office is about 15 minutes from Fairfield center; allow more time from Southport and the beach neighborhoods during commuter hours. If IV sedation is part of the plan, a responsible adult must drive you home and stay with you afterward. Surface parking is directly outside the entrance for pickup.",
+          },
+          faqs: [
+            {
+              question: "Do all wisdom teeth need to be removed?",
+              answer:
+                "No. Wisdom teeth that are fully erupted, functional, healthy, and easy to clean may sometimes be monitored. An examination and imaging help the surgeon assess infection, decay, gum disease, damage to nearby teeth, and other reasons removal may be recommended.",
+            },
+            {
+              question: "How far is wisdom teeth removal from Fairfield?",
+              answer:
+                "Our Trumbull office is about 15 minutes from Fairfield center. Travel time can be longer from Southport and the beach neighborhoods during commuter hours, so leave additional time for a scheduled appointment.",
+            },
+            {
+              question: "Can you coordinate with my Fairfield orthodontist?",
+              answer:
+                "Yes. We can request available records and imaging and coordinate treatment timing with your orthodontist or general dentist, particularly when wisdom teeth are being evaluated alongside braces or aligners.",
+            },
+            {
+              question: "Is IV sedation available for wisdom teeth removal?",
+              answer:
+                "IV sedation is available in-house for appropriate patients and procedures. The surgeon will review your health history, the planned procedure, and your anesthesia options; a responsible adult must drive you home after IV sedation.",
+            },
+          ],
+          seo: {
+            title:
+              "Wisdom Teeth Removal Fairfield, CT | Facial Surgery Center",
+            description:
+              "Wisdom teeth removal for Fairfield, CT patients at our Trumbull oral surgery office, about 15 minutes away. Consultations, imaging, and IV sedation options.",
+          },
+        },
+      },
       {slug: "dental-implants"},
       {slug: "tooth-extractions"},
       {slug: "facial-trauma"},
@@ -145,7 +230,7 @@ export const AREAS: Area[] = [
     seo: {
       title: "Oral Surgeon in Fairfield, CT | Facial Surgery Center",
       description:
-        "Oral and maxillofacial surgeons serving Fairfield, CT, 15 minutes away. Wisdom teeth removal, dental implants, facial trauma and same-day emergency care.",
+        "Oral and maxillofacial surgeons serving Fairfield, CT, about 15 minutes away. Wisdom teeth removal, dental implants and facial trauma evaluation.",
     },
   },
   {
@@ -174,7 +259,77 @@ export const AREAS: Area[] = [
       "We accept referrals from general dentists and orthodontists throughout Shelton and the lower Naugatuck Valley, and coordinate directly with your dentist's office on imaging, treatment planning, and restoration.",
     services: [
       {slug: "wisdom-teeth-removal"},
-      {slug: "dental-implants"},
+      {
+        slug: "dental-implants",
+        page: {
+          heading: "Dental Implants",
+          primaryKeyword: "dental implants Shelton CT",
+          localAngle:
+            "Shelton patients considering dental implants can reach our Trumbull office in about 13 minutes. We plan the surgical portion around the missing-tooth site, available bone, and the restoration your dentist will provide, then coordinate the stages so everyone is working from the same plan.",
+          clinicalIntro: {
+            title: "How dental implant treatment is planned",
+            paragraphs: [
+              "A dental implant is placed in the jaw to support a replacement tooth. After the implant heals and becomes stable in the surrounding bone, a restorative dentist attaches the crown, bridge, or implant-supported denture that you use for chewing and speaking.",
+              "Planning begins with an examination and appropriate imaging of the proposed site. The surgeon evaluates bone quantity and quality, nearby anatomy, gum health, and your medical history before explaining whether the implant can be placed directly or whether grafting or another preparatory step may be recommended.",
+            ],
+          },
+          evaluationReasons: [
+            "A missing tooth makes chewing or speaking less comfortable",
+            "A tooth cannot be predictably restored and replacement is being planned",
+            "A bridge or denture no longer fits the way it should",
+            "Your dentist needs a surgical opinion about bone or implant position",
+          ],
+          visitSteps: [
+            {
+              title: "Evaluate the implant site",
+              description:
+                "The surgeon reviews your health history, examines the area, and studies available imaging to understand the bone and the space available for the planned restoration.",
+            },
+            {
+              title: "Place the implant or prepare the site",
+              description:
+                "Depending on the findings, treatment may involve implant placement, bone grafting, or a staged sequence. Anesthesia options are reviewed before any procedure is scheduled.",
+            },
+            {
+              title: "Heal and complete the restoration",
+              description:
+                "We monitor surgical healing and share the relevant information with your restorative dentist, who completes the crown, bridge, or denture when the site is ready.",
+            },
+          ],
+          localLogistics: {
+            title: "A shorter route for staged implant care",
+            description:
+              "Implant care may involve planning, surgery, healing checks, and coordination with your restorative dentist. Shelton and Trumbull share a border, so the approximately 13-minute trip makes those separate visits easier to fit into a treatment sequence. We can exchange records and planning details directly with your Shelton dentist.",
+          },
+          faqs: [
+            {
+              question: "How close is dental implant treatment to Shelton?",
+              answer:
+                "Our Trumbull office is about 13 minutes from Shelton. Because implant treatment may include planning, surgery, and follow-up visits, the short drive is useful for keeping each stage on schedule.",
+            },
+            {
+              question: "What happens at a dental implant consultation?",
+              answer:
+                "The surgeon reviews your health history, examines the missing-tooth area, and evaluates available imaging. You will receive an explanation of the proposed implant placement, whether additional imaging or grafting may be needed, and how surgery will coordinate with your restorative dentist.",
+            },
+            {
+              question: "Will I need a bone graft before an implant?",
+              answer:
+                "Not everyone needs a bone graft. The decision depends on the quantity and quality of bone at the planned implant site, and imaging may be recommended so the surgeon can explain whether grafting is part of your treatment sequence.",
+            },
+            {
+              question: "Do you coordinate with dentists in Shelton?",
+              answer:
+                "Yes. We can coordinate implant position, surgical timing, records, and follow-up information with your Shelton dentist so the surgical and restorative parts of treatment follow the same plan.",
+            },
+          ],
+          seo: {
+            title: "Dental Implants Shelton, CT | Facial Surgery Center",
+            description:
+              "Dental implants for Shelton, CT patients at our Trumbull office, about 13 minutes away. Implant planning, bone evaluation and restorative coordination.",
+          },
+        },
+      },
       {slug: "dental-bone-grafting"},
       {slug: "tooth-extractions"},
       {slug: "orthognathic-surgery"},
@@ -220,7 +375,78 @@ export const AREAS: Area[] = [
       "We accept referrals from general dentists, community health centers, and emergency departments across Bridgeport, and we see urgent cases quickly when a referring provider calls ahead.",
     services: [
       {slug: "facial-trauma"},
-      {slug: "tooth-extractions"},
+      {
+        slug: "tooth-extractions",
+        page: {
+          heading: "Tooth Extractions",
+          primaryKeyword: "tooth extractions Bridgeport CT",
+          localAngle:
+            "Bridgeport patients who need a tooth extraction can reach our Trumbull office in about 10 minutes. You can contact us directly even without a regular dentist; we evaluate the source of the problem, review the tooth and available imaging, and explain the appropriate next step before treatment is scheduled.",
+          clinicalIntro: {
+            title: "When removing a tooth becomes the right next step",
+            paragraphs: [
+              "Extraction may be considered when a tooth is too damaged or decayed to restore predictably, when infection cannot be resolved another way, or when an impacted or poorly positioned tooth is causing a problem. The examination determines whether the tooth can be removed routinely or requires a surgical approach.",
+              "Planning also considers what happens after the tooth is removed. Depending on the location and your goals, the next step may be healing without replacement or coordinating a dental implant, bridge, or denture with your restorative dentist.",
+            ],
+          },
+          evaluationReasons: [
+            "Persistent tooth pain, swelling, drainage, or signs of infection",
+            "A cracked or decayed tooth that may not be restorable",
+            "An impacted, broken, or difficult-to-access tooth",
+            "A dentist recommends removal before restorative or orthodontic care",
+          ],
+          visitSteps: [
+            {
+              title: "Assess the tooth and symptoms",
+              description:
+                "The surgeon examines the area, reviews your medical and dental history, and evaluates appropriate imaging to understand the tooth and surrounding structures.",
+            },
+            {
+              title: "Plan the extraction and anesthesia",
+              description:
+                "You receive an explanation of the recommended approach, expected complexity, anesthesia choices, and the preparation required before the procedure.",
+            },
+            {
+              title: "Protect healing and plan what follows",
+              description:
+                "We provide post-operative instructions and explain when follow-up is needed. When replacement is appropriate, we coordinate the surgical timeline with your dentist.",
+            },
+          ],
+          localLogistics: {
+            title: "Getting evaluated without a regular dentist",
+            description:
+              "Bridgeport patients can request a consultation directly, although insurance rules may still require a referral or authorization. Call before traveling so the team can review your symptoms and the earliest appropriate appointment. The office is about 10 minutes from downtown and even closer to parts of the North End and Brooklawn.",
+          },
+          faqs: [
+            {
+              question: "Can I book an extraction without a regular dentist?",
+              answer:
+                "Yes. Bridgeport patients can request a consultation directly without a dentist's referral, although some insurance plans may require a referral or prior authorization. Call the office and describe your symptoms so the team can advise the earliest appropriate appointment.",
+            },
+            {
+              question: "Can I get a same-day tooth extraction?",
+              answer:
+                "Same-day treatment is not guaranteed. Timing depends on the clinical problem, the examination, imaging needs, your medical history, anesthesia planning, and the surgical schedule, so call before traveling to the office.",
+            },
+            {
+              question: "What makes an extraction surgical?",
+              answer:
+                "An extraction may require a surgical approach when a tooth is impacted, broken near the gumline, difficult to access, or surrounded by bone that must be managed carefully. The surgeon will explain the recommended approach after examining the tooth and reviewing appropriate imaging.",
+            },
+            {
+              question: "What anesthesia options are available?",
+              answer:
+                "The appropriate anesthesia depends on the tooth, the expected complexity of the procedure, your health history, and your preferences. The surgeon will review suitable options during the consultation, including whether IV sedation is appropriate.",
+            },
+          ],
+          seo: {
+            title:
+              "Tooth Extractions Bridgeport, CT | Facial Surgery Center",
+            description:
+              "Tooth extractions for Bridgeport, CT patients at our Trumbull oral surgery office, about 10 minutes away. Contact us directly; insurance referral rules vary.",
+          },
+        },
+      },
       {slug: "wisdom-teeth-removal"},
       {slug: "oral-pathology"},
       {slug: "dental-implants"},
@@ -275,13 +501,83 @@ export const AREAS: Area[] = [
     localContext: [
       "Stratford borders Trumbull to the southeast, and the Oronoque neighborhood sits close enough to our office that some patients are here faster than they would reach Stratford Center.",
       "The work we do for Stratford patients skews restorative. We see a lot of cases where teeth have been failing gradually — an old bridge that can no longer be saved, a partial denture that has stopped fitting, or a full arch that needs to be planned from scratch. These cases are as much about sequencing as surgery: what comes out, what gets grafted, how long the healing takes, and how it coordinates with your restorative dentist. We map that timeline out at the consultation so you know what the next twelve months look like before you commit.",
-      "For patients who have put off treatment because of anxiety, it is worth knowing that we handle anesthesia in-house rather than referring it out. Most extraction and implant cases can be done under IV sedation with no memory of the procedure.",
+      "For patients who have put off treatment because of anxiety, it is worth knowing that we offer anesthesia options in-house. IV sedation may be appropriate for some extraction and implant cases; the surgeon reviews the expected level of sedation, possible recall, risks, and alternatives during treatment planning.",
     ],
     referralNote:
       "We accept referrals from general dentists, prosthodontists, and denturists throughout Stratford, and we plan surgical and restorative sequencing jointly with your dentist's office.",
     services: [
       {slug: "dental-implants"},
-      {slug: "teeth-in-a-day"},
+      {
+        slug: "teeth-in-a-day",
+        page: {
+          heading: "Teeth in a Day (All-On-X) Implants",
+          primaryKeyword: "teeth in a day Stratford CT",
+          localAngle:
+            "Stratford patients whose teeth have been failing gradually — a bridge that can no longer be saved, a denture that no longer fits, or a full arch that needs to be planned from scratch — can reach our Trumbull office in about 12 minutes. We plan the surgical side of a full-arch case and coordinate the final restoration with your dentist or prosthodontist, with anesthesia handled in-house.",
+          clinicalIntro: {
+            title: "How Teeth in a Day (All-On-X) works",
+            paragraphs: [
+              "Teeth in a Day is a full-arch treatment approach that may use as few as four strategically placed implants to support replacement teeth. For eligible patients, a temporary fixed set may be attached on the day of surgery when bone support, implant stability, and the overall treatment plan make immediate loading appropriate. If it is not appropriate, the surgical and restorative teams explain the temporary replacement plan before treatment.",
+              "Planning starts with an examination and 3D imaging of the jaw to evaluate remaining teeth, gum health, and available bone. The surgeon determines implant number and position for the arch, and works directly with your restorative dentist or prosthodontist, who designs and fits the final restoration after the appropriate healing period.",
+            ],
+          },
+          evaluationReasons: [
+            "A full arch of teeth is failing, missing, or beyond saving",
+            "A denture is loose, uncomfortable, or no longer functional",
+            "You want a fixed replacement rather than a removable denture",
+            "A prosthodontist or dentist wants a surgical opinion on a full-arch implant case",
+          ],
+          visitSteps: [
+            {
+              title: "Evaluate the arch and take a 3D scan",
+              description:
+                "The surgeon examines remaining teeth, gum, and bone health, and reviews or orders 3D imaging to plan implant number and position for the arch.",
+            },
+            {
+              title: "Place the implants and, when appropriate, a temporary set",
+              description:
+                "On surgery day, remaining teeth may be removed when needed and the planned implants are placed. A temporary fixed set may be attached that day when the implants have sufficient stability; otherwise, the team follows the alternative temporary plan discussed before surgery.",
+            },
+            {
+              title: "Heal and complete the final restoration",
+              description:
+                "After the appropriate healing period, your restorative dentist or prosthodontist fits the final full-arch restoration in coordination with the surgical team.",
+            },
+          ],
+          localLogistics: {
+            title: "Fewer trips for a staged full-arch case",
+            description:
+              "Teeth in a Day treatment involves a consultation, imaging, surgery day, and a healing check before the final restoration is fitted. Stratford is about 12 minutes from our Trumbull office, on the same side of town as Oronoque, so those staged visits are easier to fit around work or family schedules. If IV sedation is part of your surgery day, a responsible adult must drive you home and stay with you afterward.",
+          },
+          faqs: [
+            {
+              question: "How does Teeth in a Day work?",
+              answer:
+                "A full arch of failing or missing teeth may be replaced with a restoration supported by as few as four implants. When clinical conditions allow immediate loading, a temporary fixed set may be attached on the day of surgery. After healing, the restorative dentist fits the final restoration.",
+            },
+            {
+              question: "How close is Stratford to a Teeth in a Day consultation?",
+              answer:
+                "Our Trumbull office is about 12 minutes from Stratford. Because Teeth in a Day involves a consultation, imaging, surgery, and follow-up visits, the short drive helps keep each stage on schedule.",
+            },
+            {
+              question: "Will I leave surgery without teeth?",
+              answer:
+                "A same-day fixed temporary set is not guaranteed. It depends on bone support, implant stability, healing considerations, and the treatment plan developed with the restorative dentist. Before surgery, the team explains whether a fixed temporary set is appropriate and what alternative temporary option would be used if it is not.",
+            },
+            {
+              question: "Do you coordinate with my Stratford prosthodontist or denturist?",
+              answer:
+                "Yes. We can coordinate implant position, surgical timing, and healing information with your prosthodontist or denturist so the surgical and restorative parts of a full-arch case follow the same plan.",
+            },
+          ],
+          seo: {
+            title: "Teeth in a Day Stratford, CT | Facial Surgery Center",
+            description:
+              "Teeth in a Day (All-On-X) dental implants for Stratford, CT patients at our Trumbull office, about 12 minutes away. Full-arch planning and in-house IV sedation.",
+          },
+        },
+      },
       {slug: "tooth-extractions"},
       {slug: "dental-bone-grafting"},
       {slug: "wisdom-teeth-removal"},
@@ -972,7 +1268,7 @@ export function serviceHref(area: Area, service: AreaService): string {
     : `/service/${service.slug}`;
 }
 
-/** Every service-area combo that has its own page. Empty until phase 2. */
+/** Every service-area combo with complete town-specific page content. */
 export function areaServicePages(): {area: Area; service: AreaService}[] {
   return AREAS.flatMap((area) =>
     area.services
