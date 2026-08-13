@@ -15,12 +15,18 @@ faqs:
     answer: Cool, smooth foods that need no chewing are safest in the first 48 hours — plain yogurt, applesauce, pudding, and lukewarm blended soup. They deliver calories without pressure on the socket, without heat that can soften the clot, and without particles that can lodge in the wound.
   - question: How long do I need to wait to eat after getting a tooth pulled?
     answer: Most patients can take cool liquids and soft foods once the gauze comes out and bleeding has settled, usually two to three hours after surgery. Wait until the numbness from local anaesthetic has fully worn off before chewing anything, since you cannot feel your cheek, lip, or tongue and can easily bite them. If you had IV sedation, follow the separate eating and drinking instructions in your discharge paperwork.
+  - question: How long after wisdom teeth removal can I eat?
+    answer: Most patients can take cool liquids and smooth, soft foods once the gauze comes out and bleeding has settled, usually two to three hours after wisdom teeth removal. Wait until the numbness has worn off before chewing, and follow the separate eating and drinking instructions in your discharge paperwork if you had IV sedation.
   - question: How do you swallow to prevent dry socket?
     answer: Swallow normally, but avoid anything that creates suction in your mouth. Do not use straws for at least one week, do not smoke or vape for at least two weeks, and do not swish, spit forcefully, or draw liquid through your teeth. Sip from the edge of a glass and let food fall to the back of your mouth rather than pulling it there.
   - question: Is day 2 the worst after a tooth extraction?
     answer: For most patients, discomfort and swelling peak somewhere between 48 and 72 hours, so day two or day three usually feels worse than the day of surgery. Pain that starts to build three to five days afterwards and radiates toward your ear is a different pattern and can indicate dry socket, which is worth a phone call.
   - question: When can I eat solid food after a tooth extraction?
     answer: Most people return to soft solids such as scrambled eggs, pasta, or flaked fish around day four to seven, and to a normal diet within one to two weeks. Let comfort be your guide rather than the calendar, chew on the opposite side, and step back to softer foods for a day if something hurts.
+  - question: When can I eat solid food after wisdom teeth removal?
+    answer: Many patients can try soft solids such as scrambled eggs, pasta, or flaked fish around day four to seven after wisdom teeth removal, and return to a normal diet within one to two weeks. Impacted teeth or several extraction sites can take longer. Let comfort be your guide, and step back to softer foods for a day if chewing hurts.
+  - question: What foods should I avoid after wisdom teeth removal?
+    answer: Avoid hot foods for the first 24 to 48 hours and stay away from chips, nuts, popcorn, seeds, hard crusts, and other sharp or crunchy foods until the extraction sites have healed over. Spicy and acidic foods can also irritate the sites. Do not use a straw for at least one week because suction can dislodge the blood clot.
 ---
 
 Almost every question we get in the first week after an extraction is really the same question: *is this going to ruin anything?* The good news is that recovery is far more forgiving than most people expect. The bad news is that a small number of specific habits genuinely do cause problems — and most of them involve what you eat and how you eat it.
@@ -49,6 +55,12 @@ Once bleeding has settled and the gauze is out — usually two to three hours af
 The more important limit is anaesthetic, not time. Your lip and cheek can stay numb for up to four hours, and while they are numb you cannot feel yourself biting them or burning them. Stick to cool foods and avoid chewing until normal sensation is back.
 
 **If you had IV sedation, this is different.** Sedation carries its own eating and drinking restrictions that are stricter than the general guidance here. Follow the specific instructions you were sent home with, and call the office if they are not clear.
+
+### How long after wisdom teeth removal can I eat?
+
+Most patients can start with cool liquids and smooth, soft foods about two to three hours after wisdom teeth removal, once bleeding has settled and the gauze is out. Wait until the numbness has worn off before chewing.
+
+Removing several wisdom teeth or an impacted tooth can make chewing uncomfortable for longer than a routine extraction. The starting rule is still the same: begin with small amounts of cool, smooth food, protect the blood clots, and move forward only as comfort allows.
 
 ## The first 24 to 48 hours: cool and smooth
 
@@ -105,6 +117,10 @@ The test is simple: if it hurts, it is too early. Step back to softer food for a
 ## When can you eat solid food again?
 
 Most people are back to a genuinely normal diet somewhere between one and two weeks after a straightforward extraction.
+
+### When can I eat solid food after wisdom teeth removal?
+
+Many patients can try soft solids around day four to seven after wisdom teeth removal and return to a normal diet within one to two weeks. Impacted wisdom teeth, multiple extraction sites, and bone grafting can move that timeline back.
 
 A realistic pattern looks like this:
 

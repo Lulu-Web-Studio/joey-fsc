@@ -104,7 +104,12 @@ export default function DoctorsContent({ settings, doctors }: DoctorsContentProp
                         : doctor.photo?.staticPath || '/images/profiles/placeholder.webp'
 
                     return (
-                        <FadeInItem as="li" key={doctor._id} className="rounded-2xl px-8 py-10">
+                        <FadeInItem
+                            as="li"
+                            key={doctor._id}
+                            id={`doctor-${doctor.slug}`}
+                            className="scroll-mt-36 rounded-2xl px-8 py-10"
+                        >
                             <div className="w-40 h-40 md:w-72 md:h-72 mx-auto rounded-full overflow-hidden ring-4 ring-white shadow-lg">
                                 <Image
                                     alt={doctor.name}

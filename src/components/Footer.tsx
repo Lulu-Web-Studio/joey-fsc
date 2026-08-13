@@ -135,6 +135,17 @@ export const Footer: FunctionComponent<{
           </div>
         </div>
 
+        <div className="mt-14 overflow-hidden rounded-2xl border border-gray-900/10">
+          <iframe
+            title="Facial Surgery Center office location map"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(config.officeAddress)}&output=embed`}
+            className="h-64 w-full grayscale-[15%]"
+            style={{border: 0}}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+
         <div className="mt-12 flex flex-col gap-6 border-t border-gray-900/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm/6 text-body-text">
             &copy; {new Date().getFullYear()} The {config.name.name}, All rights reserved.

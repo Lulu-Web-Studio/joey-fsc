@@ -189,6 +189,21 @@ export const AREAS: Area[] = [
               answer:
                 "IV sedation is available in-house for appropriate patients and procedures. The surgeon will review your health history, the planned procedure, and your anesthesia options; a responsible adult must drive you home after IV sedation.",
             },
+            {
+              question: "How long does wisdom teeth removal take?",
+              answer:
+                "The surgery itself is usually brief, often 30 to 60 minutes, but the exact time depends on how many teeth are being removed, how impacted they are, and the type of anesthesia used. Plan for additional time at the office before and after the procedure for preparation and recovery from sedation; your surgeon can give a more specific estimate at your consultation.",
+            },
+            {
+              question: "What can you eat after wisdom teeth removal?",
+              answer:
+                "For the first day or two, cool, soft foods that need little to no chewing are typically recommended — yogurt, applesauce, mashed potatoes, and smoothies eaten with a spoon rather than a straw work well. Most patients can add more substantial soft foods over the following days and return to a normal diet within one to two weeks, though healing time varies with how many teeth were removed and how impacted they were. Always follow the specific discharge instructions your surgeon gives you.",
+            },
+            {
+              question: "How long after wisdom teeth removal can I eat?",
+              answer:
+                "Most patients can start with cool liquids and soft foods once bleeding has settled and any numbness from local anesthesia has worn off, often within a few hours of surgery. If you had IV sedation, follow the specific eating and drinking instructions in your discharge paperwork, since those can be stricter than the general timeline.",
+            },
           ],
           seo: {
             title:
@@ -636,7 +651,77 @@ export const AREAS: Area[] = [
     referralNote:
       "We accept referrals from general dentists and orthodontists throughout Monroe and coordinate third molar timing directly with your child's orthodontic treatment plan.",
     services: [
-      {slug: "wisdom-teeth-removal"},
+      {
+        slug: "wisdom-teeth-removal",
+        page: {
+          heading: "Wisdom Teeth Removal",
+          primaryKeyword: "wisdom teeth removal Monroe CT",
+          localAngle:
+            "Monroe families often begin with a referral from their child's orthodontist, since wisdom teeth are typically evaluated between ages sixteen and nineteen — often while braces or aligners are still in the picture. Our Trumbull office is about 10 minutes from Monroe center with no highway involved, and we coordinate directly with your orthodontist on timing so a wisdom tooth consultation doesn't derail an orthodontic plan already in progress.",
+          clinicalIntro: {
+            title: "Why timing matters for teen wisdom teeth",
+            paragraphs: [
+              "The right time to remove a wisdom tooth is usually before the roots are fully formed, when recovery tends to be faster and complications less likely. That window often falls between ages sixteen and nineteen, which is also when many Monroe teens are still working through orthodontic treatment — so we look at the panoramic X-ray, the stage of root development, and where things stand with braces or aligners together, rather than in isolation.",
+              "If your child's orthodontist has already flagged third molars, bringing that panoramic X-ray to the consultation usually lets us give a clear answer — evaluate now, revisit in a year, or schedule removal — in a single visit.",
+            ],
+          },
+          evaluationReasons: [
+            "An orthodontist has flagged third molars as a concern for an active treatment plan",
+            "A wisdom tooth is impacted, painful, or causing swelling behind the last molar",
+            "Root development is at the stage where removal is typically easier and recovery faster",
+            "A dentist recommends imaging to check on developing wisdom teeth",
+          ],
+          visitSteps: [
+            {
+              title: "Review the panoramic X-ray",
+              description:
+                "We look at existing imaging from your dentist or orthodontist to see how far the wisdom teeth have developed and whether there's a clear path to plan around braces or aligners.",
+            },
+            {
+              title: "Coordinate timing with the orthodontist",
+              description:
+                "When removal is recommended, we work directly with your child's orthodontist so the surgery date fits the orthodontic plan rather than working against it.",
+            },
+            {
+              title: "Schedule for a full recovery day",
+              description:
+                "Most teen cases are scheduled Monday, Tuesday, or Thursday, early in the morning, so recovery lands on a full day and no one is fasting through lunch before sedation.",
+            },
+          ],
+          localLogistics: {
+            title: "A straight ten-minute drive, no highway",
+            description:
+              "The office is about 10 minutes from Monroe center with no highway merges — one of the simplest drives in our service area. We schedule most teen wisdom teeth cases for Monday, Tuesday, or Thursday mornings so recovery starts on a full day rather than a half day, and IV sedation appointments are timed so patients aren't fasting through lunch.",
+          },
+          faqs: [
+            {
+              question: "When should my teen have a wisdom teeth consultation?",
+              answer:
+                "A consultation is often considered between ages sixteen and nineteen, but timing depends on tooth development and symptoms. Bring recent panoramic imaging if available; the surgeon may recommend additional imaging or follow-up before making a treatment recommendation.",
+            },
+            {
+              question: "Can wisdom teeth be removed while my teen has braces?",
+              answer:
+                "Often yes, and sometimes it has to be. We coordinate directly with your orthodontist so the timing fits the overall plan rather than disrupting it.",
+            },
+            {
+              question: "Which days are best for wisdom teeth surgery?",
+              answer:
+                "Monday, Tuesday, or Thursday tend to work well — we're open until 5pm those days, which means recovery starts on a full day. We also try to book teen cases early in the morning so nobody is fasting through lunch before sedation.",
+            },
+            {
+              question: "How far is the office from Monroe?",
+              answer:
+                "About 10 minutes from Monroe center, with no highway involved. Add a few minutes from Stepney and Stevenson.",
+            },
+          ],
+          seo: {
+            title: "Wisdom Teeth Removal Monroe, CT | Facial Surgery Center",
+            description:
+              "Wisdom teeth removal for Monroe, CT teens and families at our Trumbull office, about 10 minutes away. Orthodontist coordination and in-house IV sedation.",
+          },
+        },
+      },
       {slug: "orthognathic-surgery"},
       {slug: "anesthesia"},
       {slug: "tooth-extractions"},
@@ -696,7 +781,77 @@ export const AREAS: Area[] = [
     referralNote:
       "We accept referrals from general dentists and orthodontists serving Easton and work directly from your dentist's existing records and imaging where possible.",
     services: [
-      {slug: "wisdom-teeth-removal"},
+      {
+        slug: "wisdom-teeth-removal",
+        page: {
+          heading: "Wisdom Teeth Removal",
+          primaryKeyword: "wisdom teeth removal Easton CT",
+          localAngle:
+            "Easton families often already travel to Fairfield or Trumbull for dental care, and most arrive at our office with a referral and imaging already in hand. Wisdom teeth evaluations tend to cluster around junior and senior year at Joel Barlow, which also draws from Redding — so we work from your dentist's existing records and coordinate scheduling around a shared regional school calendar rather than starting over.",
+          clinicalIntro: {
+            title: "Evaluating wisdom teeth without repeating work already done",
+            paragraphs: [
+              "Because Easton has no hospital and limited dental specialists in town, most patients already have a relationship with a dentist in Fairfield or Trumbull and arrive with existing X-rays or a panoramic image. We review what your dentist has already gathered rather than ordering new imaging by default, and we send our findings back to that office promptly so nothing has to be repeated.",
+              "For Joel Barlow students — and the Redding families who share the same school calendar — wisdom teeth evaluations tend to cluster around junior and senior year. Because that calendar is shared across two towns, we'd rather book the consultation early than try to fit it into a narrow school break.",
+            ],
+          },
+          evaluationReasons: [
+            "A dentist has recommended a wisdom teeth evaluation using existing imaging",
+            "A wisdom tooth is impacted, painful, or swollen behind the last molar",
+            "Your teen is approaching junior or senior year and timing needs to work around the school calendar",
+            "You want a surgical opinion before committing to a school-break appointment window",
+          ],
+          visitSteps: [
+            {
+              title: "Send or bring existing records",
+              description:
+                "We review the X-rays and notes your dentist already has rather than ordering new imaging by default, so the first visit builds on what's already been done.",
+            },
+            {
+              title: "Get a clear recommendation",
+              description:
+                "The surgeon explains whether the wisdom teeth can be monitored or should be scheduled for removal, and what the timing looks like around your teen's school calendar.",
+            },
+            {
+              title: "Plan around the shared school calendar",
+              description:
+                "Because Joel Barlow draws from both Easton and Redding, we help you book surgery with enough lead time to avoid competing for the same narrow break window as other families.",
+            },
+          ],
+          localLogistics: {
+            title: "Closer than Danbury or Norwalk, entirely on local roads",
+            description:
+              "The drive from Easton center is about 12 minutes, entirely on local roads with no highway. For most Easton addresses we're noticeably closer than the practices toward Danbury or Norwalk — a gap that matters most for cases needing more than one visit. Add roughly five minutes from Aspetuck and North Easton.",
+          },
+          faqs: [
+            {
+              question: "Can you use the X-rays my dentist already took?",
+              answer:
+                "Recent imaging may be usable if it clearly shows what the planned evaluation or procedure requires. Send or bring the images for review; the surgeon may recommend additional imaging when more detail or a newer view is needed.",
+            },
+            {
+              question: "How far is wisdom teeth removal from Easton?",
+              answer:
+                "About 12 minutes from Easton center, entirely on local roads. Add roughly five minutes from Aspetuck and North Easton.",
+            },
+            {
+              question: "Is Trumbull closer than Danbury or Norwalk for wisdom teeth removal?",
+              answer:
+                "For most Easton addresses, yes — noticeably so. That gap matters most when a case needs more than one visit, which is common with wisdom teeth evaluation and any follow-up care.",
+            },
+            {
+              question: "How early should we book around the Joel Barlow school calendar?",
+              answer:
+                "Earlier than you think. Joel Barlow draws from Redding as well as Easton, and surgical scheduling around a shared calendar is easier with lead time than during a break.",
+            },
+          ],
+          seo: {
+            title: "Wisdom Teeth Removal Easton, CT | Facial Surgery Center",
+            description:
+              "Wisdom teeth removal for Easton, CT patients at our Trumbull office, about 12 minutes away on local roads. We work from your dentist's existing records.",
+          },
+        },
+      },
       {slug: "dental-implants"},
       {slug: "tooth-extractions"},
       {slug: "anesthesia"},

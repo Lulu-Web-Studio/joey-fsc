@@ -65,14 +65,49 @@ export const SERVICES = {
     description: 'Minimally Invasive Orthognathic Surgery offers jaw correction with smaller incisions, reduced recovery time, and less discomfort.',
   },
   'teeth-in-a-day': {
-    name: 'Teeth in a Day (All-On-X) Implants',
+    name: 'All-on-X Dental Implants',
     img: '/images/services/all-in-x/all-in-x.webp',
-    description: 'Teeth in a Day (All-On-X) Implants provide a full set of functional, natural-looking teeth in a single appointment.',
+    description: 'All-on-X dental implants support a fixed full-arch restoration for people with many missing or failing teeth.',
   },
 } as const;
 
 // Auto-generate TypeScript types
 export type ServiceSlug = keyof typeof SERVICES;
+
+type ServicePageOverride = {
+  title: string;
+  description: string;
+  sectionTitle: string;
+  metaTitle: string;
+  metaDescription: string;
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+};
+
+const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> = {
+  'teeth-in-a-day': {
+    title: SERVICES['teeth-in-a-day'].name,
+    description:
+      'All-on-X dental implants use a planned number of implants to support a fixed full-arch restoration for people with many missing or failing teeth. All-on-4 is one approach within this broader treatment category.',
+    sectionTitle: 'How All-on-X Dental Implants Work',
+    metaTitle: 'All-on-X Dental Implants | Facial Surgery Center',
+    metaDescription:
+      'Explore All-on-X dental implants in Trumbull, CT, including how fixed full-arch treatment and All-on-4 planning can replace many missing or failing teeth.',
+    faqs: [
+      {
+        question: 'Are All-on-4 dental implants the same as All-on-X?',
+        answer:
+          'All-on-4 is a specific full-arch approach that uses four implants. All-on-X is the broader term for a fixed full-arch restoration supported by the number of implants your anatomy and treatment plan require. Your surgeon determines the appropriate number and position after reviewing your examination and imaging.',
+      },
+    ],
+  },
+};
+
+export function getServicePageOverride(slug: string): ServicePageOverride | undefined {
+  return SERVICE_PAGE_OVERRIDES[slug as ServiceSlug];
+}
 
 // Convert to array for easy iteration in components
 // Auto-generate path from slug - SINGLE SOURCE OF TRUTH!

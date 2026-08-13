@@ -16,7 +16,7 @@ import ServiceAreasList from '@/components/service/ServiceAreasList';
 import {SchemaMarkup} from '@/components/SchemaMarkup';
 import {faqSchema} from '@/lib/schema';
 import {areasForService, type Faq} from '@/config/areas';
-import type {ServiceSlug} from '@/config/services';
+import {getServicePageOverride, type ServiceSlug} from '@/config/services';
 
 export const revalidate = 3600;
 
@@ -39,11 +39,12 @@ export async function generateMetadata({
         params: {slug: service},
         stega: false,
     });
+    const pageOverride = getServicePageOverride(service);
 
     if (serviceData) {
         return pageMetadata(
-            serviceData.seo?.title || `${serviceData.serviceTitle} | Facial Surgery Center`,
-            serviceData.seo?.description || serviceData.description,
+            pageOverride?.metaTitle || serviceData.seo?.title || `${serviceData.serviceTitle} | Facial Surgery Center`,
+            pageOverride?.metaDescription || serviceData.seo?.description || serviceData.description,
             `/service/${service}`,
         );
     }
@@ -68,6 +69,7 @@ export default async function ServicePage({
     const {data: allServices} = await sanityFetch({
         query: ALL_SERVICES_QUERY,
     });
+    const pageOverride = getServicePageOverride(service);
 
     if (!serviceData) {
         return (
@@ -92,11 +94,11 @@ export default async function ServicePage({
 
     const currentService = {
         _id: serviceData._id,
-        serviceTitle: serviceData.serviceTitle || 'Service',
+        serviceTitle: pageOverride?.title || serviceData.serviceTitle || 'Service',
         slug: serviceData.slug || service,
-        description: serviceData.description || '',
+        description: pageOverride?.description || serviceData.description || '',
         coverImage: serviceData.coverImage || {},
-        serviceTitle2: serviceData.serviceTitle2 || serviceData.serviceTitle || 'Service',
+        serviceTitle2: pageOverride?.sectionTitle || serviceData.serviceTitle2 || serviceData.serviceTitle || 'Service',
         paragraph1: {
             title: serviceData.paragraph1?.title || '',
             text: serviceData.paragraph1?.text || '',
@@ -108,7 +110,14 @@ export default async function ServicePage({
             image: serviceData.paragraph2?.image || null,
         },
         ctaText: serviceData.ctaText || undefined,
-        faqs: (serviceData.faqs || []) as Faq[],
+        faqs: [
+            ...(pageOverride?.faqs || []),
+            ...((serviceData.faqs || []) as Faq[]).filter(
+                (faq) => !pageOverride?.faqs.some(
+                    (overrideFaq) => overrideFaq.question.toLowerCase() === faq.question.toLowerCase(),
+                ),
+            ),
+        ],
     };
 
     const currentServiceCard: Service = {

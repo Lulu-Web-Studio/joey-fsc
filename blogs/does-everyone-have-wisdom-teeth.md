@@ -40,6 +40,8 @@ Wisdom teeth are your **third molars**, the last teeth at the very back of the u
 - One in the lower right
 - One in the lower left
 
+Most adults have 32 permanent teeth when all four wisdom teeth develop, or 28 when none develop, assuming no other teeth are missing.
+
 They usually emerge after the rest of the adult teeth, most often between ages 17 and 25. This late timing is also why we call them wisdom teeth. The name refers to the old idea that they arrive when a person is becoming older and wiser. The teeth themselves do not add any wisdom.
 
 ## Why does not everyone have wisdom teeth?
@@ -133,6 +135,18 @@ Removal may make sense when there is not enough room, the tooth is difficult to 
 
 The decision is not simply “remove every wisdom tooth” or “leave every painless tooth alone.” Pain-free does not always mean disease-free, but surgery also has real risks. [AAOMS guidance](https://aaoms.org/wp-content/uploads/2022/06/management_third_molar_white_paper.pdf) recommends evaluating the tooth's position, function, disease risk, removal risk, and the plan for ongoing monitoring. Teeth associated with disease or a high risk of disease are generally treated surgically. Healthy teeth without significant risk can be watched with clinical exams and X-rays.
 
+## What happens if a problematic wisdom tooth is not removed?
+
+Leaving a wisdom tooth in place is not automatically harmful. The concern is a tooth that is impacted, partly erupted, diseased, or damaging the second molar. Without treatment, a problematic wisdom tooth may lead to:
+
+- Repeated infection around a flap of gum tissue
+- Decay in the wisdom tooth or the neighboring second molar
+- Gum disease and bone loss behind the second molar
+- Damage to the root or supporting structures of the neighboring tooth
+- A cyst or another change in the tissue around an impacted tooth
+
+Some of these problems can develop without obvious pain. That is why a wisdom tooth being monitored still needs periodic dental exams and X-rays. When a tooth remains healthy and the risks of surgery outweigh the current disease risk, continued monitoring may still be the right plan.
+
 ## When to have the area checked
 
 Arrange a dental evaluation if you notice:
@@ -146,6 +160,12 @@ Arrange a dental evaluation if you notice:
 - Pressure that is new or getting worse
 
 These symptoms can point to infection or another problem that should not be diagnosed at home. Severe swelling, trouble swallowing, or trouble breathing needs urgent medical attention.
+
+## What happens if removal is recommended?
+
+If an exam and X-ray show that removal is the safer option, the next step is a consultation to review which teeth need treatment, how they are positioned, anesthesia choices, and the expected recovery. Our [wisdom teeth removal page](/service/wisdom-teeth-removal) explains the treatment in more detail.
+
+After surgery, your discharge instructions should guide your recovery. You can also review our general [post-operative instructions](/for-patients/post-op) and our guide to [what to eat after a tooth extraction](/blog/what-to-eat-after-tooth-extraction).
 
 ## The short answer
 

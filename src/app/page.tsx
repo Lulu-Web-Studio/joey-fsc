@@ -4,7 +4,8 @@ import {sanityFetch} from "@/sanity/lib/live";
 import {HOME_SETTINGS_QUERY, HOME_SEO_QUERY} from "@/sanity/queries/settings";
 import {ALL_SERVICES_QUERY} from "@/sanity/queries/services";
 import {FEATURED_TESTIMONIALS_QUERY} from "@/sanity/queries/testimonials";
-import type {HomeSettings, Service, Testimonial, WhyUsPoint} from "@/types/sanity";
+import {ALL_DOCTORS_QUERY} from "@/sanity/queries/team";
+import type {Doctor, HomeSettings, Service, Testimonial, WhyUsPoint} from "@/types/sanity";
 import {pageMetadata} from "@/lib/metadata";
 
 export const revalidate = 3600;
@@ -75,6 +76,7 @@ export default async function Page() {
   const {data: settingsData} = await sanityFetch({query: HOME_SETTINGS_QUERY});
   const {data: servicesData} = await sanityFetch({query: ALL_SERVICES_QUERY});
   const {data: testimonialsData} = await sanityFetch({query: FEATURED_TESTIMONIALS_QUERY});
+  const {data: doctorsData} = await sanityFetch({query: ALL_DOCTORS_QUERY});
 
   const settings: HomeSettings = {
     seo: {
@@ -140,5 +142,21 @@ export default async function Page() {
     date: testimonial.date || undefined,
   }));
 
-  return <HomeContent settings={settings} services={services} testimonials={testimonials} />;
+  const doctors: Doctor[] = (doctorsData || []).map((
+    doctor: NonNullable<NonNullable<typeof doctorsData>[number]>,
+    index: number
+  ) => ({
+    _id: doctor._id,
+    name: doctor.name || `Doctor ${index + 1}`,
+    slug: doctor.slug || `doctor-${index}`,
+    title: doctor.title || "",
+    credentials: doctor.credentials || "",
+    photo: doctor.photo || {},
+    bio: doctor.bio || [],
+    specialties: [],
+    education: [],
+    order: doctor.order ?? index,
+  }));
+
+  return <HomeContent settings={settings} services={services} testimonials={testimonials} doctors={doctors} />;
 }

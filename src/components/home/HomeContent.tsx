@@ -3,20 +3,22 @@
 import Hero from "./Hero";
 import WhyUs from "./WhyUs";
 import AreasOfFocus from "./AreasOfFocus";
+import Doctors from "./Doctors";
 import HorizontalSlider from "./HorzontilSlider";
 import Location from "./Location";
 import Testimonial from "./Testimonial";
 import CTA from "@/components/CTA";
-import type {HomeSettings, Service, Testimonial as TestimonialType} from "@/types/sanity";
+import type {Doctor, HomeSettings, Service, Testimonial as TestimonialType} from "@/types/sanity";
 import { getImageUrl } from "@/sanity/lib/image";
 
 interface HomeContentProps {
     settings: HomeSettings;
     services: Service[];
     testimonials: TestimonialType[];
+    doctors: Doctor[];
 }
 
-export default function HomeContent({settings, services, testimonials}: HomeContentProps) {
+export default function HomeContent({settings, services, testimonials, doctors}: HomeContentProps) {
     return (
         <div className="min-h-screen">
             <div className="container">
@@ -44,6 +46,7 @@ export default function HomeContent({settings, services, testimonials}: HomeCont
                     image={settings.areasOfFocus.image}
                 />
             </div>
+            <Doctors doctors={doctors} />
             <div className="py-32 bg-bg2 flex flex-col items-center justify-center">
                 <HorizontalSlider
                     title={settings.services.title}
