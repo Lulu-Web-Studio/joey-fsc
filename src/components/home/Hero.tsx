@@ -38,13 +38,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
         <div className="">
             {/* Headline */}
-            <motion.div
-                className="text-center sm:w-2/4 mx-auto"
-                initial="hidden"
-                animate="visible"
-                custom={0}
-                variants={fadeUp}
-            >
+            <div className="text-center sm:w-2/4 mx-auto">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-header-text leading-tight">
                     <span className='font-serif'>The Facial Surgery Center</span>
 
@@ -53,26 +47,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     <span className="text-primaryYellow">{highlight}</span>
                     <span className="font-light"> Smile</span>
                 </h1>
-            </motion.div>
+            </div>
 
             <div className="flex flex-col sm:flex-row items-center px-12 justify-between h-full ">
 
-                <motion.div
-                    className='flex-[0.6]'
-                    initial="hidden"
-                    animate="visible"
-                    custom={0.15}
-                    variants={fadeUp}
-                >
+                <div className='flex-[0.6]'>
 
                     <Image
                         src={imageUrl}
                         alt={imageAlt}
                         width={500}
                         height={500}
+                        priority
+                        sizes="(max-width: 640px) calc(100vw - 6rem), (max-width: 1280px) 45vw, 500px"
                         className="object-contain w-full h-full"
                     />
-                </motion.div>
+                </div>
 
 
                 {/* Copy + CTA */}

@@ -22,8 +22,14 @@ export interface PostFrontmatter {
   excerpt: string;
   category?: string;
   publishedAt?: string;
+  updatedAt?: string;
   author?: string;
   authorTitle?: string;
+  authorUrl?: string;
+  reviewedBy?: string;
+  reviewerTitle?: string;
+  reviewerUrl?: string;
+  reviewedAt?: string;
   coverImage?: string;
   coverImageAlt?: string;
   /** Overrides the <title> tag. Defaults to "{title} | Facial Surgery Center". */
@@ -168,7 +174,7 @@ export function formatPostDate(date: string | null | undefined) {
  * YAML turns an unquoted `2026-07-30` into a Date at UTC midnight. Keep such
  * values as plain calendar dates; only a quoted timestamp keeps its time.
  */
-function normalizePublishedAt(value: unknown): string | undefined {
+function normalizeDate(value: unknown): string | undefined {
   if (!value) return undefined;
   if (value instanceof Date) return value.toISOString().slice(0, 10);
 
@@ -191,7 +197,9 @@ function readPostFile(slug: string) {
       ...frontmatter,
       title: frontmatter.title,
       excerpt: frontmatter.excerpt ?? "",
-      publishedAt: normalizePublishedAt(frontmatter.publishedAt),
+      publishedAt: normalizeDate(frontmatter.publishedAt),
+      updatedAt: normalizeDate(frontmatter.updatedAt),
+      reviewedAt: normalizeDate(frontmatter.reviewedAt),
     } as PostFrontmatter,
     content,
   };

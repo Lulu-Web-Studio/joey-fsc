@@ -28,8 +28,23 @@ type BlogPostingInput = {
   description?: string | null;
   path: string;
   publishedAt?: string | null;
+  updatedAt?: string | null;
   imageUrl?: string | null;
+  author?: string | null;
+  authorTitle?: string | null;
+  authorUrl?: string | null;
+  authorType?: "Person" | "Organization";
+  reviewedBy?: string | null;
+  reviewerTitle?: string | null;
+  reviewerUrl?: string | null;
+  reviewedAt?: string | null;
 };
+
+function absoluteUrl(value: string) {
+  if (/^https?:\/\//.test(value)) return value;
+
+  return `${config.baseUrl}${value.startsWith("/") ? value : `/${value}`}`;
+}
 
 /**
  * Article-level schema. Deliberately does not redeclare the practice as a
@@ -41,21 +56,54 @@ export function blogPostingSchema({
   description,
   path,
   publishedAt,
+  updatedAt,
   imageUrl,
+  author,
+  authorTitle,
+  authorUrl,
+  authorType = "Organization",
+  reviewedBy,
+  reviewerTitle,
+  reviewerUrl,
+  reviewedAt,
 }: BlogPostingInput) {
   const url = `${config.baseUrl}${path}`;
+  const practiceId = `${config.baseUrl.replace(/\/$/, "")}/#practice`;
+  const dateModified = updatedAt || reviewedAt || publishedAt;
+  const authorName = author || "Facial Surgery Center";
+  const authorEntity = {
+    "@type": authorType,
+    ...(authorType === "Organization" ? {"@id": practiceId} : {}),
+    name: authorName,
+    ...(authorTitle && authorType === "Person" ? {jobTitle: authorTitle} : {}),
+    ...(authorUrl ? {url: absoluteUrl(authorUrl)} : {}),
+  };
+  const reviewerEntity = reviewedBy
+    ? {
+        "@type": "Person",
+        name: reviewedBy,
+        ...(reviewerTitle ? {jobTitle: reviewerTitle} : {}),
+        ...(reviewerUrl ? {url: absoluteUrl(reviewerUrl)} : {}),
+      }
+    : undefined;
 
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: title,
     ...(description ? {description} : {}),
-    ...(publishedAt ? {datePublished: publishedAt, dateModified: publishedAt} : {}),
-    ...(imageUrl ? {image: imageUrl} : {}),
-    mainEntityOfPage: {"@type": "WebPage", "@id": url},
+    ...(publishedAt ? {datePublished: publishedAt} : {}),
+    ...(dateModified ? {dateModified} : {}),
+    ...(imageUrl ? {image: absoluteUrl(imageUrl)} : {}),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+      ...(reviewedAt ? {lastReviewed: reviewedAt} : {}),
+      ...(reviewerEntity ? {reviewedBy: reviewerEntity} : {}),
+    },
     url,
-    author: {"@type": "Organization", name: "Facial Surgery Center"},
-    publisher: {"@type": "Organization", name: "Facial Surgery Center"},
+    author: authorEntity,
+    publisher: {"@type": "Organization", "@id": practiceId},
   };
 }
 

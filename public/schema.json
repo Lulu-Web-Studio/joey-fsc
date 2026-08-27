@@ -1,10 +1,13 @@
 {
   "@context": "https://schema.org",
   "@type": "Dentist",
+  "@id": "https://www.facialsurgeryct.com/#practice",
   "name": "Facial Surgery Center",
   "alternateName": "Facial Surgery Center - Oral and Maxillofacial Surgeons",
   "description": "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, Connecticut.",
   "url": "https://www.facialsurgeryct.com",
+  "image": "https://www.facialsurgeryct.com/opengraph-image.png",
+  "logo": "https://www.facialsurgeryct.com/images/logo.png",
   "telephone": "(203) 261-7800",
   "medicalSpecialty": "https://schema.org/Dentistry",
   "priceRange": "$$",
@@ -16,6 +19,12 @@
     "postalCode": "06611",
     "addressCountry": "US"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.2964392,
+    "longitude": -73.2313242
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=115%20Technology%20Dr%20B-101%2C%20Trumbull%2C%20CT%2006611",
   "areaServed": [
     {
       "@type": "AdministrativeArea",

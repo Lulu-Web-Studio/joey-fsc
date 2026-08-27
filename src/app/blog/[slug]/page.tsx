@@ -30,6 +30,11 @@ const ARTICLE_ID = "post-body";
 
 const MAX_RELATED_POSTS = 3;
 
+const PRACTICE_AUTHORS = new Set([
+  "Facial Surgery Center",
+  "The Facial Surgery Center",
+]);
+
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({slug}));
 }
@@ -64,6 +69,11 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const publishedOn = formatPostDate(post.publishedAt);
+  const updatedOn = formatPostDate(post.updatedAt);
+  const reviewedOn = formatPostDate(post.reviewedAt);
+  const isPracticeAuthor = !post.author || PRACTICE_AUTHORS.has(post.author);
+  const authorUrl =
+    post.authorUrl || (isPracticeAuthor ? "/about" : undefined);
   const headingIds = headingIdsByLine(post.headings);
 
   // Same category first, then most recent — getAllPosts() already returns
@@ -92,7 +102,16 @@ export default async function BlogPostPage({
           description: post.excerpt,
           path: postHref(slug),
           publishedAt: post.publishedAt,
+          updatedAt: post.updatedAt,
           imageUrl: post.coverImage,
+          author: post.author,
+          authorTitle: post.authorTitle,
+          authorUrl,
+          authorType: isPracticeAuthor ? "Organization" : "Person",
+          reviewedBy: post.reviewedBy,
+          reviewerTitle: post.reviewerTitle,
+          reviewerUrl: post.reviewerUrl,
+          reviewedAt: post.reviewedAt,
         })}
       />
 
@@ -114,8 +133,10 @@ export default async function BlogPostPage({
                 {post.category}
               </span>
             )}
-            {publishedOn && <span>{publishedOn}</span>}
-            <span aria-hidden="true">·</span>
+            {publishedOn && <span>Published {publishedOn}</span>}
+            {updatedOn && updatedOn !== publishedOn && (
+              <span>Updated {updatedOn}</span>
+            )}
             <span>{post.readMinutes} min read</span>
           </div>
 
@@ -130,6 +151,46 @@ export default async function BlogPostPage({
             <BodyText as="p" className="mt-6 text-body-text-light">
               {post.excerpt}
             </BodyText>
+          )}
+
+          {(post.author || post.reviewedBy) && (
+            <div className="mx-auto mt-7 flex max-w-2xl flex-col items-center gap-2 text-sm text-body-text-light">
+              {post.author && (
+                <p>
+                  Written by{" "}
+                  {authorUrl ? (
+                    <Link
+                      href={authorUrl}
+                      className="font-semibold text-primary-teal hover:text-primaryCyan"
+                    >
+                      {post.author}
+                    </Link>
+                  ) : (
+                    <span className="font-semibold text-header-text">{post.author}</span>
+                  )}
+                  {post.authorTitle ? `, ${post.authorTitle}` : ""}
+                </p>
+              )}
+              {post.reviewedBy && (
+                <p>
+                  Medically reviewed by{" "}
+                  {post.reviewerUrl ? (
+                    <Link
+                      href={post.reviewerUrl}
+                      className="font-semibold text-primary-teal hover:text-primaryCyan"
+                    >
+                      {post.reviewedBy}
+                    </Link>
+                  ) : (
+                    <span className="font-semibold text-header-text">
+                      {post.reviewedBy}
+                    </span>
+                  )}
+                  {post.reviewerTitle ? `, ${post.reviewerTitle}` : ""}
+                  {reviewedOn ? ` on ${reviewedOn}` : ""}
+                </p>
+              )}
+            </div>
           )}
         </FadeIn>
 

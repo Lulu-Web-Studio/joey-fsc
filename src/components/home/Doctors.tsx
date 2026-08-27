@@ -209,7 +209,7 @@ export default function Doctors({ doctors }: DoctorsProps) {
                 <FadeIn delay={0.1} className="mt-10 flex flex-col items-center sm:mt-12">
                     <SquiggleArrow className="h-20 w-24 -translate-x-8 -rotate-6 sm:h-24 sm:w-28" />
                     <Button
-                        text="Read More"
+                        text="Meet our oral surgeons"
                         href={DOCTORS_PAGE_PATH}
                         className="mt-2"
                     />

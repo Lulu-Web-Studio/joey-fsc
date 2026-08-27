@@ -60,6 +60,7 @@ export default function Location({title, description, image}: LocationProps) {
                         width={700}
                         height={700}
                         alt={title}
+                        sizes="(max-width: 768px) calc(100vw - 3rem), 50vw"
                         className='object-cover w-full h-full'
                         src={imageSrc}
                     />

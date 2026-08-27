@@ -1,9 +1,14 @@
 "use client"
+import { useEffect, useRef, useState } from "react"
 import HeaderText from "../ui/HeaderText"
 import BodyText from "../ui/BodyText"
 import Script from "next/script"
+import { Star } from "lucide-react"
 import { FadeIn } from "../ui/FadeIn"
 import type { Testimonial as TestimonialType } from "@/types/sanity"
+
+const REVIEW_WIDGET_ID = "featurable-68a80b58-c501-4312-b207-6cd1d59b9a46"
+const REVIEW_WIDGET_SRC = "https://featurable.com/assets/bundle.js"
 
 interface TestimonialProps {
     title: string;
@@ -12,8 +17,34 @@ interface TestimonialProps {
 }
 
 export default function Testimonial({ title, description, testimonials }: TestimonialProps) {
+    const sectionRef = useRef<HTMLDivElement>(null)
+    const [shouldLoadWidget, setShouldLoadWidget] = useState(false)
+    const visibleTestimonials = testimonials.filter((testimonial) => testimonial.quote.trim())
+
+    useEffect(() => {
+        if (visibleTestimonials.length > 0 || shouldLoadWidget) return
+
+        const section = sectionRef.current
+        if (!section || !("IntersectionObserver" in window)) {
+            const frame = window.requestAnimationFrame(() => setShouldLoadWidget(true))
+            return () => window.cancelAnimationFrame(frame)
+        }
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) return
+                setShouldLoadWidget(true)
+                observer.disconnect()
+            },
+            { rootMargin: "400px 0px" },
+        )
+
+        observer.observe(section)
+        return () => observer.disconnect()
+    }, [shouldLoadWidget, visibleTestimonials.length])
+
     return (
-        <div className="relative isolate bg-bg2 pt-24 pb-32 sm:pt-32">
+        <div ref={sectionRef} className="relative isolate bg-bg2 pt-24 pb-32 sm:pt-32">
             <div
                 aria-hidden="true"
                 className="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl"
@@ -50,9 +81,59 @@ export default function Testimonial({ title, description, testimonials }: Testim
                     )}
                 </FadeIn>
 
-                {/* Featurable Widget */}
-                <div id="featurable-68a80b58-c501-4312-b207-6cd1d59b9a46" data-featurable-async></div>
-                <Script src="https://featurable.com/assets/bundle.js" strategy="lazyOnload" />
+                {visibleTestimonials.length > 0 ? (
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {visibleTestimonials.map((testimonial) => {
+                            const rating = Math.max(0, Math.min(5, testimonial.rating))
+
+                            return (
+                                <figure
+                                    key={testimonial._id}
+                                    className="flex h-full flex-col rounded-3xl border border-header-text/10 bg-background p-7 shadow-sm"
+                                >
+                                    <div
+                                        role="img"
+                                        className="flex gap-1 text-primaryYellow"
+                                        aria-label={`${rating} out of 5 stars`}
+                                    >
+                                        {Array.from({ length: 5 }, (_, index) => (
+                                            <Star
+                                                key={index}
+                                                aria-hidden="true"
+                                                className="size-5"
+                                                fill={index < rating ? "currentColor" : "none"}
+                                            />
+                                        ))}
+                                    </div>
+                                    <blockquote className="mt-5 flex-1">
+                                        <BodyText as="p" className="text-body-text">
+                                            &ldquo;{testimonial.quote}&rdquo;
+                                        </BodyText>
+                                    </blockquote>
+                                    <figcaption className="mt-6 border-t border-header-text/10 pt-5">
+                                        <p className="font-semibold text-header-text">{testimonial.name}</p>
+                                        {testimonial.platform && (
+                                            <p className="mt-1 text-sm text-body-text-light">
+                                                {testimonial.platform} review
+                                            </p>
+                                        )}
+                                    </figcaption>
+                                </figure>
+                            )
+                        })}
+                    </div>
+                ) : (
+                    <div className="min-h-80" aria-busy={!shouldLoadWidget}>
+                        <div id={REVIEW_WIDGET_ID} data-featurable-async></div>
+                        {shouldLoadWidget && (
+                            <Script
+                                id="featurable-reviews"
+                                src={REVIEW_WIDGET_SRC}
+                                strategy="afterInteractive"
+                            />
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     )

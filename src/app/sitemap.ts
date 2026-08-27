@@ -27,9 +27,18 @@ const excludedPrefixes = ['/studio']
 
 export const revalidate = 3600
 
+function validDate(value?: string) {
+    if (!value) return undefined
+
+    const date = new Date(value)
+    return Number.isNaN(date.getTime()) ? undefined : date
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const services = await sitemapClient
-        .fetch<{ slug: string }[]>(`*[_type == "service"]{ "slug": slug.current }`)
+        .fetch<{ slug: string; updatedAt?: string }[]>(
+            `*[_type == "service"]{ "slug": slug.current, "updatedAt": _updatedAt }`,
+        )
         .catch(() => [])
 
     // Blog posts are local markdown files, not Sanity documents
@@ -39,23 +48,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         .filter(({ path }) => !excludedPrefixes.some((p) => path.startsWith(p)))
         .map(({ path, priority }) => ({
             url: `${BASE_URL}${path}`,
-            lastModified: new Date(),
             changeFrequency: 'monthly',
             priority,
         }))
 
     const serviceEntries: MetadataRoute.Sitemap = services
         .filter((s) => Boolean(s.slug))
-        .map((service) => ({
-            url: `${BASE_URL}/service/${service.slug}`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        }))
+        .map((service) => {
+            const lastModified = validDate(service.updatedAt)
+
+            return {
+                url: `${BASE_URL}/service/${service.slug}`,
+                ...(lastModified ? {lastModified} : {}),
+                changeFrequency: 'monthly',
+                priority: 0.8,
+            }
+        })
 
     const areaEntries: MetadataRoute.Sitemap = AREAS.map((area) => ({
         url: `${BASE_URL}${areaHref(area)}`,
-        lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.7,
     }))
@@ -64,18 +75,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const areaServiceEntries: MetadataRoute.Sitemap = areaServicePages().map(
         ({ area, service }) => ({
             url: `${BASE_URL}${areaHref(area)}/${service.slug}`,
-            lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.6,
         }),
     )
 
-    const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
-        url: `${BASE_URL}${postHref(post.slug)}`,
-        lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.6,
-    }))
+    const postEntries: MetadataRoute.Sitemap = posts.map((post) => {
+        const lastModified = validDate(post.updatedAt || post.publishedAt)
+
+        return {
+            url: `${BASE_URL}${postHref(post.slug)}`,
+            ...(lastModified ? {lastModified} : {}),
+            changeFrequency: 'monthly',
+            priority: 0.6,
+        }
+    })
 
     return [
         ...staticEntries,

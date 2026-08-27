@@ -40,8 +40,8 @@ export default function AreasOfFocus({ className, title, subtitle, image }: Area
                     alt={title}
                     width={700}
                     height={700}
+                    sizes="(max-width: 640px) calc(100vw - 5rem), 700px"
                     className="object-cover mx-auto mt-10"
-                    priority
                 />
             </FadeIn>
         </div>

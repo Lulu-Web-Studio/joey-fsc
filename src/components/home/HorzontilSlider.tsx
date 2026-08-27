@@ -61,7 +61,7 @@ export default function HorizontalSlider({
             setActiveIndex(index);
         };
 
-        container.addEventListener('scroll', handleScroll);
+        container.addEventListener('scroll', handleScroll, {passive: true});
         return () => container.removeEventListener('scroll', handleScroll);
     }, [isMobile, itemWidth]);
 
@@ -84,13 +84,17 @@ export default function HorizontalSlider({
                 </div>
                 <div className="items-center gap-3 hidden sm:flex md:hidden">
                     <button
+                        type="button"
                         onClick={() => handleScroll(-itemWidth)}
+                        aria-label="Previous services"
                         className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary-teal hover:bg-primaryCyan flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
                     >
                         <ChevronLeft className="w-6 h-6 text-white" />
                     </button>
                     <button
+                        type="button"
                         onClick={() => handleScroll(itemWidth)}
+                        aria-label="Next services"
                         className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary-teal hover:bg-primaryCyan flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
                     >
                         <ChevronRight className="w-6 h-6 text-white" />
@@ -126,6 +130,7 @@ export default function HorizontalSlider({
                 <div className="flex items-center justify-center gap-2 mt-6 md:hidden">
                     {services.map((_, idx) => (
                         <button
+                            type="button"
                             key={idx}
                             onClick={() => {
                                 if (containerRef.current) {

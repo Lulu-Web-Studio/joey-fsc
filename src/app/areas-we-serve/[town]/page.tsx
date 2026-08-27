@@ -5,9 +5,8 @@ import HeaderText from "@/components/ui/HeaderText";
 import BodyText from "@/components/ui/BodyText";
 import Underline from "@/components/ui/Underline";
 import PillMarquee from "@/components/ui/PillMarquee";
-import {FadeIn, FadeInStagger} from "@/components/ui/FadeIn";
+import {FadeIn} from "@/components/ui/FadeIn";
 import CTA from "@/components/CTA";
-import ServiceCard from "@/components/service/ServiceCard";
 import HorizontalSlider from "@/components/home/HorzontilSlider";
 // import Breadcrumbs from "@/components/areas/Breadcrumbs";
 import FaqList from "@/components/areas/FaqList";
@@ -119,39 +118,14 @@ export default async function AreaPage({params}: {params: Params}) {
       <WhyChooseUs area={area} />
 
       <section aria-label={`Services for ${area.town} patients`}>
-        <div className="md:hidden">
-          <HorizontalSlider
-            title={`Procedures for ${area.town} patients`}
-            description={`Explore the procedures available to ${area.town} patients at our Trumbull office.`}
-            services={services}
-            hrefBySlug={Object.fromEntries(
-              area.services.map((s) => [s.slug, serviceHref(area, s)]),
-            )}
-          />
-        </div>
-
-        <div className="container hidden px-6 pb-12 pt-24 sm:px-8 md:block lg:pt-32">
-          <FadeIn className="text-center">
-            <HeaderText as="h2" className="text-header-text font-serif font-medium">
-              Procedures for {area.town} patients
-            </HeaderText>
-          </FadeIn>
-
-          <FadeInStagger
-            initial="visible"
-            className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-3"
-          >
-            {area.services.map((service) => (
-              <ServiceCard
-                key={service.slug}
-                href={serviceHref(area, service)}
-                title={serviceName(service.slug)}
-                description={SERVICES[service.slug].description}
-                imageSrc={SERVICES[service.slug].img}
-              />
-            ))}
-          </FadeInStagger>
-        </div>
+        <HorizontalSlider
+          title={`Procedures for ${area.town} patients`}
+          description={`Explore the procedures available to ${area.town} patients at our Trumbull office.`}
+          services={services}
+          hrefBySlug={Object.fromEntries(
+            area.services.map((s) => [s.slug, serviceHref(area, s)]),
+          )}
+        />
       </section>
 
       <FaqList title={`${area.town} patient questions`} faqs={area.faqs} />
