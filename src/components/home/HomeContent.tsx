@@ -1,5 +1,3 @@
-"use client"
-
 import Hero from "./Hero";
 import WhyUs from "./WhyUs";
 import AreasOfFocus from "./AreasOfFocus";

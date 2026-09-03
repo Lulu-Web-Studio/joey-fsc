@@ -1,4 +1,3 @@
-"use client"
 import React from "react"
 import HeaderText from "./ui/HeaderText"
 import BodyText from "./ui/BodyText"
