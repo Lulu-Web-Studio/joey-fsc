@@ -92,6 +92,39 @@ export interface Service {
   order?: number;
 }
 
+export interface AreaServicePage {
+  _id: string;
+  _updatedAt?: string;
+  townSlug: string;
+  serviceSlug: string;
+  heading: string;
+  primaryKeyword: string;
+  localAngle: string;
+  clinicalIntro: {
+    title: string;
+    paragraphs: string[];
+  };
+  evaluationReasons: string[];
+  visitSteps: {
+    _key?: string;
+    title: string;
+    description: string;
+  }[];
+  localLogistics: {
+    title: string;
+    description: string;
+  };
+  faqs: {
+    _key?: string;
+    question: string;
+    answer: string;
+  }[];
+  seo: {
+    title: string;
+    description: string;
+  };
+}
+
 // Testimonial Types
 export interface Testimonial {
   _id: string;

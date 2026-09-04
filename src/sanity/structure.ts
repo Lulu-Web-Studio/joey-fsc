@@ -77,6 +77,7 @@ export const structure: StructureResolver = (S) =>
 
       // Content Collections
       S.documentTypeListItem('service').title('Services'),
+      S.documentTypeListItem('areaServicePage').title('Location Service Pages'),
       S.documentTypeListItem('doctor').title('Doctors'),
 
       S.divider(),
@@ -97,6 +98,7 @@ export const structure: StructureResolver = (S) =>
             'doctorsPageSettings',
             'teamPageSettings',
             'service',
+            'areaServicePage',
             'teamMember',
             'doctor',
             'testimonial',

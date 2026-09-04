@@ -14,9 +14,7 @@ import {config} from "@/config";
 import {
   AREAS_BASE_PATH,
   areaHref,
-  areaServicePages,
   getArea,
-  serviceName,
   type Area,
   type AreaService,
 } from "@/config/areas";
@@ -24,43 +22,84 @@ import {SITE_COLORS} from "@/config/colors";
 import {SERVICES} from "@/config/services";
 import {breadcrumbSchema, faqSchema, type Crumb} from "@/lib/schema";
 import {pageMetadata} from "@/lib/metadata";
+import {client} from "@/sanity/lib/client";
+import {sanityFetch} from "@/sanity/lib/live";
+import {
+  ALL_AREA_SERVICE_ROUTES_QUERY,
+  AREA_SERVICE_PAGE_QUERY,
+} from "@/sanity/queries/areaServicePages";
+import type {AreaServicePage as AreaServicePageDocument} from "@/types/sanity";
 
 type Params = Promise<{town: string; service: string}>;
 
-/**
- * Driven entirely by which combos declare complete `page` content in the
- * areas config. `dynamicParams = false` keeps undeclared combos on a 404
- * instead of quietly generating thin pages on demand.
- */
-export const dynamicParams = false;
+export const revalidate = 3600;
 
-export function generateStaticParams() {
-  return areaServicePages().map(({area, service}) => ({
-    town: area.slug,
-    service: service.slug,
-  }));
+export async function generateStaticParams() {
+  const pages = await client.fetch<
+    Pick<AreaServicePageDocument, "townSlug" | "serviceSlug">[]
+  >(ALL_AREA_SERVICE_ROUTES_QUERY);
+
+  return pages.flatMap(({townSlug, serviceSlug}) => {
+    const area = getArea(townSlug);
+    const isOffered = area?.services.some((entry) => entry.slug === serviceSlug);
+
+    return area && isOffered ? [{town: townSlug, service: serviceSlug}] : [];
+  });
 }
 
-function resolve(
+function resolvePair(
   townSlug: string,
   serviceSlug: string,
 ): {area: Area; service: AreaService} | undefined {
   const area = getArea(townSlug);
   const service = area?.services.find((entry) => entry.slug === serviceSlug);
 
-  return area && service?.page ? {area, service} : undefined;
+  return area && service ? {area, service} : undefined;
 }
 
-function crumbsFor(area: Area, service: AreaService): Crumb[] {
+function crumbsFor(
+  area: Area,
+  service: AreaService,
+  heading: string,
+): Crumb[] {
   return [
     {name: "Home", path: "/"},
     {name: "Areas We Serve", path: AREAS_BASE_PATH},
     {name: area.town, path: areaHref(area)},
     {
-      name: service.page?.heading || serviceName(service.slug),
+      name: heading,
       path: `${areaHref(area)}/${service.slug}`,
     },
   ];
+}
+
+async function fetchPage(
+  townSlug: string,
+  serviceSlug: string,
+  stega?: boolean,
+): Promise<
+  | {
+      area: Area;
+      service: AreaService;
+      page: AreaServicePageDocument;
+    }
+  | undefined
+> {
+  const resolved = resolvePair(townSlug, serviceSlug);
+  if (!resolved) return undefined;
+
+  const {data} = await sanityFetch({
+    query: AREA_SERVICE_PAGE_QUERY,
+    params: {townSlug, serviceSlug},
+    stega,
+  });
+
+  return data
+    ? {
+        ...resolved,
+        page: data as AreaServicePageDocument,
+      }
+    : undefined;
 }
 
 export async function generateMetadata({
@@ -69,29 +108,26 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const {town, service} = await params;
-  const resolved = resolve(town, service);
+  const resolved = await fetchPage(town, service, false);
 
-  if (!resolved?.service.page) return {};
-
-  const {page} = resolved.service;
+  if (!resolved) return {};
 
   return pageMetadata(
-    page.seo.title,
-    page.seo.description,
+    resolved.page.seo.title,
+    resolved.page.seo.description,
     `${areaHref(resolved.area)}/${resolved.service.slug}`,
   );
 }
 
 export default async function AreaServicePage({params}: {params: Params}) {
   const {town, service} = await params;
-  const resolved = resolve(town, service);
+  const resolved = await fetchPage(town, service);
 
-  if (!resolved?.service.page) notFound();
+  if (!resolved) notFound();
 
-  const {area, service: areaService} = resolved;
-  const page = areaService.page!;
+  const {area, service: areaService, page} = resolved;
   const name = page.heading;
-  const crumbs = crumbsFor(area, areaService);
+  const crumbs = crumbsFor(area, areaService, page.heading);
   const serviceImage = SERVICES[areaService.slug].img;
 
   return (

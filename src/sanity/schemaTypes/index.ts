@@ -17,6 +17,7 @@ import { serviceType } from './serviceType'
 import { teamMemberType } from './teamMemberType'
 import { doctorType } from './doctorType'
 import { testimonialType } from './testimonialType'
+import { areaServicePageType } from './areaServicePageType'
 
 // Reusable types
 import { blockContentType } from './blockContentType'
@@ -40,6 +41,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     // Content
     serviceType,
+    areaServicePageType,
     teamMemberType,
     doctorType,
     testimonialType,

@@ -17,7 +17,6 @@ import {
   AREAS_BASE_PATH,
   areaHref,
   getArea,
-  serviceHref,
   serviceName,
   type Area,
 } from "@/config/areas";
@@ -25,6 +24,8 @@ import {SITE_COLORS} from "@/config/colors";
 import {SERVICES} from "@/config/services";
 import {breadcrumbSchema, faqSchema, type Crumb} from "@/lib/schema";
 import {pageMetadata} from "@/lib/metadata";
+import {sanityFetch} from "@/sanity/lib/live";
+import {AREA_SERVICE_SLUGS_FOR_TOWN_QUERY} from "@/sanity/queries/areaServicePages";
 import type {Service} from "@/types/sanity";
 
 type Params = Promise<{town: string}>;
@@ -59,6 +60,17 @@ export default async function AreaPage({params}: {params: Params}) {
   const area = getArea(town);
 
   if (!area) notFound();
+
+  const {data: areaServicePageEntries} = await sanityFetch({
+    query: AREA_SERVICE_SLUGS_FOR_TOWN_QUERY,
+    params: {townSlug: area.slug},
+    stega: false,
+  });
+  const localServiceSlugs = new Set(
+    ((areaServicePageEntries || []) as {serviceSlug?: string}[])
+      .map((entry) => entry.serviceSlug)
+      .filter((slug): slug is string => Boolean(slug)),
+  );
 
   const crumbs = crumbsFor(area);
   const services: Service[] = area.services.map(({slug}, index) => ({
@@ -123,7 +135,12 @@ export default async function AreaPage({params}: {params: Params}) {
           description={`Explore the procedures available to ${area.town} patients at our Trumbull office.`}
           services={services}
           hrefBySlug={Object.fromEntries(
-            area.services.map((s) => [s.slug, serviceHref(area, s)]),
+            area.services.map(({slug}) => [
+              slug,
+              localServiceSlugs.has(slug)
+                ? `${areaHref(area)}/${slug}`
+                : `/service/${slug}`,
+            ]),
           )}
         />
       </section>

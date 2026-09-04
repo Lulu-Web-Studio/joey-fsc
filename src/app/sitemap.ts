@@ -1,8 +1,10 @@
 import { MetadataRoute } from 'next'
 import { createClient } from 'next-sanity'
 import { apiVersion, dataset, projectId } from '@/sanity/env'
-import { AREAS, AREAS_BASE_PATH, areaHref, areaServicePages } from '@/config/areas'
+import { AREAS, AREAS_BASE_PATH, areaHref, getArea } from '@/config/areas'
 import { BLOG_BASE_PATH, getAllPosts, postHref } from '@/lib/blog'
+import { ALL_AREA_SERVICE_ROUTES_QUERY } from '@/sanity/queries/areaServicePages'
+import type { AreaServicePage } from '@/types/sanity'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.facialsurgeryct.com'
 
@@ -35,11 +37,14 @@ function validDate(value?: string) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const services = await sitemapClient
-        .fetch<{ slug: string; updatedAt?: string }[]>(
+    const [services, areaServicePages] = await Promise.all([
+        sitemapClient.fetch<{ slug: string; updatedAt?: string }[]>(
             `*[_type == "service"]{ "slug": slug.current, "updatedAt": _updatedAt }`,
-        )
-        .catch(() => [])
+        ).catch(() => []),
+        sitemapClient.fetch<
+            Pick<AreaServicePage, 'townSlug' | 'serviceSlug' | '_updatedAt'>[]
+        >(ALL_AREA_SERVICE_ROUTES_QUERY).catch(() => []),
+    ])
 
     // Blog posts are local markdown files, not Sanity documents
     const posts = getAllPosts()
@@ -71,13 +76,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
     }))
 
-    // Only complete town-service pages declared in the areas config
-    const areaServiceEntries: MetadataRoute.Sitemap = areaServicePages().map(
-        ({ area, service }) => ({
-            url: `${BASE_URL}${areaHref(area)}/${service.slug}`,
-            changeFrequency: 'monthly',
-            priority: 0.6,
-        }),
+    // Publishing a valid Sanity document turns on the corresponding route.
+    const areaServiceEntries: MetadataRoute.Sitemap = areaServicePages.flatMap(
+        (page) => {
+            const area = getArea(page.townSlug)
+            const isOffered = area?.services.some(
+                (service) => service.slug === page.serviceSlug,
+            )
+
+            if (!area || !isOffered) return []
+
+            const lastModified = validDate(page._updatedAt)
+
+            return [
+                {
+                    url: `${BASE_URL}${areaHref(area)}/${page.serviceSlug}`,
+                    ...(lastModified ? {lastModified} : {}),
+                    changeFrequency: 'monthly',
+                    priority: 0.6,
+                },
+            ]
+        },
     )
 
     const postEntries: MetadataRoute.Sitemap = posts.map((post) => {
