@@ -16,7 +16,7 @@ import ServiceAreasList from '@/components/service/ServiceAreasList';
 import {SchemaMarkup} from '@/components/SchemaMarkup';
 import {faqSchema} from '@/lib/schema';
 import {areasForService, type Faq} from '@/config/areas';
-import {getServicePageOverride, type ServiceSlug} from '@/config/services';
+import {getServicePageOverride, SERVICES, type ServiceSlug} from '@/config/services';
 
 export const revalidate = 3600;
 
@@ -95,18 +95,27 @@ export default async function ServicePage({
     const currentService = {
         _id: serviceData._id,
         serviceTitle: pageOverride?.title || serviceData.serviceTitle || 'Service',
+        // Plain name (no "in Fairfield County, CT" suffix) for contexts that
+        // interpolate it into a sentence or a label alongside other location
+        // text — using the full geo-inclusive title there reads as broken
+        // ("Schedule Your Dental Implants in Fairfield County, CT Appointment
+        // Today") or repeats the county three times on one page.
+        shortTitle: pageOverride?.shortTitle || serviceData.serviceTitle || SERVICES[service as ServiceSlug]?.name || 'Service',
         slug: serviceData.slug || service,
         description: pageOverride?.description || serviceData.description || '',
         coverImage: serviceData.coverImage || {},
         serviceTitle2: pageOverride?.sectionTitle || serviceData.serviceTitle2 || serviceData.serviceTitle || 'Service',
+        // Fall back a whole paragraph at a time, not field-by-field — an
+        // override's title must never end up paired with the CMS's text
+        // (or vice versa) just because one field happened to be empty.
         paragraph1: {
-            title: serviceData.paragraph1?.title || '',
-            text: serviceData.paragraph1?.text || '',
+            title: (pageOverride?.paragraph1 ?? serviceData.paragraph1)?.title || '',
+            text: (pageOverride?.paragraph1 ?? serviceData.paragraph1)?.text || '',
             image: serviceData.paragraph1?.image || null,
         },
         paragraph2: {
-            title: serviceData.paragraph2?.title || '',
-            text: serviceData.paragraph2?.text || '',
+            title: (pageOverride?.paragraph2 ?? serviceData.paragraph2)?.title || '',
+            text: (pageOverride?.paragraph2 ?? serviceData.paragraph2)?.text || '',
             image: serviceData.paragraph2?.image || null,
         },
         ctaText: serviceData.ctaText || undefined,
@@ -169,17 +178,17 @@ export default async function ServicePage({
             </div>
             <SchemaMarkup data={faqSchema(currentService.faqs)} />
             <FaqList
-                title={`${currentService.serviceTitle} questions`}
+                title={`${currentService.shortTitle} questions`}
                 faqs={currentService.faqs}
             />
             <div className='pt-10'>
                 <ServiceAreasList
-                    serviceTitle={currentService.serviceTitle}
+                    serviceTitle={currentService.shortTitle}
                     areas={servingAreas}
                 />
             </div>
             <div>
-                <CTA ctaText={currentService.ctaText} serviceTitle={currentService.serviceTitle} />
+                <CTA ctaText={currentService.ctaText} serviceTitle={currentService.shortTitle} />
             </div>
         </div>
     );

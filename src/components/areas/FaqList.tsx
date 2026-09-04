@@ -125,6 +125,8 @@ export default function FaqList({
               animate={{height: showAll ? "auto" : 0}}
               transition={{duration: 0.4, ease: [0.4, 0, 0.2, 1]}}
               className="overflow-hidden"
+              aria-hidden={!showAll}
+              inert={!showAll}
             >
               {faqs
                 .slice(initialVisibleCount)
@@ -140,7 +142,20 @@ export default function FaqList({
             <button
               type="button"
               aria-expanded={showAll}
-              onClick={() => setShowAll((v) => !v)}
+              onClick={() => {
+                const next = !showAll;
+                // Collapsing the tray while a question past the initial
+                // count is open would otherwise leave it aria-hidden={false}
+                // inside a now-hidden region — reset it shut instead. Reads
+                // `showAll`/`openIndex` from render scope rather than a
+                // functional updater, since Strict Mode double-invokes
+                // updaters and setOpenIndex is a side effect that isn't
+                // safe to run twice.
+                if (!next && openIndex !== null && openIndex >= initialVisibleCount) {
+                  setOpenIndex(null);
+                }
+                setShowAll(next);
+              }}
               className="inline-flex items-center gap-2 rounded-full border border-accentRose px-5 py-2.5 text-sm font-semibold text-accentRose transition-colors duration-300 hover:bg-accentRose hover:text-header-text"
             >
               {showAll ? "Show fewer questions" : `Load ${hiddenCount} more questions`}

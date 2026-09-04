@@ -7,8 +7,8 @@ author: The Facial Surgery Center
 authorTitle: Oral & Maxillofacial Surgery, Trumbull, CT
 coverImage: /images/blog/does-everyone-have-wisdom-teeth.webp
 coverImageAlt: An anatomical dental model showing an impacted lower wisdom tooth in a jawbone cutaway
-metaTitle: Does Everyone Have Wisdom Teeth? | Facial Surgery Center
-metaDescription: Does everyone have wisdom teeth? Learn why some people have none, when they typically come in, warning signs to watch for, and when removal is recommended.
+metaTitle: "Does Everyone Have Wisdom Teeth? An Oral Surgeon Explains"
+metaDescription: "Not everyone grows all four wisdom teeth. See why some people have fewer or none, how to tell if yours are impacted, and when removal is recommended."
 draft: false
 faqs:
   - question: Does everyone have wisdom teeth?

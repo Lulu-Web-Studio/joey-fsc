@@ -7,7 +7,7 @@ interface BodyTextProps {
     children: React.ReactNode;
     className?: string;
     variant?: 'small' | 'default' | 'large';
-    as?: keyof JSX.IntrinsicElements; // 'h1' | 'h2' | 'h3' | 'p' | etc.
+    as?: keyof React.JSX.IntrinsicElements; // 'h1' | 'h2' | 'h3' | 'p' | etc.
 }
 
 export default function BodyText({

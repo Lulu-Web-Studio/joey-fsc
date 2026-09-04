@@ -7,8 +7,8 @@ author: The Facial Surgery Center
 authorTitle: Oral & Maxillofacial Surgery, Trumbull, CT
 coverImage: /images/blog/what-to-eat-after-tooth-extraction.webp
 coverImageAlt: A man holding his cheek with tooth pain highlighted along his jaw
-metaTitle: What to Eat After Tooth Extraction | Day-by-Day Guide
-metaDescription: What to eat after a tooth extraction, day by day — safe foods, what to avoid, and when you can eat solid food again. Written by oral surgeons in Trumbull, CT.
+metaTitle: "What to Eat After Tooth Extraction: Day 1–7 Guide"
+metaDescription: "What to eat during the first week after a tooth extraction — first 48 hours through day 7 — plus foods that can slow healing. By Trumbull, CT oral surgeons."
 draft: false
 faqs:
   - question: What is the safest food to eat after a tooth extraction?
