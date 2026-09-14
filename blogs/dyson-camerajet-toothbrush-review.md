@@ -2,6 +2,7 @@
 title: "Dyson CameraJet Toothbrush: A Critical Look Before You Buy"
 excerpt: "A camera and built-in jet make Dyson's new toothbrush unusual. Here is what its claims tell us, what they leave unanswered, and what matters for daily care."
 category: Patient Guides
+publishedAt: "2026-09-13"
 metaTitle: "Dyson CameraJet Toothbrush: Claims, Cost & Questions"
 metaDescription: "Considering the Dyson CameraJet toothbrush? Read a research-based look at its cleaning claims, price, and practical questions before you buy."
 coverImage: /images/blog/dyson-camerajet-toothbrush-review.webp
@@ -9,25 +10,21 @@ coverImageAlt: Two Dyson CameraJet electric toothbrushes standing on a bathroom 
 draft: false
 ---
 
-## Key Features
-
-Before weighing the claims below, here is what CameraJet does, according to Dyson's own descriptions:
-
-- **Built-in camera:** A 100,000-pixel macro lens captures close-up images of your teeth as you brush.
-- **AI gap detection:** Machine-learning software (Dyson calls it Gap Optical Targeting) analyzes roughly 28 images per second to spot gaps between teeth in real time.
-- **Conical liquid jet:** The brush head can release a short, targeted burst of mouthrinse toward a detected gap.
-- **Sonic oscillation:** In its variable-oscillation modes, the brush head can move up to about 58,000 times per minute for standard cleaning.
-- **App connectivity:** The MyDyson app can show live brushing footage and track cleaning statistics over time.
-
-These are manufacturer specifications, not independent test results — the sections below look at what they add up to in practice. [Source: Dyson CameraJet product page](https://www.dyson.com/oral-care/electric-toothbrush/camerajet/ceramic-pink-set) and [launch announcement](https://www.dyson.com/discover/news/latest/introducing-camerajet).
-
 The Dyson CameraJet toothbrush combines brushing with a camera-guided liquid jet. Before spending nearly $500, it is worth asking what that combination adds to your daily routine. Its features are unusual, but the published comparisons leave important questions about its value unanswered.
 
 The reason for caution is the gap between an impressive feature and evidence that it improves everyday care. Before buying, look at what was tested, what the product was compared with, and whether the extra steps fit your habits.
 
-## What is the Dyson CameraJet toothbrush?
+## Dyson CameraJet toothbrush features
 
-Dyson introduced CameraJet on September 1, 2026. According to the company, a small camera identifies spaces between teeth and triggers a jet of mouthrinse while you brush. The device also offers app-based guidance and live camera viewing. These are manufacturer descriptions; no hands-on testing was done for this article. [Source: Dyson launch announcement](https://www.dyson.com/discover/news/latest/introducing-camerajet).
+Dyson introduced CameraJet on September 1, 2026. According to the company, its main features include:
+
+- **Built-in camera:** A 100,000-pixel macro lens captures close-up images of your teeth as you brush.
+- **AI gap detection:** Machine-learning software (Dyson calls it Gap Optical Targeting) analyzes roughly 28 images per second to spot gaps between teeth in real time.
+- **Conical liquid jet:** The brush head can release a short, targeted burst of mouthrinse toward a detected gap.
+- **Sonic oscillation:** The brushing motion varies the angle of oscillation to help keep the bristles moving.
+- **App connectivity:** The MyDyson app can show live brushing footage and track cleaning statistics over time.
+
+These are manufacturer descriptions; no hands-on testing was done for this article. [Source: Dyson CameraJet product page](https://www.dyson.com/oral-care/electric-toothbrush/camerajet/ceramic-pink-set) and [launch announcement](https://www.dyson.com/discover/news/latest/introducing-camerajet).
 
 Combining two steps could appeal to someone who regularly brushes but skips cleaning between teeth. Whether it actually makes that person's routine easier is a practical question a specification sheet cannot answer.
 
