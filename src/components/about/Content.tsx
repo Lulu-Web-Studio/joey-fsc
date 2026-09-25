@@ -26,8 +26,7 @@ export default function Content({ mission, whatWeDo, imageGallery, values, innov
         <div className="overflow-hidden pt-16 sm:pt-24">
             <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
 
-                {/* ---------- Page Title & Intro ---------- */}
-                <h1 className="sr-only">About The Facial Surgery Center</h1>
+                {/* ---------- Mission ---------- */}
                 <FadeIn>
                     <HeaderText
                         as="h2"

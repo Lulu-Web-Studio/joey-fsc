@@ -26,8 +26,9 @@ export const HOME_SETTINGS_QUERY = defineQuery(/* groq */ `
       description
     },
     hero {
-      headline,
-      highlight,
+      heading,
+      tagline,
+      taglineHighlight,
       subtitle,
       heroImage {
         sanityImage {

@@ -27,7 +27,7 @@ const defaultAboutSettings: AboutSettings = {
             "Learn about The Facial Surgery Center's mission, values, and commitment to excellence in oral and maxillofacial surgery.",
     },
     hero: {
-        title: "About The Facial Surgery Center",
+        title: "About Our Oral Surgery Practice in Trumbull, CT",
         subtitle:
             "Dedicated to exceptional oral and maxillofacial care through expertise, compassion, and innovation.",
     },

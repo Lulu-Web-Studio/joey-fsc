@@ -21,8 +21,9 @@ export default function HomeContent({settings, services, testimonials, doctors}:
         <div className="min-h-screen">
             <div className="container">
                 <Hero
-                    headline={settings.hero.headline}
-                    highlight={settings.hero.highlight}
+                    heading={settings.hero.heading}
+                    tagline={settings.hero.tagline}
+                    taglineHighlight={settings.hero.taglineHighlight}
                     subcopy={settings.hero.subtitle}
                     imageUrl={getImageUrl(settings.hero.heroImage, '/images/smiling-woman.png')}
                     ctaLabel={settings.hero.ctaText}
@@ -36,6 +37,7 @@ export default function HomeContent({settings, services, testimonials, doctors}:
                     points={settings.whyUs.points}
                 />
             </div>
+            <Doctors doctors={doctors} />
             <div>
                 <AreasOfFocus
                     className="pt-16"
@@ -44,7 +46,6 @@ export default function HomeContent({settings, services, testimonials, doctors}:
                     image={settings.areasOfFocus.image}
                 />
             </div>
-            <Doctors doctors={doctors} />
             <div className="py-32 bg-bg2 flex flex-col items-center justify-center">
                 <HorizontalSlider
                     title={settings.services.title}

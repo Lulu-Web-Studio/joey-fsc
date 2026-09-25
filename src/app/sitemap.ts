@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { config } from '@/config'
 import { createClient } from 'next-sanity'
 import { apiVersion, dataset, projectId } from '@/sanity/env'
 import { AREAS, AREAS_BASE_PATH, areaHref, getArea } from '@/config/areas'
@@ -6,7 +7,7 @@ import { BLOG_BASE_PATH, getAllPosts, postHref } from '@/lib/blog'
 import { ALL_AREA_SERVICE_ROUTES_QUERY } from '@/sanity/queries/areaServicePages'
 import type { AreaServicePage } from '@/types/sanity'
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.facialsurgeryct.com'
+const BASE_URL = config.baseUrl
 
 // Use a no-CDN client so the sitemap always gets fresh slugs at build/revalidation time
 const sitemapClient = createClient({ projectId, dataset, apiVersion, useCdn: false })
@@ -40,10 +41,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const [services, areaServicePages] = await Promise.all([
         sitemapClient.fetch<{ slug: string; updatedAt?: string }[]>(
             `*[_type == "service"]{ "slug": slug.current, "updatedAt": _updatedAt }`,
-        ).catch(() => []),
+        ),
         sitemapClient.fetch<
             Pick<AreaServicePage, 'townSlug' | 'serviceSlug' | '_updatedAt'>[]
-        >(ALL_AREA_SERVICE_ROUTES_QUERY).catch(() => []),
+        >(ALL_AREA_SERVICE_ROUTES_QUERY),
     ])
 
     // Blog posts are local markdown files, not Sanity documents

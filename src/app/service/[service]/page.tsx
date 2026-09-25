@@ -4,7 +4,9 @@ import ServiceInfo from '@/components/service/ServiceInfo';
 import LearnMore from '@/components/service/LearnMore';
 import CTA from '@/components/CTA';
 import {Metadata} from 'next';
-import HeaderText from '@/components/ui/HeaderText';
+import {notFound} from 'next/navigation';
+import PatientGuide from '@/components/service/PatientGuide';
+import {RELATED_SERVICES} from '@/config/service-guides';
 import {sanityFetch} from '@/sanity/lib/live';
 import {client} from '@/sanity/lib/client';
 import {SERVICE_QUERY, SERVICE_SEO_QUERY, ALL_SERVICE_SLUGS_QUERY, ALL_SERVICES_QUERY} from '@/sanity/queries/services';
@@ -49,9 +51,7 @@ export async function generateMetadata({
         );
     }
 
-    return {
-        title: "Facial Surgery Center | Best Oral and Maxillofacial Surgeons",
-    };
+    notFound();
 }
 
 export default async function ServicePage({
@@ -71,13 +71,7 @@ export default async function ServicePage({
     });
     const pageOverride = getServicePageOverride(service);
 
-    if (!serviceData) {
-        return (
-            <div className='min-h-screen flex flex-col justify-center items-center'>
-                <HeaderText>Service not found</HeaderText>
-            </div>
-        );
-    }
+    if (!serviceData) notFound();
 
     const serviceEntries = (allServices || []) as Array<Partial<Service> & {_id: string} | null | undefined>;
 
@@ -87,7 +81,7 @@ export default async function ServicePage({
             _id: entry._id,
             serviceTitle: entry.serviceTitle || 'Service',
             slug: entry.slug || `service-${index}`,
-            description: entry.description || '',
+            description: getServicePageOverride(entry.slug || '')?.description || entry.description || '',
             coverImage: entry.coverImage || {},
             order: entry.order ?? index,
         }));
@@ -129,23 +123,10 @@ export default async function ServicePage({
         ],
     };
 
-    const currentServiceCard: Service = {
-        _id: currentService._id,
-        serviceTitle: currentService.serviceTitle,
-        slug: currentService.slug,
-        description: currentService.description,
-        coverImage: currentService.coverImage,
-    };
-
-    // Find current service index and calculate prev/next
-    const currentIndex = serviceList.findIndex((entry) => entry.slug === service);
-    const totalServices = serviceList.length;
-
-    const prevIndex = currentIndex - 1 < 0 ? totalServices - 1 : currentIndex - 1;
-    const nextIndex = currentIndex + 1 >= totalServices ? 0 : currentIndex + 1;
-
-    const prevService = serviceList[prevIndex] || serviceList[0] || currentServiceCard;
-    const nextService = serviceList[nextIndex] || serviceList[0] || currentServiceCard;
+    const relatedSlugs = RELATED_SERVICES[service as ServiceSlug] || [];
+    const relatedServices = relatedSlugs
+        .map((slug) => serviceList.find((entry) => entry.slug === slug))
+        .filter((entry): entry is Service => Boolean(entry));
 
     const servingAreas = areasForService(service as ServiceSlug);
 
@@ -170,12 +151,8 @@ export default async function ServicePage({
                     imageSrc2={getImageUrl(currentService.paragraph2.image, '/images/placeholder.webp')}
                 />
             </div>
-            <div>
-                <LearnMore
-                    prevService={prevService}
-                    nextService={nextService}
-                />
-            </div>
+            <PatientGuide service={service as ServiceSlug} />
+            {relatedServices.length > 0 && <LearnMore services={relatedServices} />}
             <SchemaMarkup data={faqSchema(currentService.faqs)} />
             <FaqList
                 title={`${currentService.shortTitle} questions`}

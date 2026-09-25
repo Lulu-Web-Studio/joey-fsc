@@ -24,7 +24,7 @@ export default function CTA({ctaText, serviceTitle, buttonHref = "/contact"}: CT
   return (
     <section
       className="flex flex-col items-center justify-center py-32"
-      aria-labelledby="cta-heading"
+      aria-label="Request a consultation"
     >
       <FadeIn className="flex flex-col items-center justify-center w-10/12 sm:w-3/5 mx-auto text-center space-y-8">
         <HeaderText className="text-header-text font-serif font-medium">
@@ -36,7 +36,7 @@ export default function CTA({ctaText, serviceTitle, buttonHref = "/contact"}: CT
         </HeaderText>
 
         <BodyText as="p" className="text-body-text">
-          {ctaText || "Get personalized care and experience why The Facial Surgery Center is the best oral and maxillofacial surgical center in Trumbull, CT. We are here to help with all your oral and facial needs."}
+          {ctaText || "Discuss your concerns and treatment options with our oral and maxillofacial surgery team in Trumbull, CT. We welcome patients from throughout Fairfield County."}
         </BodyText>
       </FadeIn>
 

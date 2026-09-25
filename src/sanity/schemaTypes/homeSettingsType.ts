@@ -42,8 +42,25 @@ export const homeSettingsType = defineType({
       type: 'object',
       group: 'content',
       fields: [
-        { name: 'headline', type: 'string', title: 'Main Headline', description: 'e.g., "Transform Your Confidence with a"' },
-        { name: 'highlight', type: 'string', title: 'Highlighted Word', description: 'e.g., "New"' },
+        {
+          name: 'heading',
+          type: 'string',
+          title: 'Page Heading (H1)',
+          description: 'The main search heading for the home page. Include the service and location, e.g., "Oral Surgeons in Trumbull, CT Serving Fairfield County"',
+          validation: (rule) => rule.required().max(70),
+        },
+        {
+          name: 'tagline',
+          type: 'string',
+          title: 'Tagline',
+          description: 'Short brand line shown under the heading (not a heading), e.g., "Transform Your Confidence with a New Smile"',
+        },
+        {
+          name: 'taglineHighlight',
+          type: 'string',
+          title: 'Tagline Highlighted Word',
+          description: 'Word from the tagline shown in yellow, e.g., "New"',
+        },
         { name: 'subtitle', type: 'text', title: 'Subtitle/Description' },
         {
           name: 'heroImage',

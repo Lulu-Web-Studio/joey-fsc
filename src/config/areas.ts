@@ -127,7 +127,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Fairfield, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Fairfield, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons serving Fairfield, CT, about 15 minutes away. Wisdom teeth removal, dental implants and facial trauma evaluation.",
     },
@@ -175,7 +175,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Shelton, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Shelton, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons 13 minutes from Shelton, CT, our closest neighbouring town. Wisdom teeth, dental implants, bone grafting and IV sedation.",
     },
@@ -238,7 +238,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Bridgeport, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Bridgeport, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons just 10 minutes from Bridgeport, CT. Urgent extractions, facial trauma, oral pathology, wisdom teeth and dental implants.",
     },
@@ -301,7 +301,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Stratford, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Stratford, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons 12 minutes from Stratford, CT. Dental implants, full-arch restoration, extractions and in-house IV sedation available.",
     },
@@ -363,7 +363,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Monroe, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Monroe, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons just 10 minutes from Monroe, CT. Wisdom teeth removal, teen extractions under IV sedation and orthodontist coordination.",
     },
@@ -425,7 +425,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Easton, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Easton, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons 12 minutes from Easton, CT, entirely on local roads. Wisdom teeth, dental implants, extractions and in-house IV sedation.",
     },
@@ -486,7 +486,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Milford, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Milford, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons 20 minutes from Milford, CT, with visits consolidated. Dental implants, full-arch work, bone grafting and sleep apnea.",
     },
@@ -547,7 +547,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Newtown, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Newtown, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons 22 minutes from Newtown, CT, a straight run south. Wisdom teeth, dental implants and corrective jaw surgery for all ages.",
     },
@@ -608,7 +608,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Westport, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Westport, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons about 20 minutes from Westport, CT via the Merritt Parkway. Dental implants, wisdom teeth removal and in-house IV sedation.",
     },
@@ -668,7 +668,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Derby, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Derby, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons about 18 minutes from Derby, CT via Route 8. Facial trauma, wisdom teeth removal, dental implants and emergency extractions.",
     },
@@ -728,7 +728,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Norwalk, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Norwalk, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons about 26 minutes from Norwalk, CT via the Merritt Parkway. Dental implants, wisdom teeth removal and in-house IV sedation.",
     },
@@ -788,7 +788,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Stamford, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Stamford, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons about 34 minutes from Stamford, CT via I-95. Dental implants, full-arch restoration and in-house IV sedation for complex cases.",
     },
@@ -848,7 +848,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in New Haven, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving New Haven, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons about 26 minutes from New Haven, CT via Route 15. Second opinions, oral pathology, dental implants and facial trauma care.",
     },
@@ -908,7 +908,7 @@ export const AREAS: Area[] = [
       ...COMMON_LOCATION_FAQS,
     ],
     seo: {
-      title: "Oral Surgeon in Orange, CT | Facial Surgery Center",
+      title: "Oral Surgeon Serving Orange, CT | Facial Surgery Center",
       description:
         "Oral and maxillofacial surgeons about 15 minutes from Orange, CT via Route 15. Wisdom teeth removal, dental implants and orthodontist-coordinated care.",
     },

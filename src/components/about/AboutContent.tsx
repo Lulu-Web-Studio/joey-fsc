@@ -17,7 +17,7 @@ export default function AboutContent({ settings, locationSettings }: AboutConten
     return (
         <div className="mt-52">
             <FadeIn className="mx-auto w-4/6 text-center space-y-8">
-                <HeaderText className="text-header-text font-medium font-serif pb-6">
+                <HeaderText as="h1" className="text-header-text font-medium font-serif pb-6">
                     {settings.hero.title}
                 </HeaderText>
                 <BodyText className="text-body-text">

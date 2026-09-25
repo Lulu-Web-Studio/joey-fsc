@@ -33,6 +33,8 @@ Almost every question we get in the first week after an extraction is really the
 
 This guide walks through what to eat after a tooth extraction day by day, when you can go back to solid food, and which foods and habits are worth avoiding until the site has closed over.
 
+Planning a procedure? Our [tooth extraction page](/service/tooth-extractions) explains how the surgeon evaluates the tooth and coordinates treatment.
+
 One note before the timeline. These are general guidelines. The written instructions you were given at discharge always take priority, particularly if you had sedation or a more involved procedure such as [wisdom teeth removal](/service/wisdom-teeth-removal) or a [bone graft](/service/dental-bone-grafting). Our full [post-operative instructions](/for-patients/post-op) cover bleeding, swelling, medication, and oral hygiene alongside diet.
 
 ## The one rule everything else follows

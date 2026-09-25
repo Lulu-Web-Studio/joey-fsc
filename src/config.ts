@@ -16,7 +16,7 @@ const buildConfig = () => {
     officeEmail,
     officeAddress,
     googleReviewUrl,
-    baseUrl: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
+    baseUrl: (process.env.NEXT_PUBLIC_BASE_URL || "https://www.facialsurgeryct.com").replace(/\/+$/, ""),
     name: {
       name,
       copyright,

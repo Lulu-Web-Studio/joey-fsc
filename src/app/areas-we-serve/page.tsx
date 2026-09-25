@@ -36,9 +36,10 @@ export default function AreasWeServePage() {
           <HeaderText
             as="h1"
             variant="large"
-            className="whitespace-nowrap text-header-text font-serif font-medium sm:py-10"
+            className="text-header-text font-serif font-medium sm:py-10"
           >
-            <Underline color={SITE_COLORS.accentRose}> Areas We Serve</Underline>
+            Oral Surgery Across{" "}
+            <Underline color={SITE_COLORS.accentRose}>Fairfield County, CT</Underline>
           </HeaderText>
         </FadeIn>
 

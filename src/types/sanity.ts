@@ -32,8 +32,9 @@ export interface WhyUsPoint {
 }
 
 export interface HeroSection {
-  headline: string;
-  highlight: string;
+  heading: string;
+  tagline: string;
+  taglineHighlight: string;
   subtitle: string;
   heroImage: HybridImage;
   ctaText: string;

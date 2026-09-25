@@ -7,18 +7,15 @@ import type { Service } from '@/types/sanity';
 import { getImageUrl } from '@/sanity/lib/image';
 
 interface LearnMoreProps {
-    prevService: Service;
-    nextService: Service;
+    services: Service[];
     className?: string;
 }
 
 export default function LearnMore({
-    prevService,
-    nextService,
+    services,
     className,
 }: LearnMoreProps) {
 
-    const services = [prevService, nextService];
 
     return (
         <section className={clsx(
@@ -70,7 +67,7 @@ export default function LearnMore({
                                     <a
                                         href={`/service/${service.slug}`}
                                         className='inline-flex items-center px-8 py-4 bg-primary-teal text-white font-semibold rounded-xl hover:bg-primaryCyan transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'>
-                                        <span>Learn More</span>
+                                        <span>Explore {service.serviceTitle}</span>
                                         <svg
                                             className='ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300'
                                             fill='none'

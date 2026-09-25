@@ -12,12 +12,12 @@ export const SERVICES = {
   'wisdom-teeth-removal': {
     name: 'Wisdom Teeth',
     img: '/images/services/wisdom/wisdom-tooth.webp',
-    description: 'Wisdom tooth removal prevents crowding, pain, and infections by safely extracting third molars.',
+    description: 'Wisdom tooth removal may be recommended based on symptoms, tooth position, and an examination.',
   },
   'anesthesia': {
     name: 'Anesthesia',
     img: '/images/services/anesthesia/anesthesia.webp',
-    description: 'We offer safe and effective anesthesia options to ensure a comfortable surgical experience with minimal discomfort or anxiety.',
+    description: 'Anesthesia options are selected according to your health history, the procedure, and your individual needs.',
   },
   'dental-bone-grafting': {
     name: 'Bone Grafting',
@@ -57,12 +57,12 @@ export const SERVICES = {
   'tmj-disorder': {
     name: 'TMJ',
     img: '/images/services/tmj/tmj.webp',
-    description: 'TMJ treatment relieves jaw pain, stiffness, and clicking caused by temporomandibular joint disorders.',
+    description: 'We evaluate jaw pain, stiffness, and clicking to discuss treatment options for temporomandibular joint disorders.',
   },
   'minimally-invasive-orthognathic-surgery': {
     name: 'Minimally Invasive Orthognathic Surgery',
     img: '/images/services/mi/mi.webp',
-    description: 'Minimally Invasive Orthognathic Surgery offers jaw correction with smaller incisions, reduced recovery time, and less discomfort.',
+    description: 'Minimally invasive jaw surgery may be an option for selected cases; recovery and outcomes depend on the individual treatment plan.',
   },
   'teeth-in-a-day': {
     name: 'All-on-X Dental Implants',
@@ -164,11 +164,11 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
   },
   'teeth-in-a-day': {
     shortTitle: 'All-on-X Dental Implants',
-    title: geoTitle('All-on-X Dental Implants'),
+    title: 'All-on-X Dental Implants in Trumbull, CT',
     description:
       'All-on-X dental implants use a planned number of implants to support a fixed full-arch restoration for people with many missing or failing teeth. All-on-4 is one approach within this broader treatment category.',
     sectionTitle: 'How All-on-X Dental Implants Work',
-    metaTitle: geoTitle('All-on-X Dental Implants'),
+    metaTitle: 'All-on-X & All-on-4 Dental Implants in Trumbull, CT',
     metaDescription:
       'All-on-X dental implants from our Trumbull office, serving Fairfield County, CT. Fixed full-arch treatment and All-on-4 planning for missing or failing teeth.',
     paragraph1: {
@@ -294,11 +294,11 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
   },
   'botox-and-filler': {
     shortTitle: 'Botox & Dermal Fillers',
-    title: geoTitle('Botox & Dermal Fillers'),
+    title: 'Botox & Dermal Fillers in Trumbull, CT',
     description:
       'Botox and dermal fillers are used to address fine lines, wrinkles, and volume loss in facial features, with results and duration varying by individual.',
     sectionTitle: 'Botox & Filler for Fairfield County, CT',
-    metaTitle: geoTitle('Botox & Dermal Fillers'),
+    metaTitle: 'Botox & Dermal Fillers in Trumbull, CT',
     metaDescription:
       geoMetaDescription('Botox and dermal fillers', 'Facial rejuvenation consultations.', 'an oral and maxillofacial surgical team'),
     paragraph1: {

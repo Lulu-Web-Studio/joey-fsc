@@ -1,28 +1,22 @@
 import HomeContent from "@/components/home/HomeContent";
 import {Metadata} from "next";
 import {sanityFetch} from "@/sanity/lib/live";
-import {HOME_SETTINGS_QUERY, HOME_SEO_QUERY} from "@/sanity/queries/settings";
+import {HOME_SETTINGS_QUERY} from "@/sanity/queries/settings";
 import {ALL_SERVICES_QUERY} from "@/sanity/queries/services";
 import {FEATURED_TESTIMONIALS_QUERY} from "@/sanity/queries/testimonials";
 import {ALL_DOCTORS_QUERY} from "@/sanity/queries/team";
 import type {Doctor, HomeSettings, Service, Testimonial, WhyUsPoint} from "@/types/sanity";
+import {getServicePageOverride} from "@/config/services";
 import {pageMetadata} from "@/lib/metadata";
 
 export const revalidate = 3600;
 
-export async function generateMetadata(): Promise<Metadata> {
-  const {data} = await sanityFetch({
-    query: HOME_SEO_QUERY,
-    stega: false, // Critical for SEO
-  });
-
-  return pageMetadata(
-    data?.seo?.title || "Oral & Maxillofacial Surgeon Serving Trumbull & Fairfield County, CT",
-    data?.seo?.description ||
-      "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, CT.",
-    "",
-  );
-}
+// Keep the homepage's search positioning in code alongside the service overrides.
+export const metadata: Metadata = pageMetadata(
+  "Oral Surgeons in Trumbull, CT | Facial Surgery Center",
+  "Oral and maxillofacial surgeons in Trumbull serving Fairfield County. Explore dental implants, wisdom teeth removal and jaw surgery. Request a consultation.",
+  "",
+);
 
 const defaultHomeSettings: HomeSettings = {
   seo: {
@@ -31,8 +25,9 @@ const defaultHomeSettings: HomeSettings = {
       "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, CT.",
   },
   hero: {
-    headline: "Love Your",
-    highlight: "Healthy",
+    heading: "Oral Surgeons in Trumbull, CT Serving Fairfield County",
+    tagline: "Transform Your Confidence with a New Smile",
+    taglineHighlight: "New",
     subtitle:
       "Expert oral and maxillofacial care at our Trumbull office for patients throughout Fairfield County.",
     heroImage: {
@@ -84,8 +79,10 @@ export default async function Page() {
       description: settingsData?.seo?.description || defaultHomeSettings.seo.description,
     },
     hero: {
-      headline: settingsData?.hero?.headline || defaultHomeSettings.hero.headline,
-      highlight: settingsData?.hero?.highlight || defaultHomeSettings.hero.highlight,
+      heading: settingsData?.hero?.heading || defaultHomeSettings.hero.heading,
+      tagline: settingsData?.hero?.tagline || defaultHomeSettings.hero.tagline,
+      taglineHighlight:
+        settingsData?.hero?.taglineHighlight || defaultHomeSettings.hero.taglineHighlight,
       subtitle: settingsData?.hero?.subtitle || defaultHomeSettings.hero.subtitle,
       heroImage: settingsData?.hero?.heroImage || defaultHomeSettings.hero.heroImage,
       ctaText: settingsData?.hero?.ctaText || defaultHomeSettings.hero.ctaText,
@@ -128,7 +125,7 @@ export default async function Page() {
     _id: service._id,
     serviceTitle: service.serviceTitle || "Service",
     slug: service.slug || `service-${index}`,
-    description: service.description || "",
+    description: getServicePageOverride(service.slug || "")?.description || service.description || "",
     coverImage: service.coverImage || {},
     order: service.order ?? index,
   }));

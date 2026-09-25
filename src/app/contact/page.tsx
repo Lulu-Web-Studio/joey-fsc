@@ -98,7 +98,7 @@ export default async function ContactPage() {
                     <FadeIn className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-20">
                         <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                             <HeaderText as="h1" className="text-header-text mb-6 font-medium font-serif">
-                                {settings?.hero?.title || "Contact Us"}
+                                {settings?.hero?.title || "Contact Our Trumbull Oral Surgery Office"}
                             </HeaderText>
 
                             <div className="mt-6 space-y-4">

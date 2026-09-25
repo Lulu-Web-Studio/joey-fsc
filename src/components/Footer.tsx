@@ -76,6 +76,14 @@ export const Footer: FunctionComponent<{
               {footerDescription}
             </p>
 
+            <address className="not-italic text-base leading-8 text-body-text">
+              <p>Facial Surgery Center</p>
+              <p>{config.officeAddress}</p>
+              <a className="inline-block py-2 font-semibold text-primary-teal underline underline-offset-4" href={`tel:${config.officePhone.replace(/[^+\d]/g, "")}`}>Call {config.officePhone}</a>
+              <br />
+              <Link href="/contact" className="underline underline-offset-4">Office hours and directions</Link>
+            </address>
+
             {socialLinks.length > 0 && (
               <div className="flex items-center gap-x-5 pt-1">
                 {socialLinks.map(({key, label, icon: Icon}) => (

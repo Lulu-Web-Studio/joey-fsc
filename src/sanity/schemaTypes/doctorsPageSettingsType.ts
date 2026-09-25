@@ -26,7 +26,7 @@ export const doctorsPageSettingsType = defineType({
       type: 'string',
       title: 'Page Title',
       group: 'content',
-      initialValue: 'Meet Our Doctors',
+      initialValue: 'Meet Our Oral & Maxillofacial Surgeons',
     }),
     defineField({
       name: 'description',

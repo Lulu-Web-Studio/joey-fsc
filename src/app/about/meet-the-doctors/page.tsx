@@ -32,7 +32,7 @@ export default async function DoctorsPage() {
                 pageSettings?.seo?.description ||
                 "Meet our experienced oral and maxillofacial surgeons dedicated to providing exceptional patient care.",
         },
-        title: pageSettings?.title || "Meet Our Doctors",
+        title: pageSettings?.title || "Meet Our Oral & Maxillofacial Surgeons",
         description:
             pageSettings?.description ||
             "Our team of experienced doctors is dedicated to providing you with the highest quality of care. With a focus on patient comfort and advanced techniques, we strive to make your dental experience as pleasant as possible.",

@@ -38,8 +38,8 @@ export default function BlogPage() {
             variant="large"
             className="font-serif font-medium text-header-text sm:py-10"
           >
-            From the <Underline color={SITE_COLORS.primaryCyan}>Surgery</Underline>{" "}
-            Center
+            Oral Surgery <Underline color={SITE_COLORS.primaryCyan}>Blog</Underline>{" "}
+            &amp; Patient Guides
           </HeaderText>
         </FadeIn>
 

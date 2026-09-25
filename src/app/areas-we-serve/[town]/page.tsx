@@ -101,7 +101,7 @@ export default async function AreaPage({params}: {params: Params}) {
               variant="large"
               className="text-header-text font-serif font-medium"
             >
-              Oral Surgeon in{" "}
+              Oral Surgeon Serving{" "}
               <Underline color={SITE_COLORS.accentRose}>{area.town}, CT</Underline>
             </HeaderText>
 

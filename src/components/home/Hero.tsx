@@ -14,11 +14,26 @@ const fadeUp = {
     }),
 };
 
+// Colors the first occurrence of the highlighted word; renders plain text if it isn't found.
+function renderTagline(tagline: string, highlight?: string) {
+    const index = highlight ? tagline.indexOf(highlight) : -1;
+    if (!highlight || index === -1) return tagline;
+
+    return (
+        <>
+            {tagline.slice(0, index)}
+            <span className="text-primaryYellow">{highlight}</span>
+            {tagline.slice(index + highlight.length)}
+        </>
+    );
+}
+
 interface HeroSectionProps {
     imageUrl: string;
     imageAlt?: string;
-    headline: string;
-    highlight: string;
+    heading: string;
+    tagline: string;
+    taglineHighlight?: string;
     subcopy: string;
     ctaLabel: string;
     ctaLink: string;
@@ -27,8 +42,9 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({
     imageUrl,
     imageAlt = 'Patient smiling at Facial Surgery Center in Trumbull CT',
-    headline,
-    highlight,
+    heading,
+    tagline,
+    taglineHighlight,
     subcopy,
     ctaLabel,
     ctaLink,
@@ -39,14 +55,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="">
             {/* Headline */}
             <div className="text-center sm:w-2/4 mx-auto">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-header-text leading-tight">
-                    <span className='font-serif'>The Facial Surgery Center</span>
-
-                    <br />
-                    <span className="font-light font-sans">{headline} </span>
-                    <span className="text-primaryYellow">{highlight}</span>
-                    <span className="font-light"> Smile</span>
+                <p className="font-serif text-2xl sm:text-3xl text-header-text">
+                    The Facial Surgery Center
+                </p>
+                <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-medium text-header-text leading-tight">
+                    {heading}
                 </h1>
+                <p className="mt-4 text-2xl sm:text-3xl font-light text-header-text">
+                    {renderTagline(tagline, taglineHighlight)}
+                </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center px-12 justify-between h-full ">
