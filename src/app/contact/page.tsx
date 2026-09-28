@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
     return pageMetadata(
         data?.seo?.title || 'Contact Facial Surgery Center | Trumbull, CT 06611',
-        data?.seo?.description || 'Contact our oral surgery office in Trumbull, CT to book a consultation. Call (203) 261-7800 or send us a message and our team will get back to you shortly.',
+        data?.seo?.description || 'Contact our Trumbull, CT oral surgery office, serving Fairfield County, to book a consultation. Call (203) 261-7800 or send us a message.',
         '/contact',
     );
 }

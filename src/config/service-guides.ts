@@ -78,6 +78,13 @@ export const SERVICE_GUIDES: Partial<Record<ServiceSlug, Guide[]>> = {
       links: [{label: "Compare implant-supported dentures and All-on-X", href: "/blog/implant-supported-dentures-vs-all-on-x"}],
     },
   ],
+  "tmj-disorder": [
+    {
+      title: "Long-term TMJ relief starts with the cause",
+      text: "Muscle-related jaw pain often improves with self-care, a night guard, or physical therapy, while joint conditions such as arthritis are usually managed over time rather than cured. An examination and, when needed, imaging help determine which applies to you and which treatment options fit your symptoms.",
+      links: [{label: "How to treat TMJ for long-term relief", href: "/blog/how-to-treat-tmj-long-term"}],
+    },
+  ],
   "botox-and-filler": [
     {
       title: "Botox and dermal fillers have different treatment goals",

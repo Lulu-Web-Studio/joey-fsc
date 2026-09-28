@@ -107,13 +107,13 @@ const SERVICE_AREA = 'Fairfield County';
 /** Every override's title and metaTitle follow this same "{Name} in {area}, CT" formula. */
 const geoTitle = (name: string) => `${name} in ${SERVICE_AREA}, CT`;
 
-/** Most metaDescriptions follow "{lead} from {provider} at our {town} office, serving {area}, CT. {extra}" */
+/** Most metaDescriptions follow "{lead} from {provider} in {town}, serving {area}, CT. {extra}" */
 const geoMetaDescription = (
   lead: string,
   extra?: string,
   provider = 'an oral and maxillofacial surgeon',
 ) => {
-  const base = `${lead} from ${provider} at our ${OFFICE_TOWN} office, serving ${SERVICE_AREA}, CT.`;
+  const base = `${lead} from ${provider} in ${OFFICE_TOWN}, serving ${SERVICE_AREA}, CT.`;
   return extra ? `${base} ${extra}` : base;
 };
 
@@ -125,7 +125,7 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
     sectionTitle: 'How Dental Implant Treatment Is Planned',
     metaTitle: geoTitle('Dental Implants'),
     metaDescription:
-      geoMetaDescription('Dental implants', 'Implant placement, bone grafting, and dentist coordination.'),
+      geoMetaDescription('Dental implants', 'Implant placement, grafting and dentist coordination.'),
     paragraph1: {
       title: 'How Dental Implant Treatment Works',
       text: 'A dental implant is placed in the jaw to support a replacement tooth. We plan this treatment for patients throughout Fairfield County from our Trumbull office, and after the implant heals and becomes stable, a restorative dentist attaches the crown, bridge, or implant-supported denture. Implants are commonly considered for a single missing tooth, several teeth, or as an anchor for a larger restoration, and the number needed depends entirely on your specific case.',
@@ -170,7 +170,7 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
     sectionTitle: 'How All-on-X Dental Implants Work',
     metaTitle: 'All-on-X & All-on-4 Dental Implants in Trumbull, CT',
     metaDescription:
-      'All-on-X dental implants from our Trumbull office, serving Fairfield County, CT. Fixed full-arch treatment and All-on-4 planning for missing or failing teeth.',
+      'All-on-X dental implants at our Trumbull office, serving Fairfield County, CT. Full-arch treatment and All-on-4 planning for missing or failing teeth.',
     paragraph1: {
       title: 'How All-on-X Works From Our Trumbull Office',
       text: 'All-on-X uses a planned number of implants to support a fixed full-arch restoration. We plan this treatment for patients throughout Fairfield County from our Trumbull office, and the surgeon determines implant number and position after an examination and 3D imaging of your jaw. Not every patient qualifies for a temporary set of teeth on the day of surgery; that depends on bone quality, implant stability, and the surgical plan developed at your evaluation.',
@@ -360,7 +360,7 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
     sectionTitle: 'Facial Trauma Care for Fairfield County, CT',
     metaTitle: geoTitle('Facial Trauma Treatment'),
     metaDescription:
-      geoMetaDescription('Facial trauma evaluation and treatment', 'Fractures, lacerations, dental injuries.'),
+      geoMetaDescription('Facial trauma treatment', 'Fractures, lacerations, dental injuries.'),
     paragraph1: {
       title: 'Injuries We Evaluate',
       text: 'We treat facial fractures, lacerations, and dental injuries for patients throughout Fairfield County from our Trumbull office, including sports injuries, falls, and avulsed or displaced teeth. If a tooth has been knocked out, call our office before you drive — there is often a short window where reimplantation is realistic. Not every facial injury requires surgery — some soft-tissue injuries and simple fractures can be managed without it — which is part of what the initial evaluation is meant to determine.',
@@ -553,22 +553,27 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
   },
   'tmj-disorder': {
     shortTitle: 'TMJ Disorder Treatment',
-    title: geoTitle('TMJ Disorder Treatment'),
+    title: 'TMJ Specialist in Trumbull, CT',
     description:
-      'TMJ treatment addresses jaw pain, stiffness, and clicking associated with temporomandibular joint disorders, with the approach based on your symptoms and examination.',
+      'Looking for a TMJ specialist near you? Our oral and maxillofacial surgeons evaluate jaw pain, stiffness, and clicking, and recommend treatment based on your symptoms and examination.',
     sectionTitle: 'TMJ Treatment for Fairfield County, CT',
-    metaTitle: geoTitle('TMJ Disorder Treatment'),
+    metaTitle: 'TMJ Specialist in Trumbull, CT | Facial Surgery Center',
     metaDescription:
-      geoMetaDescription('TMJ disorder evaluation and treatment', undefined),
+      'Need a TMJ specialist near you? Our oral and maxillofacial surgeons in Trumbull, CT evaluate jaw pain, clicking and stiffness across Fairfield County.',
     paragraph1: {
       title: 'Symptoms We Evaluate',
-      text: 'Our Trumbull office evaluates jaw pain, stiffness, clicking, and other symptoms of temporomandibular joint disorders for patients throughout Fairfield County. An examination and imaging help determine whether symptoms are related to the joint, the surrounding muscles, or another cause. Symptoms can range from an occasional click to persistent pain that affects eating and speaking, and the right next step depends heavily on where you fall on that range.',
+      text: 'Our Trumbull office evaluates jaw pain, stiffness, clicking, and other symptoms of temporomandibular joint disorders for patients throughout Fairfield County. Oral and maxillofacial surgery is a recognized dental specialty covering the jaws and face, including the temporomandibular joint. An examination and imaging help determine whether symptoms are related to the joint, the surrounding muscles, or another cause. Symptoms can range from an occasional click to persistent pain that affects eating and speaking, and the right next step depends heavily on where you fall on that range.',
     },
     paragraph2: {
       title: 'Treatment Options',
       text: "Treatment ranges from conservative measures like a night guard or physical therapy to surgical options for cases that don't improve, and the surgeon will explain which approach fits your symptoms and imaging findings. Follow-up is used to track whether a treatment is working before considering the next step. Most patients start with the most conservative option that's reasonable for their symptoms, and treatment is adjusted based on how you respond rather than jumping straight to the most involved approach.",
     },
     faqs: [
+      {
+        question: 'What kind of specialist treats TMJ?',
+        answer:
+          'Several kinds of providers may be involved. Oral and maxillofacial surgeons are dental specialists who evaluate conditions of the jaw, including the temporomandibular joint, and can discuss both nonsurgical and surgical options. Depending on your symptoms, care may also involve your general dentist, an orofacial pain specialist, or a physical therapist.',
+      },
       {
         question: 'What causes TMJ disorders?',
         answer:
@@ -610,9 +615,9 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
           "Coverage depends on your specific plan, the treatment recommended, and whether it's classified as dental or medical by your insurer. Our team can review available benefit information, though full coverage is not guaranteed.",
       },
       {
-        question: 'Is TMJ treatment available to patients outside Trumbull?',
+        question: 'How do I find a TMJ specialist near me?',
         answer:
-          'Yes. TMJ disorder patients travel to our Trumbull office from throughout Fairfield County. Contact us to schedule a consultation or confirm your location falls within our service area.',
+          'If you live in Fairfield County, our Trumbull office on Technology Drive is a short drive from towns such as Bridgeport, Stratford, Fairfield, and Shelton. You can contact us to request a consultation, or ask your dentist whether a referral is recommended for your plan.',
       },
     ],
   },
@@ -624,7 +629,7 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
     sectionTitle: 'Minimally Invasive Jaw Surgery for Fairfield County, CT',
     metaTitle: geoTitle('Minimally Invasive Jaw Surgery'),
     metaDescription:
-      geoMetaDescription('Minimally invasive orthognathic surgery', 'Smaller incisions, coordinated recovery.'),
+      geoMetaDescription('Minimally invasive orthognathic surgery', 'Smaller incisions.'),
     paragraph1: {
       title: 'A Less Invasive Approach to Jaw Correction',
       text: 'Minimally invasive orthognathic surgery offers jaw correction with smaller incisions and a different recovery profile than traditional approaches, and our Trumbull office evaluates candidacy for patients throughout Fairfield County. Not every case is suited to a minimally invasive approach; imaging and a surgical consultation determine what fits your anatomy. The appeal for many patients is a different recovery experience compared to traditional jaw surgery, though the underlying correction being made is often similar.',

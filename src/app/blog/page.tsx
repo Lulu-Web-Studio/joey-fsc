@@ -19,7 +19,7 @@ const CRUMBS: Crumb[] = [
 
 export const metadata: Metadata = pageMetadata(
   "Blog | Oral & Maxillofacial Surgery Insights",
-  "Articles from the surgeons at the Facial Surgery Center in Trumbull, CT, on wisdom teeth, dental implants, jaw surgery, recovery, and what to expect from treatment.",
+  "Articles from Facial Surgery Center's oral surgeons in Trumbull, CT, on wisdom teeth, dental implants, jaw surgery, recovery and what to expect.",
   BLOG_BASE_PATH,
 );
 

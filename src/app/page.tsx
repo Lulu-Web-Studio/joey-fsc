@@ -14,7 +14,7 @@ export const revalidate = 3600;
 // Keep the homepage's search positioning in code alongside the service overrides.
 export const metadata: Metadata = pageMetadata(
   "Oral Surgeons in Trumbull, CT | Facial Surgery Center",
-  "Oral and maxillofacial surgeons in Trumbull serving Fairfield County. Explore dental implants, wisdom teeth removal and jaw surgery. Request a consultation.",
+  "Oral and maxillofacial surgeons in Trumbull, CT, serving Fairfield County. Dental implants, wisdom teeth removal and jaw surgery. Request a consultation.",
   "",
 );
 

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 
 // Run against a built local server: node scripts/check-seo.mjs http://localhost:3000
 const base = process.argv[2];
+const MAX_DESCRIPTION_LENGTH = 155;
 assert(base, 'Provide the URL of the running site');
 const routes = [
   '/', '/service/tooth-extractions', '/service/dental-implants',
@@ -20,9 +21,9 @@ for (const path of routes) {
   assert.doesNotMatch(html, /<meta name="robots" content="[^"]*noindex/, `${path}: indexable`);
   assert.match(html, /href="tel:2032617800"/, `${path}: phone link`);
   if (path === '/') assert.match(html, /<title>Oral Surgeons in Trumbull, CT \| Facial Surgery Center<\/title>/);
+  const description = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '';
+  assert(description.length > 0 && description.length <= MAX_DESCRIPTION_LENGTH, `${path}: description length ${description.length}`);
   if (path === '/service/teeth-in-a-day') {
-    const description = html.match(/<meta name="description" content="([^"]*)"/)[1];
-    assert.equal(description.length, 158, 'Preserve All-on-X description');
     assert.match(html, /href="\/blog\/implant-supported-dentures-vs-all-on-x"/);
   }
   if (path === '/blog/what-to-eat-after-tooth-extraction') assert.match(html, /href="\/service\/tooth-extractions"/);

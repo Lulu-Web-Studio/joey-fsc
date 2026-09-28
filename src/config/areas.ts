@@ -670,7 +670,7 @@ export const AREAS: Area[] = [
     seo: {
       title: "Oral Surgeon Serving Derby, CT | Facial Surgery Center",
       description:
-        "Oral and maxillofacial surgeons about 18 minutes from Derby, CT via Route 8. Facial trauma, wisdom teeth removal, dental implants and emergency extractions.",
+        "Oral and maxillofacial surgeons about 18 minutes from Derby, CT via Route 8. Facial trauma, wisdom teeth removal, dental implants and extractions.",
     },
   },
   {
@@ -790,7 +790,7 @@ export const AREAS: Area[] = [
     seo: {
       title: "Oral Surgeon Serving Stamford, CT | Facial Surgery Center",
       description:
-        "Oral and maxillofacial surgeons about 34 minutes from Stamford, CT via I-95. Dental implants, full-arch restoration and in-house IV sedation for complex cases.",
+        "Oral and maxillofacial surgeons about 34 minutes from Stamford, CT via I-95. Dental implants, full-arch restoration and in-house IV sedation.",
     },
   },
   {
