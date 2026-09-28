@@ -14,16 +14,21 @@ const fadeUp = {
     }),
 };
 
-// Colors the first occurrence of the highlighted word; renders plain text if it isn't found.
+// Colors the first whole-word match of the highlight (so "New" won't match "Newtown");
+// renders plain text if it isn't found.
 function renderTagline(tagline: string, highlight?: string) {
-    const index = highlight ? tagline.indexOf(highlight) : -1;
-    if (!highlight || index === -1) return tagline;
+    const word = highlight?.trim();
+    if (!word) return tagline;
+
+    const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const match = new RegExp(`\\b${escaped}\\b`).exec(tagline);
+    if (!match) return tagline;
 
     return (
         <>
-            {tagline.slice(0, index)}
-            <span className="text-primaryYellow">{highlight}</span>
-            {tagline.slice(index + highlight.length)}
+            {tagline.slice(0, match.index)}
+            <span className="text-primaryYellow">{match[0]}</span>
+            {tagline.slice(match.index + match[0].length)}
         </>
     );
 }

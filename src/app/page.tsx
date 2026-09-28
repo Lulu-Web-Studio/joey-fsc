@@ -1,7 +1,7 @@
 import HomeContent from "@/components/home/HomeContent";
 import {Metadata} from "next";
 import {sanityFetch} from "@/sanity/lib/live";
-import {HOME_SETTINGS_QUERY} from "@/sanity/queries/settings";
+import {HOME_SEO_QUERY, HOME_SETTINGS_QUERY} from "@/sanity/queries/settings";
 import {ALL_SERVICES_QUERY} from "@/sanity/queries/services";
 import {FEATURED_TESTIMONIALS_QUERY} from "@/sanity/queries/testimonials";
 import {ALL_DOCTORS_QUERY} from "@/sanity/queries/team";
@@ -11,18 +11,11 @@ import {pageMetadata} from "@/lib/metadata";
 
 export const revalidate = 3600;
 
-// Keep the homepage's search positioning in code alongside the service overrides.
-export const metadata: Metadata = pageMetadata(
-  "Oral Surgeons in Trumbull, CT | Facial Surgery Center",
-  "Oral and maxillofacial surgeons in Trumbull, CT, serving Fairfield County. Dental implants, wisdom teeth removal and jaw surgery. Request a consultation.",
-  "",
-);
-
 const defaultHomeSettings: HomeSettings = {
   seo: {
-    title: "Oral & Maxillofacial Surgeon Serving Trumbull & Fairfield County, CT",
+    title: "Oral Surgeons in Trumbull, CT | Facial Surgery Center",
     description:
-      "Facial Surgery Center provides oral and maxillofacial surgery from its Trumbull office, serving patients throughout Fairfield County, CT.",
+      "Oral and maxillofacial surgeons in Trumbull, CT, serving Fairfield County. Dental implants, wisdom teeth removal and jaw surgery. Request a consultation.",
   },
   hero: {
     heading: "Oral Surgeons in Trumbull, CT Serving Fairfield County",
@@ -67,6 +60,16 @@ const defaultHomeSettings: HomeSettings = {
   },
 };
 
+export async function generateMetadata(): Promise<Metadata> {
+  const {data} = await sanityFetch({query: HOME_SEO_QUERY, stega: false});
+
+  return pageMetadata(
+    data?.seo?.title || defaultHomeSettings.seo.title,
+    data?.seo?.description || defaultHomeSettings.seo.description,
+    "",
+  );
+}
+
 export default async function Page() {
   const {data: settingsData} = await sanityFetch({query: HOME_SETTINGS_QUERY});
   const {data: servicesData} = await sanityFetch({query: ALL_SERVICES_QUERY});
@@ -81,8 +84,10 @@ export default async function Page() {
     hero: {
       heading: settingsData?.hero?.heading || defaultHomeSettings.hero.heading,
       tagline: settingsData?.hero?.tagline || defaultHomeSettings.hero.tagline,
-      taglineHighlight:
-        settingsData?.hero?.taglineHighlight || defaultHomeSettings.hero.taglineHighlight,
+      // Only use the default highlight with the default tagline, so editors can clear it.
+      taglineHighlight: settingsData?.hero?.tagline
+        ? settingsData.hero.taglineHighlight || ""
+        : defaultHomeSettings.hero.taglineHighlight,
       subtitle: settingsData?.hero?.subtitle || defaultHomeSettings.hero.subtitle,
       heroImage: settingsData?.hero?.heroImage || defaultHomeSettings.hero.heroImage,
       ctaText: settingsData?.hero?.ctaText || defaultHomeSettings.hero.ctaText,

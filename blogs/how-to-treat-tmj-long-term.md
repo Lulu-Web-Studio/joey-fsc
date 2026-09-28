@@ -124,7 +124,7 @@ If symptoms continue, or the dentist suspects a problem inside the joint, they m
 
 If you're looking for a TMJ evaluation in Fairfield County, our [TMJ specialists in Trumbull, CT](/service/tmj-disorder) can examine your symptoms and walk you through options that fit your diagnosis. You can also [meet our oral and maxillofacial surgeons](/about/meet-the-doctors) before scheduling.
 
-If pain, locking, or limited movement is affecting eating, speaking, or sleep, [contact our Trumbull office](/contact) to request an evaluation. Bring any recent dental X-rays or imaging if you have them; your surgeon can review whether additional testing is needed.
+If pain, locking, or limited movement is affecting eating, speaking, or sleep, you can [request a TMJ evaluation](/contact) at our Trumbull office. Bring any recent dental X-rays or imaging if you have them; your surgeon can review whether additional testing is needed.
 
 ## Can TMJ damage be reversed?
 
