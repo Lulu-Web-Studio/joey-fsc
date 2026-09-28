@@ -268,23 +268,33 @@ const SERVICE_PAGE_OVERRIDES: Partial<Record<ServiceSlug, ServicePageOverride>> 
     ],
   },
   'dental-bone-grafting': {
-    shortTitle: 'Dental Bone Grafting',
-    title: geoTitle('Dental Bone Grafting'),
+    shortTitle: 'Dental Bone Graft',
+    title: 'Dental Bone Graft for Tooth Implants in Trumbull, CT',
     description:
-      'Bone grafting can rebuild bone structure in the jaw, often as preparation for a dental implant or following tooth loss, trauma, or disease.',
-    sectionTitle: 'How Bone Grafting Is Planned',
-    metaTitle: geoTitle('Dental Bone Grafting'),
+      "A dental bone graft may be recommended when the jaw doesn't have enough bone to support a tooth implant. Imaging helps our surgeons decide whether grafting is needed and which approach fits your case.",
+    sectionTitle: 'How a Bone Graft for a Tooth Implant Is Planned',
+    metaTitle: 'Dental Bone Graft for Tooth Implants in Trumbull, CT',
     metaDescription:
-      geoMetaDescription('Bone grafting', 'Rebuilding jawbone for implants or after tooth loss.'),
+      'Need a dental bone graft before a tooth implant? Our oral and maxillofacial surgeons in Trumbull, CT evaluate and plan grafting across Fairfield County.',
     paragraph1: {
-      title: 'Why Bone Grafting May Be Recommended',
-      text: 'Patients from Trumbull and throughout Fairfield County are referred to our office for bone grafting when the jaw lacks enough height, width, or density to support a dental implant, or has been affected by tooth loss, infection, or trauma. Imaging helps the surgeon determine the graft type and location needed for your case. The amount of grafting needed ranges widely, from a small addition at a single site to a more extensive rebuild, and that range is exactly why imaging comes before any recommendation.',
+      title: 'When a Dental Bone Graft May Be Recommended',
+      text: 'Patients from Trumbull and throughout Fairfield County are referred to our office for a dental bone graft when the jaw lacks enough height, width, or density to support a dental implant, or has been affected by tooth loss, infection, or trauma. Imaging helps the surgeon determine the graft type and location needed for your case. The amount of grafting needed ranges widely, from a small addition at a single site to a more extensive rebuild, and that range is exactly why imaging comes before any recommendation.',
     },
     paragraph2: {
-      title: 'Coordinating With Your Restorative Dentist',
+      title: 'Timing Your Bone Graft and Tooth Implant',
       text: "We plan grafting around the restoration your dentist or prosthodontist intends to place, whether that's a single implant or a full-arch case. Healing time varies by graft type and location, and your surgeon will outline a case-specific timeline before treatment begins. Depending on the case, an implant may be placed at the same time as the graft or only after the grafted site has fully healed — your surgeon will explain which sequence applies to you.",
     },
     faqs: [
+      {
+        question: 'Do I need a bone graft for a tooth implant?',
+        answer:
+          "Not always. A bone graft for a tooth implant may be recommended when imaging shows the jaw doesn't have enough height, width, or density to hold the implant securely, which can happen after tooth loss, infection, gum disease, or trauma. Many patients have enough bone and don't need grafting. Your surgeon can only confirm this after an examination and 3D imaging of the site.",
+      },
+      {
+        question: 'Can a bone graft and dental implant be placed at the same time?',
+        answer:
+          'Sometimes. When a small amount of grafting is needed and the implant can still be stabilized, both may be placed in one procedure. Larger grafts usually need to heal first, often for several months, before the implant is placed. Your surgeon will explain which sequence applies after reviewing your imaging.',
+      },
       {
         question: 'Can I get a bone graft here without living in Trumbull?',
         answer:

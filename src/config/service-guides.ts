@@ -78,6 +78,13 @@ export const SERVICE_GUIDES: Partial<Record<ServiceSlug, Guide[]>> = {
       links: [{label: "Compare implant-supported dentures and All-on-X", href: "/blog/implant-supported-dentures-vs-all-on-x"}],
     },
   ],
+  "dental-bone-grafting": [
+    {
+      title: "What a dental bone graft involves, from graft types to healing",
+      text: "Graft material, the procedure used, and healing time all depend on where bone is needed and how much. Our patient guide covers graft types, general healing stages, recovery, and questions to ask before agreeing to a graft.",
+      links: [{label: "Read: What is a dental bone graft?", href: "/blog/what-is-a-dental-bone-graft"}, {label: "Dental implants in Trumbull", href: "/service/dental-implants"}],
+    },
+  ],
   "tmj-disorder": [
     {
       title: "Long-term TMJ relief starts with the cause",
