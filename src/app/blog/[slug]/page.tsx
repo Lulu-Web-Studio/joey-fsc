@@ -111,6 +111,7 @@ export default async function BlogPostPage({
           reviewedBy: post.reviewedBy,
           reviewerTitle: post.reviewerTitle,
           reviewerUrl: post.reviewerUrl,
+          reviewerType: post.reviewerType,
           reviewedAt: post.reviewedAt,
         })}
       />

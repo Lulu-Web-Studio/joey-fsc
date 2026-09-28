@@ -37,6 +37,7 @@ type BlogPostingInput = {
   reviewedBy?: string | null;
   reviewerTitle?: string | null;
   reviewerUrl?: string | null;
+  reviewerType?: "Person" | "Organization";
   reviewedAt?: string | null;
 };
 
@@ -65,6 +66,7 @@ export function blogPostingSchema({
   reviewedBy,
   reviewerTitle,
   reviewerUrl,
+  reviewerType = "Person",
   reviewedAt,
 }: BlogPostingInput) {
   const url = `${config.baseUrl}${path}`;
@@ -80,9 +82,11 @@ export function blogPostingSchema({
   };
   const reviewerEntity = reviewedBy
     ? {
-        "@type": "Person",
+        "@type": reviewerType,
         name: reviewedBy,
-        ...(reviewerTitle ? {jobTitle: reviewerTitle} : {}),
+        ...(reviewerTitle && reviewerType === "Person"
+          ? {jobTitle: reviewerTitle}
+          : {}),
         ...(reviewerUrl ? {url: absoluteUrl(reviewerUrl)} : {}),
       }
     : undefined;

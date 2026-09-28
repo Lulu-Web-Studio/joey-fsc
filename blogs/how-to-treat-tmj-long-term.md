@@ -16,7 +16,7 @@ faqs:
   - question: How can I reverse my TMJ naturally?
     answer: Many people get relief from self-care, including soft foods, heat or ice, gentle jaw stretches, resting the jaw, and cutting back on clenching, gum chewing, and nail biting. These steps may ease muscle-related symptoms, but they can't repair structural joint damage. If symptoms last more than a few weeks or get worse, get an evaluation.
   - question: What do dentists do for TMJ?
-    answer: A dentist usually examines your jaw, bite, and teeth, looks for signs of clenching or grinding, and may take X-rays. Common first steps include a custom night guard or oral splint, home-care advice, and short-term pain relief. If symptoms don't improve or imaging shows a joint problem, your dentist may refer you to an oral and maxillofacial surgeon or an orofacial pain specialist.
+    answer: A dentist usually examines your jaw, bite, and teeth, looks for signs of clenching or grinding, and may take X-rays. Common first steps include a comfortable night guard or oral splint that does not permanently change your bite, home-care advice, and short-term pain relief. If symptoms don't improve or imaging shows a joint problem, your dentist may refer you to an oral and maxillofacial surgeon or an orofacial pain specialist.
   - question: Can TMJ damage be reversed?
     answer: Muscle tension and inflammation often improve with treatment. Structural changes, such as a displaced disc or arthritis in the joint, usually can't be fully undone. Treatment instead focuses on reducing pain and improving movement. Procedures such as arthrocentesis or arthroscopy may be considered for some joint problems when conservative care hasn't helped.
   - question: What should you not do if you have TMJ?
@@ -51,12 +51,12 @@ TMD is common. The [National Institute of Dental and Craniofacial Research](http
 
 For some people, symptoms go away and don't return. For others, the realistic goal is long-term control.
 
-According to the NIDCR, TMD symptoms go away without treatment for many people. That's especially true when the problem is muscle-related, such as tension from clenching, stress, or overuse. Once the trigger is managed, symptoms may not come back.
+According to the NIDCR, TMD symptoms go away without treatment for many people. That's especially true when the problem is muscle-related, such as tension from clenching, stress, or overuse. Once the trigger is managed, symptoms may not come back. Some flare-ups settle within days or weeks; symptoms that last longer can take months to improve, and some people have symptoms that come and go.
 
 Other causes behave differently:
 
 - **Arthritis in the joint** is a long-term condition. Treatment can reduce pain and inflammation, but it doesn't reverse the arthritis.
-- **A displaced disc** (the cushion inside the joint) may keep clicking even after the pain resolves. Painless clicking often doesn't need treatment.
+- **A displaced disc** (the cushion inside the joint) may keep clicking even after the pain resolves. Clicking without pain or limited movement is common and often doesn't need treatment. [NIDCR explains the difference between normal joint sounds and symptoms that may need evaluation.](https://www.nidcr.nih.gov/health-info/tmd)
 - **Chronic TMD** can flare during stressful periods or after dental work, even after long stretches without symptoms.
 
 So instead of asking whether TMJ can be cured permanently, it's often more useful to ask which cause is behind your symptoms and what's likely to keep them under control. An examination and, when needed, imaging answer that.
@@ -70,16 +70,16 @@ Most experts recommend starting with the simplest, most reversible options and s
 Self-care is the foundation of TMJ treatment and is often enough for mild, muscle-related symptoms:
 
 - **Rest your jaw.** Choose softer foods, cut food into small pieces, and skip gum.
-- **Use heat or cold.** Ice tends to help with a new, sharp flare. Moist heat tends to help with a dull, ongoing ache. Apply either for about 15 to 20 minutes at a time.
+- **Use heat or cold.** Either may help, depending on what feels better for your symptoms. Apply a cold pack or moist heat for about 15 to 20 minutes at a time, with a cloth between your skin and the pack.
 - **Keep a relaxed resting position.** Lips together, teeth slightly apart, tongue resting gently on the roof of your mouth.
 - **Notice clenching.** Many people clench while driving, working at a screen, or concentrating. Catching it is the first step to stopping it.
 - **Manage stress.** Relaxation techniques, slow breathing, and in some cases counseling or cognitive behavioral therapy can reduce the clenching and muscle tension that feed TMJ pain.
 
 ### 2. Night guards and oral splints
 
-A custom **oral splint** or **night guard** fits over your teeth and is often recommended when clenching or grinding is part of the picture, especially at night. Mayo Clinic notes that many people with jaw pain benefit from these devices, though researchers don't fully understand why.
+A custom **oral splint** or **night guard** fits over your teeth and may be recommended when clenching or grinding is part of the picture, especially at night. Mayo Clinic notes that these devices may help some people, though researchers don't fully understand why.
 
-A custom appliance from your dentist fits your bite. Over-the-counter guards vary in fit, and a poorly fitting one may not help.
+A custom appliance from your dentist should fit comfortably and should not permanently change your bite. Over-the-counter guards vary in fit. Stop using any appliance that increases your pain and ask your dentist or doctor for guidance.
 
 ### 3. Physical therapy
 
@@ -87,7 +87,7 @@ A physical therapist trained in jaw disorders can teach stretching and strengthe
 
 ### 4. Medications
 
-Your provider may suggest over-the-counter pain relievers or anti-inflammatories. For some people they may prescribe muscle relaxants for a short period, or a low dose of certain antidepressants, which are sometimes used to ease pain, grinding, and sleeplessness. Medication is generally used alongside other treatment, not on its own.
+Your provider may suggest short-term over-the-counter pain relievers or anti-inflammatories when appropriate for your health history. For some people, they may prescribe muscle relaxants for a short period, or a low dose of certain antidepressants, which are sometimes used to ease pain, grinding, and sleeplessness. Ask about side effects, interactions, and how long to use any medication. Medication is generally used alongside other treatment, not on its own.
 
 ### 5. Procedures for persistent joint problems
 
@@ -122,13 +122,15 @@ Your general dentist is often the first stop. A typical visit includes:
 
 If symptoms continue, or the dentist suspects a problem inside the joint, they may refer you to an **oral and maxillofacial surgeon**. Oral and maxillofacial surgery is a recognized dental specialty covering the jaws and face, including the temporomandibular joint. An oral surgeon can order advanced imaging, such as a CT scan or MRI, to look at the bone, disc, and soft tissue. They can also discuss both nonsurgical and surgical options. Some patients also see an orofacial pain specialist or a physical therapist as part of their care.
 
-If you're looking for a TMJ evaluation in Fairfield County, our [TMJ specialists in Trumbull, CT](/service/tmj-disorder) can examine your symptoms and walk you through options that fit your diagnosis.
+If you're looking for a TMJ evaluation in Fairfield County, our [TMJ specialists in Trumbull, CT](/service/tmj-disorder) can examine your symptoms and walk you through options that fit your diagnosis. You can also [meet our oral and maxillofacial surgeons](/about/meet-the-doctors) before scheduling.
+
+If pain, locking, or limited movement is affecting eating, speaking, or sleep, [contact our Trumbull office](/contact) to request an evaluation. Bring any recent dental X-rays or imaging if you have them; your surgeon can review whether additional testing is needed.
 
 ## Can TMJ damage be reversed?
 
 It depends on what kind of "damage" is involved.
 
-- **Muscle pain and inflammation:** often reversible. These commonly improve with rest, splints, therapy, and habit changes.
+- **Muscle pain and inflammation:** often reversible. These commonly improve with rest, appropriate appliances, therapy, and habit changes.
 - **Disc displacement:** the disc may stay out of its usual position even when symptoms improve, and painless clicking often doesn't need treatment. Treatment focuses on comfort and movement.
 - **Arthritis and bone changes:** generally not reversible. Treatment aims to control pain and inflammation and preserve function. For some patients whose joint problems haven't responded to conservative care, procedures such as arthrocentesis or arthroscopy may be considered.
 

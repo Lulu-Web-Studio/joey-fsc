@@ -29,6 +29,7 @@ export interface PostFrontmatter {
   reviewedBy?: string;
   reviewerTitle?: string;
   reviewerUrl?: string;
+  reviewerType?: "Person" | "Organization";
   reviewedAt?: string;
   coverImage?: string;
   coverImageAlt?: string;
